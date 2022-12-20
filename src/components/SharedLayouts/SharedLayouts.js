@@ -7,7 +7,9 @@ export const SharedLayouts = () => {
   return (
     <StyledContainerDiv>
       <AppBar />
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </StyledContainerDiv>
   );
 };
