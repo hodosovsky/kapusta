@@ -1,16 +1,22 @@
+import ExpensesPage from 'pages/ExpensesPage/ExpensesPage';
+import IncomePage from 'pages/IncomePage/IncomePage';
+import LoginPage from 'pages/LoginPage/LoginPage';
+import ReportsPage from 'pages/ReportsPage/ReportsPage';
+import ThereIsNoSuchPage from 'pages/ThereIsNoSuchPage/ThereIsNoSuchPage';
+import { Route, Routes } from 'react-router-dom';
+import Header from './Header/Header';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/log-in" element={<LoginPage />}></Route>
+        <Route path="/income" element={<IncomePage />}></Route>
+        <Route path="/expenses" element={<ExpensesPage />}></Route>
+        <Route path="/reports" element={<ReportsPage />}></Route>
+        <Route path="/*" element={<ThereIsNoSuchPage />} />
+      </Routes>
+    </>
   );
 };
