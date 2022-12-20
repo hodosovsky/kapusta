@@ -1,0 +1,13 @@
+:root {
+  --primary-bg-color: #ffffff;
+  --secondary-bg-color: #f2f5fc;
+  --text-white: #ffffff;
+  --text-black: #000000;
+  --text-green: #407946;
+  --text-orange: #e53935;
+  --text-gray: #52555f;
+
+  --transition-function: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+
+  --primary-font: 'Roboto', sans-serif;
+}
