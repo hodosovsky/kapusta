@@ -1,8 +1,8 @@
-import ExpensesPage from 'pages/ExpensesPage';
-import IncomePage from 'pages/IncomePage';
-import LoginPage from 'pages/LoginPage';
-import ReportsPage from 'pages/ReportsPage';
-import ThereIsNoSuchPage from 'pages/ThereIsNoSuchPage';
+import ExpensesPage from 'pages/ExpensesPage/ExpensesPage';
+import IncomePage from 'pages/IncomePage/IncomePage';
+import LoginPage from 'pages/LoginPage/LoginPage';
+import ReportsPage from 'pages/ReportsPage/ReportsPage';
+import ThereIsNoSuchPage from 'pages/ThereIsNoSuchPage/ThereIsNoSuchPage';
 import { Route, Routes } from 'react-router-dom';
 import Header from './Header/Header';
 
