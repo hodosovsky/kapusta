@@ -76,6 +76,10 @@ input {
   background-color: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
 .visually-hidden {
   position: absolute;
   white-space: nowrap;
