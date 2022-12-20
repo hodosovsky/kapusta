@@ -9,13 +9,17 @@ import {
 } from './AuthNav.styled';
 
 export const AuthNav = () => {
+  const handleClick = () => {};
+
   return (
     <StyledAuthNav>
       <StyledLoginLabel>U</StyledLoginLabel>
       <StyledLoginName>User name</StyledLoginName>
       <StyledLogoutImg src={logout} alt="logout" />
       <StyledVerticalLine></StyledVerticalLine>
-      <StyledExitButton type="button">Exit</StyledExitButton>
+      <StyledExitButton type="button" onClick={handleClick}>
+        Exit
+      </StyledExitButton>
     </StyledAuthNav>
   );
 };
