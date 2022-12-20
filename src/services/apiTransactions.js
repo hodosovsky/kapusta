@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { async } from 'q';
 
 export const addIncomeAPI = async info => {
   try {
