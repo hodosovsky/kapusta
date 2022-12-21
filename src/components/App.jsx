@@ -6,6 +6,7 @@ import RegiserPage from 'pages/RegisterPage/RegiserPage';
 import ThereIsNoSuchPage from 'pages/ThereIsNoSuchPage/ThereIsNoSuchPage';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
+import { LightModalWindow } from './LightModalWindow/LightModalWindow';
 
 export const App = () => {
   return (
@@ -20,6 +21,7 @@ export const App = () => {
           <Route path="*" element={<ThereIsNoSuchPage />} />
         </Route>
       </Routes>
+      <LightModalWindow>Are you sure?</LightModalWindow>
     </>
   );
 };
