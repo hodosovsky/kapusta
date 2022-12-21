@@ -3,7 +3,7 @@ import { RegistrationForm } from 'components/RegisrationForm/RegistrationForm';
 
 import { StyledRegisterPage } from './RegisterPage.styled';
 
-export default function RegiserPage() {
+export default function RegisterPage() {
   return (
     <StyledRegisterPage>
       <RegistrationForm />
