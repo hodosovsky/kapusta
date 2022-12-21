@@ -6,7 +6,7 @@ import RegiserPage from 'pages/RegisterPage/RegisterPage';
 import ThereIsNoSuchPage from 'pages/ThereIsNoSuchPage/ThereIsNoSuchPage';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
-import { LightModalWindow } from './LightModalWindow/LightModalWindow';
+// import { LightModalWindow } from './LightModalWindow/LightModalWindow';
 // import { Summary } from './Summary/Summary';
 
 export const App = () => {

@@ -13,7 +13,8 @@ import {
   StyledNavlink,
 } from './LoginForm.styled';
 import { OrangeButton } from 'components/Buttons/OrangeButton';
-import { loginAPI } from 'services/apiAuth';
+import { logIn } from 'redux/auth/operations';
+import { googleLoginAPI } from 'services/apiAuth';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -21,8 +22,12 @@ export const LoginForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
     const { email, password } = event.target.elements;
-    loginAPI({ email: email.value, password: password.value });
-    // dispatch(logIn({ email: email.value, password: password.value }));
+
+    dispatch(logIn({ email: email.value, password: password.value }));
+  };
+
+  const handleGoogleAuth = () => {
+    googleLoginAPI();
   };
 
   return (
@@ -32,7 +37,7 @@ export const LoginForm = () => {
       </StyledpromtText>
 
       <StyledanimationGoogle>
-        <StyledLinkbtnGoogle href="https://kapusta-backend.goit.global/auth/google">
+        <StyledLinkbtnGoogle onClick={handleGoogleAuth}>
           <GoogleSvg />
         </StyledLinkbtnGoogle>
       </StyledanimationGoogle>

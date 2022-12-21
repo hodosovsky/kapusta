@@ -14,7 +14,6 @@ export const registerAPI = async user => {
 export const loginAPI = async user => {
   try {
     const { data } = await axios.post('auth/login', user);
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error);
@@ -30,6 +29,8 @@ export const logoutAPI = async () => {
 
 export const googleLoginAPI = async () => {
   try {
+    const { data } = await axios.get('auth/google');
+    console.log('data', data);
   } catch (error) {
     console.log(error);
   }
