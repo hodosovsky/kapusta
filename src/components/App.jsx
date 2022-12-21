@@ -1,10 +1,10 @@
-import LoginPage from 'pages/LoginPage/LoginPage';
-import RegiserPage from 'pages/RegisterPage/RegiserPage';
-import HomePage from 'pages/HomePage';
-import ExpensesPage from 'pages/ExpensesPage/ExpensesPage';
-import IncomePage from 'pages/IncomePage/IncomePage';
-import ReportsPage from 'pages/ReportsPage/ReportsPage';
-import ThereIsNoSuchPage from 'pages/ThereIsNoSuchPage/ThereIsNoSuchPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import RegiserPage from '../pages/RegisterPage/RegiserPage';
+import HomePage from '../pages/HomePage';
+import ExpensesPage from '../pages/ExpensesPage/ExpensesPage';
+import IncomePage from '../pages/IncomePage/IncomePage';
+import ReportsPage from '../pages/ReportsPage/ReportsPage';
+import ThereIsNoSuchPage from '../pages/ThereIsNoSuchPage/ThereIsNoSuchPage';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
 import { LightModalWindow } from './LightModalWindow/LightModalWindow';
