@@ -22,7 +22,7 @@ export const App = () => {
           <Route path="*" element={<ThereIsNoSuchPage />} />
         </Route>
       </Routes>
-      <LightModalWindow>Are you sure?</LightModalWindow>
+      {/* <LightModalWindow>Are you sure?</LightModalWindow> */}
       {/* <Summary /> */}
     </>
   );

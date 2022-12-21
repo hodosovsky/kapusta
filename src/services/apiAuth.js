@@ -14,6 +14,7 @@ export const registerAPI = async user => {
 export const loginAPI = async user => {
   try {
     const { data } = await axios.post('auth/login', user);
+    console.log(data);
     return data;
   } catch (error) {
     console.log(error);
