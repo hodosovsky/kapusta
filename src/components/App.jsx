@@ -7,6 +7,7 @@ import ThereIsNoSuchPage from 'pages/ThereIsNoSuchPage/ThereIsNoSuchPage';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
 import { LightModalWindow } from './LightModalWindow/LightModalWindow';
+import { Summary } from './Summary/Summary';
 
 export const App = () => {
   return (
@@ -22,6 +23,7 @@ export const App = () => {
         </Route>
       </Routes>
       <LightModalWindow>Are you sure?</LightModalWindow>
+      {/* <Summary /> */}
     </>
   );
 };
