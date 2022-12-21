@@ -2,7 +2,7 @@ import ExpensesPage from 'pages/ExpensesPage/ExpensesPage';
 import IncomePage from 'pages/IncomePage/IncomePage';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import ReportsPage from 'pages/ReportsPage/ReportsPage';
-import RegiserPage from 'pages/RegisterPage/RegiserPage';
+import RegiserPage from 'pages/RegisterPage/RegisterPage';
 import ThereIsNoSuchPage from 'pages/ThereIsNoSuchPage/ThereIsNoSuchPage';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
