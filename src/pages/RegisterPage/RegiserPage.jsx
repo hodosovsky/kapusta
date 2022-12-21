@@ -1,5 +1,10 @@
 import React from 'react';
+import { RegistrationForm } from 'components/RegisrationForm/RegistrationForm';
 
 export default function RegiserPage() {
-  return <div>RegiserPage</div>;
+  return (
+    <div>
+      <RegistrationForm />
+    </div>
+  );
 }

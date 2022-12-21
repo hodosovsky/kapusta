@@ -34,10 +34,6 @@ export const Styledlabel = styled.label`
   margin-bottom: 30px;
 `;
 
-export const StyledanimationGoogle = styled.div`
-  text-align: center;
-`;
-
 export const StyledLinkbtnGoogle = styled.a`
   justify-content: center;
   margin-left: auto;
@@ -83,32 +79,4 @@ export const StyledformInput = styled.input`
 export const StyledcontainerButton = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-export const StyledButton = styled.button`
-  width: 122px;
-  height: 44px;
-  background-color: #f5f6fb;
-  border-radius: 16px;
-  border: none;
-  padding: 0;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.16;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  box-shadow: #52555f;
-  filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
-  cursor: pointer;
-
-  color: #52555f;
-  background-color: #f5f6fb;
-
-  :active {
-    color: #ffffff;
-    background-color: #ff751d;
-  }
 `;

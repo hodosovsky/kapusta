@@ -1,17 +1,15 @@
-import { ReactComponent as GoogleSvg } from 'images/google.svg';
-import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+// import RegistrationForm from 'path/to/pages/RegistrationForm';
 
 import {
   StyledformRegister,
   StyledpromtText,
-  StyledanimationGoogle,
-  StyledLinkbtnGoogle,
   StyledlabelText,
   StyledformInput,
   StyledcontainerButton,
   Styledlabel,
-} from './LoginForm.styled';
+} from './RegistrationForm.styled';
 
 const StyledNavlink = styled(NavLink)`
   width: 122px;
@@ -24,8 +22,6 @@ const StyledNavlink = styled(NavLink)`
   font-weight: 700;
   font-size: 12px;
   line-height: 1.16;
-  display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
@@ -33,7 +29,10 @@ const StyledNavlink = styled(NavLink)`
   box-shadow: #52555f;
   filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
   cursor: pointer;
-  align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   color: #52555f;
   background-color: #f5f6fb;
 
@@ -49,18 +48,13 @@ const StyledNavlink = styled(NavLink)`
   }
 `;
 
-export const LoginForm = () => {
+export const RegistrationForm = () => {
   return (
     <StyledformRegister>
       <StyledpromtText>
         You can log in with your Google Account:
       </StyledpromtText>
 
-      <StyledanimationGoogle>
-        <StyledLinkbtnGoogle href="https://kapusta-backend.goit.global/auth/google">
-          <GoogleSvg />
-        </StyledLinkbtnGoogle>
-      </StyledanimationGoogle>
       <StyledpromtText>
         Or log in using an email and password, after registering:
       </StyledpromtText>
@@ -86,9 +80,9 @@ export const LoginForm = () => {
         <div>
           <Styledlabel>
             <StyledlabelText>
-              {/* <span
+              <span
                 style={{ color: 'red', fontSize: 10, paddingTop: 4 }}
-              ></span> */}
+              ></span>
               Password:
             </StyledlabelText>
             <StyledformInput
