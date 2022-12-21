@@ -1,4 +1,5 @@
 import { AuthNav } from 'components/AuthNav/AuthNav';
+
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import { StyledHeader } from './AppBar.styled';
