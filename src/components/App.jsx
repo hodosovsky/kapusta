@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
 // import { LightModalWindow } from './LightModalWindow/LightModalWindow';
 // import { Summary } from './Summary/Summary';
+import { Form } from './TestForm/Form';
 
 export const App = () => {
   return (
@@ -24,6 +25,7 @@ export const App = () => {
       </Routes>
       {/* <LightModalWindow>Are you sure?</LightModalWindow> */}
       {/* <Summary /> */}
+      <Form />
     </>
   );
 };
