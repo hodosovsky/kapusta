@@ -4,6 +4,7 @@ import LoginPage from 'pages/LoginPage/LoginPage';
 import ReportsPage from 'pages/ReportsPage/ReportsPage';
 import RegiserPage from 'pages/RegisterPage/RegisterPage';
 import ThereIsNoSuchPage from 'pages/ThereIsNoSuchPage/ThereIsNoSuchPage';
+import HomePage from 'pages/HomePage/HomePage';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
 // import { LightModalWindow } from './LightModalWindow/LightModalWindow';
@@ -16,6 +17,7 @@ export const App = () => {
         <Route path="/" element={<SharedLayouts />}>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegiserPage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/income" element={<IncomePage />} />
           <Route path="/expenses" element={<ExpensesPage />} />
           <Route path="/reports" element={<ReportsPage />} />
