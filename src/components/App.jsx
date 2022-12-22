@@ -10,6 +10,7 @@ import { SharedLayouts } from './SharedLayouts/SharedLayouts';
 // import { LightModalWindow } from './LightModalWindow/LightModalWindow';
 // import { Summary } from './Summary/Summary';
 import { Form } from './TestForm/Form';
+import { TransactionsList } from './TransactionsList/TransactionsList';
 
 export const App = () => {
   return (
@@ -28,6 +29,7 @@ export const App = () => {
       {/* <LightModalWindow>Are you sure?</LightModalWindow> */}
       {/* <Summary /> */}
       <Form />
+      <TransactionsList />
     </>
   );
 };
