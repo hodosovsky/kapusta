@@ -61,8 +61,8 @@ export const LoginForm = () => {
   };
 
   const passwordHandler = e => {
-    if (e.target.value.length < 6) {
-      setPasswordError('Password must be at least 6 characters');
+    if (e.target.value.length < 8) {
+      setPasswordError('Password must be at least 8 characters');
       if (!e.target.value) {
         setPasswordError('This is a required field');
       }
@@ -135,8 +135,8 @@ export const LoginForm = () => {
               type="password"
               name="password"
               placeholder="password"
-              pattern="[0-9A-Za-zА-Яа-яЁёЄєЇї!@#$%^&*]{6,}"
-              title="The password can consist of at least 6 letters, numbers and symbols '!@#$%^&*'"
+              pattern="^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$"
+              title="The password can consist of at least 8 letters, numbers and symbols '!@#$%^&*'"
               required
             />
             {passwordDirty && passwordError && (
