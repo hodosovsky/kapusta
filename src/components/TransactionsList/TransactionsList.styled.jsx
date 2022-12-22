@@ -1,10 +1,4 @@
 import styled from 'styled-components';
-export const StyledList = styled.ul`
-  & li:nth-of-type(1) {
-    font-weight: 700;
-    letter-spacing: 0.02em;
-  }
-`;
 
 export const ItemStyled = styled.li`
   display: flex;
@@ -31,6 +25,8 @@ export const ItemName = styled.p`
 `;
 
 export const ItemNameCont = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
@@ -58,6 +54,7 @@ export const ItemCategoty = styled.p`
   letter-spacing: 0.04em;
   @media screen and (min-width: 768px) {
     width: 124px;
+    order: 1;
   }
 `;
 export const SumCont = styled.div`
@@ -82,6 +79,20 @@ export const Sum = styled.p`
   @media screen and (min-width: 768px) {
     width: 104px;
     justify-content: flex-end;
-    text-transform: uppercase;
+  }
+`;
+export const StyledList = styled.ul`
+  @media screen and (max-width: 767px) {
+    & li:nth-of-type(1) {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    & li:nth-of-type(1) {
+      display: block;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
   }
 `;
