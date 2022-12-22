@@ -1,5 +1,3 @@
-// import RegistrationForm from 'path/to/pages/RegistrationForm';
-
 import {
   StyledformRegister,
   StyledpromtText,
@@ -13,13 +11,8 @@ import {
 export const RegistrationForm = () => {
   return (
     <StyledformRegister>
-      <StyledpromtText>
-        You can log in with your Google <br /> Account:
-      </StyledpromtText>
+      <StyledpromtText>To register fill in the fields:</StyledpromtText>
 
-      <StyledpromtText>
-        Or log in using an email and password, after registering:
-      </StyledpromtText>
       <form action="" autoComplete="on">
         <Styledlabel>
           <StyledlabelText>

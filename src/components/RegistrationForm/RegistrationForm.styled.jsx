@@ -9,14 +9,22 @@ export const StyledformRegister = styled.div`
   padding: 40px 20px 40px 20px;
   top: 255px;
   width: 240px;
-
   z-index: 1;
-
   flex-direction: column;
-
   background-color: #fff;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
+
+  @media screen and (min-width: 768px) {
+    padding: 72px 84px 72px 84px;
+    top: 317px;
+    left: 171px;
+    width: 260px;
+  }
+  @media screen and (min-width: 1280px) {
+    left: 763px;
+    top: 173px;
+  }
 `;
 
 export const StyledpromtText = styled.p`
@@ -29,6 +37,14 @@ export const StyledpromtText = styled.p`
   letter-spacing: 0.04em;
   color: #52555f;
   margin-bottom: 16px;
+
+  @media screen and (max-width: 767px) {
+    padding-left: 29px;
+    padding-right: 29px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const StyledpromtText1 = styled.p`
@@ -41,12 +57,20 @@ export const StyledpromtText1 = styled.p`
   letter-spacing: 0.04em;
   color: #52555f;
   margin-bottom: 16px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const Styledlabel = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const StyledanimationGoogle = styled.div`
@@ -64,9 +88,7 @@ export const StyledLinkbtnGoogle = styled.a`
   background-color: #f6f7fb;
   border-radius: 26px;
   border: 0;
-
   padding: 10px 18px 10px 20px;
-
   font-family: Roboto;
   font-style: normal;
   font-weight: 700;
@@ -81,7 +103,7 @@ export const StyledlabelText = styled.span`
   width: 100%;
   font-style: normal;
   font-weight: 600;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 12px;
   color: #000000;
 `;
@@ -95,6 +117,11 @@ export const StyledformInput = styled.input`
   background-color: #f6f7fb;
   padding: 17px 18px;
   width: 204px;
+
+  @media screen and (min-width: 768px) {
+    padding: 17px 20px 17px 20px;
+    width: 218px;
+  }
 `;
 
 export const StyledcontainerButton = styled.div`
@@ -125,7 +152,6 @@ export const StyledNavlink = styled(NavLink)`
   align-content: center;
   color: #52555f;
   background-color: #f5f6fb;
-
   text-decoration: none;
   &.active {
     color: #ffffff;

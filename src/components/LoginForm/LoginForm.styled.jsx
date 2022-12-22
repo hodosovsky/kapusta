@@ -103,7 +103,7 @@ export const StyledlabelText = styled.span`
   width: 100%;
   font-style: normal;
   font-weight: 600;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 12px;
   color: #000000;
 `;
@@ -136,8 +136,7 @@ export const StyledNavlink = styled(NavLink)`
   border-radius: 16px;
   border: none;
   padding: 0;
-  font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 12px;
   line-height: 1.16;
   display: flex;
@@ -152,7 +151,6 @@ export const StyledNavlink = styled(NavLink)`
   align-content: center;
   color: #52555f;
   background-color: #f5f6fb;
-
   text-decoration: none;
   &.active {
     color: #ffffff;
