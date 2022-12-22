@@ -30,6 +30,7 @@ export const StyledLoginName = styled.p`
 `;
 
 export const StyledLogoutImg = styled.img`
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     display: none;
   }

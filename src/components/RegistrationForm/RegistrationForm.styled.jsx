@@ -1,13 +1,15 @@
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const StyledformRegister = styled.div`
-  /* position: absolute;
-  left: 763px;
-  top: 173px;
-  transform: translate(-50%, 0);
-  z-index: 1; */
-  display: flex;
+  position: absolute;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 20px 40px 20px;
+  top: 255px;
+  width: 240px;
+  z-index: 1;
   flex-direction: column;
   background-color: #fff;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
@@ -134,11 +136,10 @@ export const StyledNavlink = styled(NavLink)`
   border-radius: 16px;
   border: none;
   padding: 0;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 700;
   font-size: 12px;
   line-height: 1.16;
-  display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
@@ -146,10 +147,14 @@ export const StyledNavlink = styled(NavLink)`
   box-shadow: #52555f;
   filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
   cursor: pointer;
-  align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   color: #52555f;
   background-color: #f5f6fb;
 
+  text-decoration: none;
   &.active {
     color: #ffffff;
     background-color: #ff751d;
