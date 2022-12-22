@@ -38,9 +38,6 @@ export const RegistrationForm = () => {
         You can log in with your Google Account:
       </StyledpromtText>
 
-      <StyledpromtText>
-        Or log in using an email and password, after registering:
-      </StyledpromtText>
       <form action="" autoComplete="on">
         <Styledlabel>
           <StyledlabelText>

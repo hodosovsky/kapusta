@@ -1,10 +1,12 @@
 import React from 'react';
 import { RegistrationForm } from 'components/RegistrationForm/RegistrationForm';
 
-export default function RegiserPage() {
+import { StyledRegisterPage } from './RegisterPage.styled';
+
+export default function RegisterPage() {
   return (
-    <div>
+    <StyledRegisterPage>
       <RegistrationForm />
-    </div>
+    </StyledRegisterPage>
   );
 }
