@@ -1,7 +1,5 @@
 import { ReactComponent as GoogleSvg } from 'images/google.svg';
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { loginAPI } from 'services/apiAuth';
 
 import {
   StyledformRegister,
@@ -17,7 +15,6 @@ import {
 } from './LoginForm.styled';
 
 export const LoginForm = () => {
-  // const dispatch = useDispatch();
   const blurHandler = e => {
     switch (e.target.name) {
       case 'email':
@@ -31,9 +28,6 @@ export const LoginForm = () => {
     }
   };
   const emailHandler = e => {
-    console.log(email);
-    console.log(password);
-    setEmail(e.target.value);
     const re =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(e.target.value).toLowerCase())) {
@@ -49,7 +43,6 @@ export const LoginForm = () => {
   };
 
   const passwordHandler = e => {
-    setPassword(e.target.value);
     if (e.target.value.length < 6) {
       setPasswordError('Password must be at least 6 characters');
       if (!e.target.value) {
@@ -60,19 +53,6 @@ export const LoginForm = () => {
     }
   };
 
-  // const clearInput = () => {
-  //   setEmail('');
-  //   setPassword('');
-  // };
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   dispatch(loginAPI({ email, password }));
-  //   clearInput();
-  // };
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
   const [emailError, setEmaiError] = useState('This is a required field');
