@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const addIncomeAPI = async info => {
+  console.log('info', info);
   try {
     const { data } = await axios.post('/transaction/income', info);
     return data;
@@ -12,6 +13,7 @@ export const addIncomeAPI = async info => {
 export const getIncomeAPI = async () => {
   try {
     const { data } = await axios.get('/transaction/income');
+    console.log('data', data);
     return data;
   } catch (error) {
     console.log(error);
