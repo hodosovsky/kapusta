@@ -29,8 +29,9 @@ export const logoutAPI = async () => {
 
 export const googleLoginAPI = async () => {
   try {
-    const { data } = await axios.get('auth/google');
-    console.log('data', data);
+    const response = await axios.get('auth/google');
+    console.log('response', response);
+    return response;
   } catch (error) {
     console.log(error);
   }

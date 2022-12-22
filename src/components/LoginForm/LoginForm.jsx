@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { ReactComponent as GoogleSvg } from 'images/google.svg';
-
 import {
   StyledformRegister,
   StyledpromtText,
@@ -26,8 +25,9 @@ export const LoginForm = () => {
     dispatch(logIn({ email: email.value, password: password.value }));
   };
 
-  const handleGoogleAuth = () => {
-    googleLoginAPI();
+  const handleGoogleAuth = async () => {
+    const response = await googleLoginAPI();
+    console.log('response', response);
   };
 
   return (
