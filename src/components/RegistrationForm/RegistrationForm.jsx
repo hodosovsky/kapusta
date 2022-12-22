@@ -125,7 +125,7 @@ export const RegistrationForm = () => {
               type="password"
               name="password"
               placeholder="password"
-              pattern="^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$"
+              pattern="[0-9A-Za-zА-Яа-яЁёЄєЇї!@#$%^&*]{8,}"
               title="The password can consist of at least 8 letters, numbers and symbols '!@#$%^&*'"
               required
             />
