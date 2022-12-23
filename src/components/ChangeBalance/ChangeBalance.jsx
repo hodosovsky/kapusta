@@ -10,15 +10,15 @@ const ChangeBalance = () => {
   const handleSubmit = evt => {
     evt.preventDefault();
     console.log('balance:', balance);
-    dispatch(updateBalanceAPI({ newBalance: balance}));
+    dispatch(updateBalanceAPI({ newBalance: balance }));
     setBalance('');
   };
   const handleChange = evt => {
     evt.preventDefault();
+    if (!Number(evt.target.value.slice(0, -7))) return;
     setBalance(Number(evt.target.value.slice(0, -7)));
   };
   const handleValue = balance + '.00 UAH';
-  
 
   return (
     <StyledForm onSubmit={handleSubmit}>
@@ -28,6 +28,7 @@ const ChangeBalance = () => {
         type="text"
         name="balance"
         title="Please, enter your balance"
+        pattern="[0-9, .UAH]*"
         placeholder="00.00 UAH"
         onChange={handleChange}
         value={handleValue}
