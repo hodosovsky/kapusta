@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/kapusta/static/css/main.2da6fae3.css",
+    "main.css": "/kapusta/static/css/main.b98873c5.css",
     "main.js": "/kapusta/static/js/main.96294c51.js",
     "static/media/reports.svg": "/kapusta/static/media/reports.3e91394e576881e105b1a511ed9828b6.svg",
     "static/media/google.svg": "/kapusta/static/media/google.d64f9163b8f61487544747b482817a75.svg",
@@ -8,11 +8,11 @@
     "static/media/calendar.svg": "/kapusta/static/media/calendar.d58d6bfbc2c68ee135620551a62695bf.svg",
     "index.html": "/kapusta/index.html",
     "static/media/logout.svg": "/kapusta/static/media/logout.bde7ea51d65470190b21886710692baf.svg",
-    "main.2da6fae3.css.map": "/kapusta/static/css/main.2da6fae3.css.map",
+    "main.b98873c5.css.map": "/kapusta/static/css/main.b98873c5.css.map",
     "main.96294c51.js.map": "/kapusta/static/js/main.96294c51.js.map"
   },
   "entrypoints": [
-    "static/css/main.2da6fae3.css",
+    "static/css/main.b98873c5.css",
     "static/js/main.96294c51.js"
   ]
 }
