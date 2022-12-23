@@ -8,10 +8,7 @@ import {
   getAllTransactions,
   deleteTransaction,
 } from 'redux/transactions/operations';
-import {
-  deleteTransactionAPI,
-  getPeriodDataAPI,
-} from 'services/apiTransactions';
+import { getPeriodDataAPI } from 'services/apiTransactions';
 
 export const Form = () => {
   const dispatch = useDispatch();

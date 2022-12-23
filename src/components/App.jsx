@@ -11,14 +11,14 @@ import { SharedLayouts } from './SharedLayouts/SharedLayouts';
 // import { Summary } from './Summary/Summary';
 import { Form } from './TestForm/Form';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addAccessToken } from 'redux/auth/auth.slice';
 import { setAuthHeader } from 'services/apiAuth';
 import { refreshUser } from 'redux/auth/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const accessToken = searchParams.get('accessToken');
 
   useEffect(() => {
