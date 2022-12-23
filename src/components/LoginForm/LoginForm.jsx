@@ -16,7 +16,7 @@ import {
 } from './LoginForm.styled';
 import { OrangeButton } from 'components/Buttons/OrangeButton';
 import { logIn } from 'redux/auth/operations';
-import { googleLoginAPI } from 'services/apiAuth';
+// import { googleLoginAPI } from 'services/apiAuth';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -28,10 +28,10 @@ export const LoginForm = () => {
     dispatch(logIn({ email: email.value, password: password.value }));
   };
 
-  const handleGoogleAuth = async () => {
-    const response = await googleLoginAPI();
-    console.log('response', response);
-  };
+  // const handleGoogleAuth = async () => {
+  //   const response = await googleLoginAPI();
+  //   console.log('response', response);
+  // };
 
   const blurHandler = e => {
     switch (e.target.name) {
@@ -61,8 +61,8 @@ export const LoginForm = () => {
   };
 
   const passwordHandler = e => {
-    if (e.target.value.length < 6) {
-      setPasswordError('Password must be at least 6 characters');
+    if (e.target.value.length < 8) {
+      setPasswordError('Password must be at least 8 characters');
       if (!e.target.value) {
         setPasswordError('This is a required field');
       }
@@ -86,7 +86,7 @@ export const LoginForm = () => {
       </StyledpromtText>
 
       <StyledanimationGoogle>
-        <StyledLinkbtnGoogle onClick={handleGoogleAuth}>
+        <StyledLinkbtnGoogle href="https://kapusta-backend.goit.global/auth/google">
           <GoogleSvg />
         </StyledLinkbtnGoogle>
       </StyledanimationGoogle>
@@ -135,8 +135,8 @@ export const LoginForm = () => {
               type="password"
               name="password"
               placeholder="password"
-              pattern="[0-9A-Za-zА-Яа-яЁёЄєЇї!@#$%^&*]{6,}"
-              title="The password can consist of at least 6 letters, numbers and symbols '!@#$%^&*'"
+              pattern="[0-9A-Za-zА-Яа-яЁёЄєЇї!@#$%^&*]{8,}"
+              title="The password can consist of at least 8 letters, numbers and symbols '!@#$%^&*'"
               required
             />
             {passwordDirty && passwordError && (

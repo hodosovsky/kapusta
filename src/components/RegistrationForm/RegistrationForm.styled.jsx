@@ -30,8 +30,8 @@ export const StyledformRegister = styled.div`
 export const StyledpromtText = styled.p`
   font-family: Roboto;
   font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 14px;
   line-height: 1.16;
   text-align: center;
   letter-spacing: 0.04em;
