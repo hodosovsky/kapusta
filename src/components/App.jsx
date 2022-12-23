@@ -5,17 +5,18 @@ import ReportsPage from 'pages/ReportsPage/ReportsPage';
 import RegiserPage from 'pages/RegisterPage/RegisterPage';
 import ThereIsNoSuchPage from 'pages/ThereIsNoSuchPage/ThereIsNoSuchPage';
 import HomePage from 'pages/HomePage/HomePage';
-import { Route, Routes, useSearchParams } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
 // import { LightModalWindow } from './LightModalWindow/LightModalWindow';
 // import { Summary } from './Summary/Summary';
 import { Form } from './TestForm/Form';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addAccessToken } from 'redux/auth/auth.slice';
 import { setAuthHeader } from 'services/apiAuth';
 import { refreshUser } from 'redux/auth/operations';
-import { TransactionsList } from './TransactionsList/TransactionsList';
+import { selectIsFetcingCurrentUser } from 'redux/selectors';
+// import { selectIsLoadingCurrentUser } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -24,14 +25,16 @@ export const App = () => {
     localStorage.getItem('persist:auth')
   ).token.replaceAll('"', '');
 
+  const isFetchingUser = useSelector(selectIsFetcingCurrentUser);
+
   useEffect(() => {
     if (!token || token === 'null') {
       return;
     }
-
     setAuthHeader(token);
+    // dispatch(refreshUser(accessToken));
     dispatch(addAccessToken(token));
-    dispatch(refreshUser(token));
+    dispatch(refreshUser());
   }, [dispatch, token]);
 
   return (
