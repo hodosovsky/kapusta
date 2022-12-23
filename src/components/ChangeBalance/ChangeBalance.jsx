@@ -4,19 +4,21 @@ import { updateBalanceAPI } from '../../services/apiTransactions';
 import { StyledForm } from './Styles';
 
 const ChangeBalance = () => {
-  const [balance, setBalance] = useState('');
+  const [balance, setBalance] = useState('00');
   const dispatch = useDispatch();
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    dispatch(updateBalanceAPI({newBalance: balance}))
-    // прослідкувати щоб відправлялось число
+    console.log('balance:', balance);
+    dispatch(updateBalanceAPI({ newBalance: balance}));
     setBalance('');
   };
   const handleChange = evt => {
     evt.preventDefault();
-    setBalance(evt.target.value);
+    setBalance(Number(evt.target.value.slice(0, -7)));
   };
+  const handleValue = balance + '.00 UAH';
+  
 
   return (
     <StyledForm onSubmit={handleSubmit}>
@@ -26,10 +28,9 @@ const ChangeBalance = () => {
         type="text"
         name="balance"
         title="Please, enter your balance"
-        // вказати регулярний вираз - маску грошового формату
         placeholder="00.00 UAH"
         onChange={handleChange}
-        value={balance}
+        value={handleValue}
         required
       />
       <button type="submit" className="btn">

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const StyledDatePicker = styled.div`
-width: 280px;
-margin: 0 auto;
+  width: 280px;
+  margin: 0 auto;
   .calendarIcon {
     width: 18px;
     height: 20px;
+    fill: #52555f;
   }
   .datePicker {
     display: flex;
@@ -25,6 +26,10 @@ margin: 0 auto;
     :hover,
     :focus {
       color: #ff751d;
+    }
+    :hover .calendarIcon,
+    :focus .calendarIcon {
+      fill: #ff751d;
     }
   }
 `;

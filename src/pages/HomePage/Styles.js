@@ -18,6 +18,10 @@ export const StyledHomePage = styled.div`
     :focus {
       color: #ff751d;
     }
+    :hover .reportsIcon,
+    :focus .reportsIcon {
+      fill: #ff751d;
+    }
   }
 
   .reportsIcon {
