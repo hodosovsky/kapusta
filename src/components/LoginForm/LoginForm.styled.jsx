@@ -9,6 +9,7 @@ export const StyledformRegister = styled.div`
   z-index: 1; */
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #fff;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
