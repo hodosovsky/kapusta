@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { updateBalanceAPI } from '../../services/apiTransactions';
+import {useSelector, useDispatch } from 'react-redux';
+import { updateBalance } from '../../redux/transactions/operations';
 import { StyledForm } from './Styles';
 
 const ChangeBalance = () => {
-  const [balance, setBalance] = useState('00');
+  const stateBalance = useSelector(state => state.transactions.newBalance);  
+  const [balance, setBalance] = useState(stateBalance);
   const dispatch = useDispatch();
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    console.log('balance:', balance);
-    dispatch(updateBalanceAPI({ newBalance: balance }));
+    dispatch(updateBalance({ newBalance: balance }));
     setBalance('');
   };
   const handleChange = evt => {
