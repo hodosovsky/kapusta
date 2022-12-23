@@ -33,6 +33,13 @@ export const refreshUser = createAsyncThunk(
   'auth/refreshUser',
   async (_, thunkAPI) => {
     try {
+      // const state = thunkAPI.getState();
+      // const persistedToken = state.auth.token;
+      // console.log(persistedToken);
+      // token.set(persistedToken);
+      // if (!persistedToken) {
+      //   return thunkAPI.rejectWithValue();
+      // }
       return await fullUserInfoAPI();
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
