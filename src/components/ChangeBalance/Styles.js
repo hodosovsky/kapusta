@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.form`
-  margin: 0 auto;
   width: 280px;
+  margin: 0 auto 50px;
 
   .title {
     color: rgba(82, 85, 95, 0.7);
