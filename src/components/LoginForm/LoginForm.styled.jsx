@@ -9,6 +9,7 @@ export const StyledformRegister = styled.div`
   z-index: 1; */
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #fff;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
@@ -17,7 +18,7 @@ export const StyledformRegister = styled.div`
     padding: 72px 84px 72px 84px;
     top: 317px;
     left: 171px;
-    width: 260px;
+    width: 426px;
   }
   @media screen and (min-width: 1280px) {
     left: 763px;
