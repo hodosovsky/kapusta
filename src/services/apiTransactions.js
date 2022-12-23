@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export const addIncomeAPI = async info => {
-  console.log('info', info);
   try {
     const { data } = await axios.post('/transaction/income', info);
     return data;
@@ -13,7 +12,6 @@ export const addIncomeAPI = async info => {
 export const getIncomeAPI = async () => {
   try {
     const { data } = await axios.get('/transaction/income');
-    console.log('data', data);
     return data;
   } catch (error) {
     console.log(error);
@@ -40,7 +38,7 @@ export const getExpenseAPI = async () => {
 
 export const deleteTransactionAPI = async id => {
   try {
-    const { data } = await axios.delete('/transaction');
+    const { data } = await axios.delete(`/transaction/${id}`);
     return data;
   } catch (error) {
     console.log(error);
@@ -65,9 +63,11 @@ export const getExpenseCategoriesAPI = async () => {
   }
 };
 
-export const getperiodDataAPI = async date => {
+export const getPeriodDataAPI = async date => {
+  console.log('date', date);
   try {
     const { data } = await axios.get('/transaction/period-data', date);
+    console.log('data', data);
     return data;
   } catch (error) {
     console.log(error);

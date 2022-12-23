@@ -86,7 +86,7 @@ export const LoginForm = () => {
       </StyledpromtText>
 
       <StyledanimationGoogle>
-        <StyledLinkbtnGoogle onClick={handleGoogleAuth}>
+        <StyledLinkbtnGoogle href="https://kapusta-backend.goit.global/auth/google">
           <GoogleSvg />
         </StyledLinkbtnGoogle>
       </StyledanimationGoogle>
