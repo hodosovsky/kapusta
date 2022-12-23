@@ -12,64 +12,24 @@ import {
 } from './TransactionsList.styled';
 
 export const TransactionsList = () => {
+  const arr = [1, 2, 3, 4, 5];
   return (
-    <StyledList>
-      <ItemStyled key={Date.now() + 3}>
-        <ItemNameCont>
-          <ItemName>Description</ItemName>
-          {/* <ItemDateCont> */}
-          <ItemDate>Date</ItemDate>
-          <ItemCategoty>category</ItemCategoty>
-          {/* </ItemDateCont> */}
-        </ItemNameCont>
-        <SumCont>
-          <Sum className="sum">Sum</Sum>
-
-          <DeleteIcon id={Date.now()} />
-        </SumCont>
-      </ItemStyled>
-      <ItemStyled key={Date.now()}>
-        <ItemNameCont>
-          <ItemName>Undeground</ItemName>
-          {/* <ItemDateCont> */}
-          <ItemDate>05.09.2019</ItemDate>
-          <ItemCategoty>Transport</ItemCategoty>
-          {/* </ItemDateCont> */}
-        </ItemNameCont>
-        <SumCont>
-          <Sum className="sum">- 30.00 UAH.</Sum>
-
-          <DeleteIcon id={Date.now()} />
-        </SumCont>
-      </ItemStyled>
-      <ItemStyled key={Date.now() + 1}>
-        <ItemNameCont>
-          <ItemName>Bananas</ItemName>
-          {/* <ItemDateCont> */}
-          <ItemDate>05.09.2019</ItemDate>
-          <ItemCategoty>Products</ItemCategoty>
-          {/* </ItemDateCont> */}
-        </ItemNameCont>
-        <SumCont>
-          <Sum className="sum">- 50.00 UAH.</Sum>
-
-          <DeleteIcon id={Date.now()} />
-        </SumCont>
-      </ItemStyled>
-      <ItemStyled key={Date.now() + 2}>
-        <ItemNameCont>
-          <ItemName>My salary</ItemName>
-          {/* <ItemDateCont> */}
-          <ItemDate>05.09.2019</ItemDate>
-          <ItemCategoty>ЗП</ItemCategoty>
-          {/* </ItemDateCont> */}
-        </ItemNameCont>
-        <SumCont>
-          <Sum className="sum">20 000.00 UAH.</Sum>
-
-          <DeleteIcon id={Date.now()} />
-        </SumCont>
-      </ItemStyled>
+    <StyledList className="container">
+      {arr.map(item => (
+        <ItemStyled key={item}>
+          <ItemNameCont>
+            <ItemName>Undeground</ItemName>
+            <ItemDateCont>
+              <ItemDate>05.09.2019</ItemDate>
+              <ItemCategoty>Transport</ItemCategoty>
+            </ItemDateCont>
+          </ItemNameCont>
+          <SumCont>
+            <Sum className="sum">- 30.00 UAH.</Sum>
+            <DeleteIcon id={Date.now()} />
+          </SumCont>
+        </ItemStyled>
+      ))}
     </StyledList>
   );
 };
