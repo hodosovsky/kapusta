@@ -4,6 +4,7 @@ import {
   logoutAPI,
   setAuthHeader,
   clearAuthHeader,
+  fullUserInfoAPI,
 } from 'services/apiAuth';
 
 export const logIn = createAsyncThunk(
@@ -11,7 +12,6 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const data = await loginAPI(credentials);
-      console.log('data', data);
       setAuthHeader(data.accessToken);
       return data;
     } catch (error) {
@@ -28,3 +28,14 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const refreshUser = createAsyncThunk(
+  'auth/refreshUser',
+  async (_, thunkAPI) => {
+    try {
+      return await fullUserInfoAPI();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
