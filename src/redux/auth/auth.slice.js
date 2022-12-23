@@ -13,7 +13,8 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     addAccessToken: (state, action) => {
-      state.token = action.payload;
+      console.log('payload', action.payload);
+      // state.token = action.payload;
     },
   },
   extraReducers: builder => {

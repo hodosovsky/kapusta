@@ -15,20 +15,24 @@ import { useDispatch } from 'react-redux';
 import { addAccessToken } from 'redux/auth/auth.slice';
 import { setAuthHeader } from 'services/apiAuth';
 import { refreshUser } from 'redux/auth/operations';
+import { TransactionsList } from './TransactionsList/TransactionsList';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const [searchParams] = useSearchParams();
-  const accessToken = searchParams.get('accessToken');
+  // const [searchParams] = useSearchParams();
+  const token = JSON.parse(
+    localStorage.getItem('persist:auth')
+  ).token.replaceAll('"', '');
 
   useEffect(() => {
-    if (!accessToken) {
+    if (!token || token === 'null') {
       return;
     }
-    setAuthHeader(accessToken);
-    dispatch(refreshUser(accessToken));
-    dispatch(addAccessToken(accessToken));
-  }, [accessToken, dispatch]);
+
+    setAuthHeader(token);
+    dispatch(addAccessToken(token));
+    dispatch(refreshUser(token));
+  }, [dispatch, token]);
 
   return (
     <>
@@ -46,6 +50,7 @@ export const App = () => {
       {/* <LightModalWindow>Are you sure?</LightModalWindow> */}
       {/* <Summary /> */}
       <Form />
+      <TransactionsList />
     </>
   );
 };
