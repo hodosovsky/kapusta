@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.form`
-  margin: 0 auto;
   width: 280px;
+  margin: 0 auto 50px;
 
   .title {
     color: rgba(82, 85, 95, 0.7);
@@ -16,11 +16,16 @@ export const StyledForm = styled.form`
     font-weight: 700;
     width: 100px;
     padding: 12px 18px;
-    color: black;
+    color: #52555f;
     text-align: right;
     border: 2px solid white;
     border-radius: 22px 0 0 22px;
     outline: none;
+    ::-webkit-outer-spin-button,
+    ::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
   }
   .btn {
     width: 140px;

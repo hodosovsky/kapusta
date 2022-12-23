@@ -1,15 +1,20 @@
 import styled from 'styled-components';
 
 export const StyledDatePicker = styled.div`
-  display: flex;
-  gap: 8px;
-  align-items: center;
-
-  .icon {
+  width: 280px;
+  margin: 0 auto;
+  .calendarIcon {
     width: 18px;
     height: 20px;
+    fill: #52555f;
   }
   .datePicker {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 0 auto;
+    width: 120px;
+    height: 20px;
     font-size: 12px;
     font-weight: 900;
     line-height: calc(14 / 12);
@@ -21,6 +26,10 @@ export const StyledDatePicker = styled.div`
     :hover,
     :focus {
       color: #ff751d;
+    }
+    :hover .calendarIcon,
+    :focus .calendarIcon {
+      fill: #ff751d;
     }
   }
 `;

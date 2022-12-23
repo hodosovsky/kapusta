@@ -16,7 +16,7 @@ import {
 } from './LoginForm.styled';
 import { OrangeButton } from 'components/Buttons/OrangeButton';
 import { logIn } from 'redux/auth/operations';
-import { googleLoginAPI } from 'services/apiAuth';
+// import { googleLoginAPI } from 'services/apiAuth';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -28,10 +28,10 @@ export const LoginForm = () => {
     dispatch(logIn({ email: email.value, password: password.value }));
   };
 
-  const handleGoogleAuth = async () => {
-    const response = await googleLoginAPI();
-    console.log('response', response);
-  };
+  // const handleGoogleAuth = async () => {
+  //   const response = await googleLoginAPI();
+  //   console.log('response', response);
+  // };
 
   const blurHandler = e => {
     switch (e.target.name) {
@@ -86,7 +86,7 @@ export const LoginForm = () => {
       </StyledpromtText>
 
       <StyledanimationGoogle>
-        <StyledLinkbtnGoogle onClick={handleGoogleAuth}>
+        <StyledLinkbtnGoogle href="https://kapusta-backend.goit.global/auth/google">
           <GoogleSvg />
         </StyledLinkbtnGoogle>
       </StyledanimationGoogle>
