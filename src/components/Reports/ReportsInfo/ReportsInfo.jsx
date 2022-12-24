@@ -13,21 +13,25 @@ import {
 } from './ReportsInfo.styled';
 import reports from '../../../images/reportsFiles/reports.svg';
 import { useSelector } from 'react-redux';
-import { selectExpensesTotal, selectIncomeTotal } from 'redux/selectors';
+import {
+  selectExpensesTotal,
+  selectIncomeTotal,
+  selectReports,
+} from 'redux/selectors';
 
 export const ReportsInfo = () => {
-  const income = useSelector(selectIncomeTotal);
-  const expenses = useSelector(selectExpensesTotal);
+  const { reports } = useSelector(selectReports);
+
   return (
     <div>
       <List>
         <Item>
           <ItemText>Expenses:</ItemText>
-          <ItemExpenses>{expenses ?? 0}.00</ItemExpenses>
+          <ItemExpenses>{reports?.expenses?.expenseTotal ?? 0}.00</ItemExpenses>
         </Item>
         <Item>
           <ItemText>Income:</ItemText>
-          <ItemIncome>{income ?? 0}.00</ItemIncome>
+          <ItemIncome>{reports?.incomes?.incomeTotal ?? 0}.00</ItemIncome>
         </Item>
       </List>
 
