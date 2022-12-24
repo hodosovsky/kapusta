@@ -7,17 +7,26 @@ import {
   ItemExpenses,
   ItemIncome,
   Nav,
-  NavButton,
   NavText,
   Box,
 } from './ReportsInfo.styled';
 // import reports from '../../../images/reportsFiles/reports.svg';
 import { useSelector } from 'react-redux';
 import { selectReports } from 'redux/selectors';
+import { useState } from 'react';
+import { ButtonsNextPrev } from '../ReportsNav/Slider/ButtonsNextPrev/ButtonsNextPrev';
 
 export const ReportsInfo = () => {
   const { reports } = useSelector(selectReports);
+  const [budget, setBudget] = useState('expenses')
 
+const handleClick = () =>{
+      if(budget==='expenses'){
+        setBudget('income')
+        return
+      }
+      setBudget('expenses')
+}
   return (
     <div>
       <List>
@@ -32,21 +41,13 @@ export const ReportsInfo = () => {
       </List>
 
       <Box>
-        <Nav>
-          <NavButton>
-            <svg width="6" height="12">
-              <use href={`${reports}#icon-prev`}></use>
-            </svg>
-          </NavButton>
-          <NavText>${'Expenses'}</NavText>
-          <NavButton>
-            <svg width="6" height="12">
-              <use href={`${reports}#icon-next`}></use>
-            </svg>
-          </NavButton>
+        <Nav className='Privet'>
+          <ButtonsNextPrev onButtonClick={handleClick}>
+          <NavText>{budget}</NavText>
+          </ButtonsNextPrev>
         </Nav>
 
-        <ReportsList></ReportsList>
+        <ReportsList onChange={budget}></ReportsList>
       </Box>
       <ReportsTable></ReportsTable>
     </div>

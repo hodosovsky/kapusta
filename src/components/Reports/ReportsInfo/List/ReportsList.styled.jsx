@@ -6,6 +6,11 @@ export const List = styled.ul`
   flex-wrap: wrap;
   margin: 0%;
   padding: 0;
+  &.incomeList{
+    gap: 20px;
+    align-items: center;
+    justify-content: center ;
+  }
 `;
 
 export const Item = styled.li`
@@ -23,6 +28,10 @@ export const Item = styled.li`
   @media screen and (min-width: 768px) {
     border: none;
     width: calc((100% - 64px) / 6);
+  }
+  &.income{
+    max-width: 90px;
+    flex-grow: 0;
   }
 `;
 
