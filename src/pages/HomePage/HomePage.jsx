@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ChangeBalance from '../../components/ChangeBalance';
-import DateSelection from '../../components/DateSelection';
-import SelectCategory from 'components/DropDownList/SelectCategory';
+import Form from '../../components/DropDownList/Form/Form';
 import { ReactComponent as Reports } from './reports.svg';
 import { StyledHomePage } from './Styles';
 
@@ -15,8 +14,7 @@ export default function HomePage() {
           <Reports className="reportsIcon" />
         </Link>
         <ChangeBalance />
-        <DateSelection />
-        <SelectCategory />
+        <Form />
         {/* вставити компонент з списком транзакцій */}
 
         <div className="transactionsBtnWrap">
