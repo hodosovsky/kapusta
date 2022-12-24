@@ -14,7 +14,7 @@ export const StyledForm = styled.form`
   }
   .inputTag {
     font-weight: 700;
-    width: 100px;
+    width: 140px;
     padding: 12px 18px;
     color: #52555f;
     text-align: right;

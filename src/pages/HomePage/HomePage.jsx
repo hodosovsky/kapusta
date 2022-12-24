@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ChangeBalance from '../../components/ChangeBalance';
-import DateSelection from '../../components/DateSelection';
+import Form from '../../components/DropDownList/Form/Form';
 import { ReactComponent as Reports } from './reports.svg';
 import { StyledHomePage } from './Styles';
-
 
 export default function HomePage() {
   return (
@@ -15,10 +14,9 @@ export default function HomePage() {
           <Reports className="reportsIcon" />
         </Link>
         <ChangeBalance />
-        <DateSelection />
-
+        <Form />
         {/* вставити компонент з списком транзакцій */}
-        
+
         <div className="transactionsBtnWrap">
           <Link to="/expenses" className="transactionsBtn">
             expenses
