@@ -13,3 +13,13 @@ export const selectIncomeTransactions = store =>
 
 export const selectExpenseTransactions = store =>
   store.transactions.expences.expenseTransactions;
+
+export const selectBalance = store => store.transactions.newBalance;
+
+export const selectReports = store => store.reports;
+
+export const selectIncomeTotal = store =>
+  store.reports.reports.incomes.incomeTotal;
+
+export const selectExpensesTotal = store =>
+  store.reports.reports.expenses.expenseTotal;

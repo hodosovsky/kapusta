@@ -1,115 +1,32 @@
-import reports from '../../../../images/reportsFiles/reports.svg';
+import { useSelector } from 'react-redux';
+import { selectReports } from 'redux/selectors';
+import reportsIcon from '../../../../images/reportsFiles/reports.svg';
 import { List, Item, ItemSvg } from './ReportsList.styled';
 
-
 export const ReportsList = () => {
+  const { reports } = useSelector(selectReports);
+  const expensesData = reports?.expenses?.expensesData ?? {};
 
-
+  const entries = Object.entries(expensesData) ?? [];
   return (
+    entries && (
+      <div>
+        <List>
+          {entries.map(item => {
+            const iconName = item[0].replace(/\s+/g, '');
 
-    <div>
-      {/* <List>
-      {
-        `${'user expenses/invoises list'}`.map({id, amounth, type}=>{
-          return(
-            <Item key={id}>
-              <p>{amounth}</p>
-              <ItemSvg  width="56"
-            height="56">
-               <use href={`${reports}#icon-${type}`}></use>
-            </ItemSvg>
-            </Item>
-          )
-        })
-      }
-      </List> */}
-      
-      <List>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg
-            width="56"
-            height="56"
-          >
-            <use href={`${reports}#icon-products`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-alcohol`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-entertainment`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg
-            width="56"
-            height="56"
-           
-          >
-            <use href={`${reports}#icon-health`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56" >
-            <use href={`${reports}#icon-transport`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-housing`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-technique`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-comunal`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56" >
-            <use href={`${reports}#icon-hobbies`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-education`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-other`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-      </List>
-    </div>
+            return (
+              <Item key={iconName}>
+                <p>{item[1].total}.00</p>
+                <ItemSvg width="56" height="56">
+                  <use href={`${reportsIcon}#${iconName}`}></use>
+                </ItemSvg>
+                <p>{item[0]}</p>
+              </Item>
+            );
+          })}
+        </List>
+      </div>
+    )
   );
 };

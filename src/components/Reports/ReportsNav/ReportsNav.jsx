@@ -10,8 +10,12 @@ import {
   ButtonConfirm,
 } from './ReportsNav.styled';
 import reports from '../../../images/reportsFiles/reports.svg';
+import { useSelector } from 'react-redux';
+import { selectBalance } from 'redux/selectors';
 
 export const ReportsNav = () => {
+  const balance = useSelector(selectBalance);
+
   return (
     <PreBox>
       <ButtonBack>
@@ -21,12 +25,12 @@ export const ReportsNav = () => {
         <ButtonBackText>Main page</ButtonBackText>
       </ButtonBack>
       <Box>
-        <Slider/>
+        <Slider />
 
         <Balance>
           <BalanceText>Balance:</BalanceText>
-          <BalanceAmounth>${'Balance'}</BalanceAmounth>
-          <ButtonConfirm type='button'>Confirm</ButtonConfirm>
+          <BalanceAmounth>{balance ?? 0}.00</BalanceAmounth>
+          <ButtonConfirm type="button">Confirm</ButtonConfirm>
         </Balance>
       </Box>
     </PreBox>
