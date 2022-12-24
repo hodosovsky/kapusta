@@ -20,6 +20,11 @@ export const Item = styled.li`
   padding: 20px 0;
   gap: 5px;
   border-bottom: 1px solid black;
+
+  &.active {
+    fill: #ff751d;
+  }
+
   @media screen and (min-width: 768px) {
     border: none;
     width: calc((100% - 64px) / 6);
