@@ -5,13 +5,12 @@ import { StyledForm } from './Styles';
 
 const ChangeBalance = () => {
   const stateBalance = useSelector(state => state.transactions.newBalance);  
-  const [balance, setBalance] = useState(stateBalance);
+  const [balance, setBalance] = useState(stateBalance ?? 0);
   const dispatch = useDispatch();
 
   const handleSubmit = evt => {
     evt.preventDefault();
     dispatch(updateBalance({ newBalance: balance }));
-    setBalance('');
   };
   const handleChange = evt => {
     evt.preventDefault();
