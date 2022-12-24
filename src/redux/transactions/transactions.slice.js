@@ -83,7 +83,16 @@ export const transactionsSlice = createSlice({
         state.allTransactions = state.allTransactions.filter(
           el => el._id !== action.payload.id
         );
+        state.incomes.incomeTransactions =
+          state.incomes.incomeTransactions.filter(
+            el => el._id !== action.payload.id
+          );
+        state.expences.expenseTransactions =
+          state.expences.expenseTransactions.filter(
+            el => el._id !== action.payload.id
+          );
       })
+
       .addCase(deleteTransaction.rejected, handleRejected)
       // Get all transactions / for mobile devices ?
       .addCase(getAllTransactions.pending, handlePending)

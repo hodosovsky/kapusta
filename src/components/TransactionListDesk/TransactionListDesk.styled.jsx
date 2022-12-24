@@ -67,8 +67,7 @@ export const TransactionTable = styled.table`
         flex: 1 0 calc(100% / 5);
         overflow-x: hidden;
         display: flex;
-        max-height: 40px;
-        height: 100%;
+        height: 40px;
         overflow: hidden;
         border-bottom: 2px solid #f5f6fb;
       }

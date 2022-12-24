@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import arrow from '../../images/arrow-bottom.svg';
-import { Category, Wrap, SelectBody } from './SelectCategory.styled';
+import arrow from '../../../images/arrow-bottom.svg';
+import { Category, Wrap, SelectBody, Element } from './SelectCategory.styled';
 
 export default function SelectCategory() {
   const [selectCategory, setSelectCategory] = useState(false);
@@ -37,10 +37,10 @@ export default function SelectCategory() {
       </Wrap>
       {selectCategory && (
         <SelectBody>
-          {categoryArray.map(el => (
-            <div key={el} onClick={getElementCategory}>
-              {el}
-            </div>
+          {categoryArray.map(element => (
+            <Element key={element} onClick={getElementCategory}>
+              {element}
+            </Element>
           ))}
         </SelectBody>
       )}

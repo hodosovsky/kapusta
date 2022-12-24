@@ -4,15 +4,18 @@ import { useEffect } from 'react';
 import { monthNames, getMonth, getYear } from './SliderUtils';
 import { Calendar } from './Calendar/Calendar';
 import { ButtonsNextPrev } from './ButtonsNextPrev/ButtonsNextPrev';
-import { getPeriodDataAPI } from 'services/apiTransactions';
+
+import { useDispatch } from 'react-redux';
+import { getReports } from 'redux/reports/operations';
+import { reportsQueryAction } from 'redux/reportsQuery/reportsQuery.slice';
 
 export const Slider = () => {
   const [monthNumber, setMonthNumber] = useState(0);
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
   const [modalCalendar, setModalCalendar] = useState(false);
-  const [reports, setReports] = useState([]);
-
+  const [reports] = useState([]);
+  const dispatch = useDispatch();
   useEffect(() => {
     setMonthNumber(getMonth());
     setMonth(monthNames[getMonth()]);
@@ -28,11 +31,12 @@ export const Slider = () => {
     } else {
       monthString = monthNumber + 1;
     }
-
-    getPeriodDataAPI(`${year}-${monthString}`).then(data => {
-      setReports(data);
-    });
-  }, [monthNumber, year]);
+    dispatch(reportsQueryAction(`${year}-${monthString}`));
+    dispatch(getReports(`${year}-${monthString}`));
+    // getPeriodDataAPI(`${year}-${monthString}`).then(data => {
+    //   setReports(data);
+    // });
+  }, [monthNumber, year, dispatch]);
   console.log(reports);
   const handlerClick = name => {
     switch (name) {

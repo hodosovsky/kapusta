@@ -16,6 +16,7 @@ import { addAccessToken } from 'redux/auth/auth.slice';
 import { setAuthHeader } from 'services/apiAuth';
 import { refreshUser } from 'redux/auth/operations';
 import { selectIsFetcingCurrentUser } from 'redux/selectors';
+// import { TransactionsList } from './TransactionsList/TransactionsList';
 // import { selectIsLoadingCurrentUser } from 'redux/selectors';
 
 export const App = () => {
@@ -32,7 +33,6 @@ export const App = () => {
       return;
     }
     setAuthHeader(token);
-    // dispatch(refreshUser(accessToken));
     dispatch(addAccessToken(token));
     dispatch(refreshUser());
   }, [dispatch, token]);
@@ -54,6 +54,7 @@ export const App = () => {
         {/* <LightModalWindow>Are you sure?</LightModalWindow> */}
         {/* <Summary /> */}
         <Form />
+        {/* <TransactionsList /> */}
       </>
     )
   );

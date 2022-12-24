@@ -21,6 +21,7 @@ export const getIncomeAPI = async () => {
 export const addExpenseAPI = async info => {
   try {
     const { data } = await axios.post('/transaction/expense', info);
+    console.log('data', data);
     return data;
   } catch (error) {
     console.log(error);
