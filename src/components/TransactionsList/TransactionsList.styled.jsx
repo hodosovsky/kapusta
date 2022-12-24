@@ -8,11 +8,10 @@ export const StyledList = styled.ul`
 `;
 
 export const ItemStyled = styled.li`
-  width: 100%;
   display: flex;
+  justify-content: space-between;
 
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 8px 0px;
   border-bottom: 1px solid #f5f6fb;
 `;
 
@@ -43,11 +42,12 @@ export const ItemCategoty = styled.p`
 `;
 export const SumCont = styled.div`
   gap: 20px;
+  display: flex;
+  align-items: center;
 `;
 export const Sum = styled.p`
   display: flex;
   align-items: center;
-  width: 624px;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.16;

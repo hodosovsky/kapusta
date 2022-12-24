@@ -7,3 +7,9 @@ export const selectIsFetcingCurrentUser = store =>
 
 export const selectAllTransactions = store =>
   store.transactions.allTransactions;
+
+export const selectIncomeTransactions = store =>
+  store.transactions.incomes.incomeTransactions;
+
+export const selectExpenseTransactions = store =>
+  store.transactions.expences.expenseTransactions;

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://kapusta-backend.goit.global';
+axios.defaults.validateStatus();
 
 export const registerAPI = async user => {
   try {

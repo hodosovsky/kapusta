@@ -1,7 +1,21 @@
 import { TransactionTable } from './TransactionListDesk.styled';
 import { ReactComponent as DeleteIcon } from '../../images/deleteIcon.svg';
-export const TransactionListDesk = () => {
-  const arr = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5];
+import { useDispatch } from 'react-redux';
+import { deleteTransaction } from 'redux/transactions/operations';
+
+export const TransactionListDesk = ({ children }) => {
+  const dispatch = useDispatch();
+  const color = children[1];
+  let minus = '-';
+
+  if (color === 'green') {
+    minus = false;
+  }
+
+  const handleDelete = event => {
+    dispatch(deleteTransaction(event.currentTarget.id));
+  };
+
   return (
     <TransactionTable className="container">
       <thead>
@@ -15,19 +29,24 @@ export const TransactionListDesk = () => {
       </thead>
 
       <tbody>
-        {arr.map(el => (
-          <tr key={Math.random() * 100}>
-            <td>02.03.22</td>
-            <td>
-              Bananas Bananas Bananas Bananas Bananas Bananas Bananas Bananas
-            </td>
-            <td>Products</td>
-            <td>- 50.00 UAH.</td>
-            <td>
-              <DeleteIcon />
-            </td>
-          </tr>
-        ))}
+        {children[0].map(el => {
+          const { _id, description, amount, date, category } = el;
+          return (
+            <tr key={_id} style={{ height: 40 }}>
+              <td>{date}</td>
+              <td>{description}</td>
+              <td>{category}</td>
+              <td style={{ color }}>
+                {minus} {amount}.00 UAH.
+              </td>
+              <td>
+                <span id={_id} onClick={handleDelete}>
+                  <DeleteIcon />
+                </span>
+              </td>
+            </tr>
+          );
+        })}
       </tbody>
     </TransactionTable>
   );
