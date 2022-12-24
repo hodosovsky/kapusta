@@ -9,9 +9,9 @@ export const ReportsList = ({ onChange }) => {
   const { reports } = useSelector(selectReports);
   const expensesData = reports?.expenses?.expensesData ?? {};
   const clickEventHandler = event => {
-    console.log(event.currentTarget.id);
     setActive(event.currentTarget.id);
   };
+  console.log(onChange);
   const entries = Object.entries(expensesData) ?? [];
   return (
     <div>
