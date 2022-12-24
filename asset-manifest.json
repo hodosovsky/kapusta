@@ -1,19 +1,20 @@
 {
   "files": {
     "main.css": "/kapusta/static/css/main.a505d9f0.css",
-    "main.js": "/kapusta/static/js/main.f9b226e7.js",
+    "main.js": "/kapusta/static/js/main.a6c30c01.js",
     "static/media/reports.svg": "/kapusta/static/media/reports.567065b7eac1c98730d496987d5d688c.svg",
     "static/media/google.svg": "/kapusta/static/media/google.d64f9163b8f61487544747b482817a75.svg",
     "static/media/logo.svg": "/kapusta/static/media/logo.9a1219fa7b0c5ccef923ebbd77f9ee7b.svg",
     "static/media/calendar.svg": "/kapusta/static/media/calendar.8d4bd822ea59fddfa11ed3a86d50eb38.svg",
+    "static/media/calculator.svg": "/kapusta/static/media/calculator.bd74ce3461a4518efe3d33f529d436cb.svg",
     "index.html": "/kapusta/index.html",
     "static/media/logout.svg": "/kapusta/static/media/logout.bde7ea51d65470190b21886710692baf.svg",
     "static/media/arrow-bottom.svg": "/kapusta/static/media/arrow-bottom.d0daa32725811f1fd9548377d47b8559.svg",
     "main.a505d9f0.css.map": "/kapusta/static/css/main.a505d9f0.css.map",
-    "main.f9b226e7.js.map": "/kapusta/static/js/main.f9b226e7.js.map"
+    "main.a6c30c01.js.map": "/kapusta/static/js/main.a6c30c01.js.map"
   },
   "entrypoints": [
     "static/css/main.a505d9f0.css",
-    "static/js/main.f9b226e7.js"
+    "static/js/main.a6c30c01.js"
   ]
 }
