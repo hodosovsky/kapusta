@@ -38,22 +38,24 @@ export const App = () => {
   }, [dispatch, token]);
 
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<SharedLayouts />}>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegiserPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/income" element={<IncomePage />} />
-          <Route path="/expenses" element={<ExpensesPage />} />
-          <Route path="/reports" element={<ReportsPage />} />
-          <Route path="*" element={<ThereIsNoSuchPage />} />
-        </Route>
-      </Routes>
-      {/* <LightModalWindow>Are you sure?</LightModalWindow> */}
-      {/* <Summary /> */}
-      <Form />
-      {/* <TransactionsList /> */}
-    </>
+    !isFetchingUser && (
+      <>
+        <Routes>
+          <Route path="/" element={<SharedLayouts />}>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegiserPage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/income" element={<IncomePage />} />
+            <Route path="/expenses" element={<ExpensesPage />} />
+            <Route path="/reports" element={<ReportsPage />} />
+            <Route path="*" element={<ThereIsNoSuchPage />} />
+          </Route>
+        </Routes>
+        {/* <LightModalWindow>Are you sure?</LightModalWindow> */}
+        {/* <Summary /> */}
+        <Form />
+        {/* <TransactionsList /> */}
+      </>
+    )
   );
 };
