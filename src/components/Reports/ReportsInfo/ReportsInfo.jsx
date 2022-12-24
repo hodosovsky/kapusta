@@ -11,13 +11,9 @@ import {
   NavText,
   Box,
 } from './ReportsInfo.styled';
-import reports from '../../../images/reportsFiles/reports.svg';
+// import reports from '../../../images/reportsFiles/reports.svg';
 import { useSelector } from 'react-redux';
-import {
-  selectExpensesTotal,
-  selectIncomeTotal,
-  selectReports,
-} from 'redux/selectors';
+import { selectReports } from 'redux/selectors';
 
 export const ReportsInfo = () => {
   const { reports } = useSelector(selectReports);
