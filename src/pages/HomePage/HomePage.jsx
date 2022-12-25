@@ -16,7 +16,7 @@ export default function HomePage() {
   const { isMobile } = useMatchMedia();
   const [startDate, setStartDate] = useState(new Date());
   return (
-    <div>
+    <>
       <GrayBg />
       <StyledHomePage>
         <div className="flexWrapper">
@@ -25,13 +25,15 @@ export default function HomePage() {
           {!isMobile && <ReportsBtn to="/reports" />}
         </div>
         {isMobile && (
-          <DateSelection startDate={startDate} setStartDate={setStartDate} />
+          <div className="center">
+            <DateSelection startDate={startDate} setStartDate={setStartDate} />
+          </div>
         )}
         {isMobile && <TransactionTabsMobile />}
         {!isMobile && <TransactionTabsDesktop />}
         {!isMobile && <Outlet />}
         {isMobile && <TransactionsList />}
       </StyledHomePage>
-    </div>
+    </>
   );
 }
