@@ -3,94 +3,67 @@ import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
   import { Chart, registerables } from 'chart.js';
   import ChartDataLabels from 'chartjs-plugin-datalabels';
+  import { selectDataChart} from '../../../../redux/selectors'
+import { useSelector } from "react-redux";
   Chart.register(...registerables);
   Chart.register(ChartDataLabels);
 
-  let data = [
-
-    {
-        name: 'Fish',
-        total: 100,
-    },
-    {
-        name: 'meat',
-        total: 150,
-    },
-    {
-        name: 'cheese',
-        total: 1800,
-    },
-    {
-        name: 'Onignion',
-        total: 90,
-    },
-    {
-        name: 'FisCarron',
-        total: 120,
-    },
-    {
-        name: 'Fish',
-        total: 100,
-    },
-    {
-        name: 'meat',
-        total: 150,
-    },
-    {
-        name: 'cheese',
-        total: 180,
-    },
-    {
-        name: 'Onignion',
-        total: 90,
-    },
-    {
-        name: 'FisCarron',
-        total: 120,
-    },
-
-]
-// let data2 =[{name:'mango', total:3000,},
-// {
-//     name: 'Fish',
-//     total: 100,
-// },
-// {
-//     name: 'meat',
-//     total: 150,
-// },]
 
 
+export const ReportsTable = ({onChange}) => {
 
-// let intervarId = setInterval(()=>{
-//   if( data2.length !==11){
-  
-//     data2.unshift({})
-//   data2.push({})
-//   } else{
- 
-//     clearInterval(intervarId)
-//   return
-// }
-
-// })
-
-
-
-
-export const ReportsTable = () => {
   const [chartData, setChartData] = useState({
     datasets: []
 })
+const [keys, setKeys]= useState([])
+const [values, setValues]= useState([])
+
+const myData = useSelector(selectDataChart)
+
+
+useEffect(()=>{
+
+  if (myData.length>0){
+    let mimi = myData[0]
+   let key  = Object.keys(mimi[1])
+  
+   let value = Object.values(mimi[1])
+   if( key.length<13 && value.length< 13){
+    let intervarId = setInterval(()=>{
+      if( key.length !==13 && value.length< 13){
+      
+      key.unshift('')
+      key.push('')
+      value.unshift(0)
+      value.push(0)
+      } else{
+     
+        clearInterval(intervarId)
+        if(keys !== key &&  values!== value ){
+          setKeys(key)
+          setValues(value)
+        }else{
+          return
+        }
+      return
+    }
+    
+    })
+   }
+
+  
+}
+},[myData, keys, values])
+
 const [chartOptions, setChartOptions] = useState({})
 useEffect(()=>{
     setChartData({
     
-        labels: data.map(el=>el.name),
+        labels: keys.map(el=>el),
         datasets:[
             {
                 label: 'awd',
-                data: data.map(el=>el.total),
+                data: values.map(el=>el),
                 backgroundColor: [ '#FFDAC0', '#FF751D','#FFDAC0'],
                 borderRadius: 10,
                 borderSkipped: 'start',
@@ -103,7 +76,7 @@ useEffect(()=>{
                         size: 10
                     },
                     formatter: function(value, context) {
-                        if (value === undefined){
+                        if (value === undefined||value=== 0){
                            return ''
                         }
                         return `${value} UAH` 
@@ -177,7 +150,7 @@ scales: {
     },   
 },
 })
-}, [])
+}, [keys, values])
 return(
   <div>
      <Bar
