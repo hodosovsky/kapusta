@@ -46,6 +46,7 @@ export const transactionsSlice = createSlice({
         state.newBalance = action.payload.newBalance;
         state.incomes.incomeTransactions.push(action.payload.transaction);
         state.allTransactions.push(action.payload.transaction);
+        state.isLoading = false;
       })
       .addCase(addIncome.rejected, handleRejected)
       // Get Income
@@ -53,6 +54,7 @@ export const transactionsSlice = createSlice({
       .addCase(getIncome.fulfilled, (state, action) => {
         state.incomes.incomeTransactions = action.payload.incomes;
         state.incomes.monthsStats = action.payload.monthsStats;
+        state.isLoading = false;
       })
       .addCase(getIncome.rejected, handleRejected)
       // Add Expense
@@ -61,6 +63,7 @@ export const transactionsSlice = createSlice({
         state.newBalance = action.payload.newBalance;
         state.expences.expenseTransactions.push(action.payload.transaction);
         state.allTransactions.push(action.payload.transaction);
+        state.isLoading = false;
       })
       .addCase(addExpense.rejected, handleRejected)
       // Get Expenses
@@ -68,18 +71,21 @@ export const transactionsSlice = createSlice({
       .addCase(getExpenses.fulfilled, (state, action) => {
         state.expences.expenseTransactions = action.payload.expenses;
         state.expences.monthsStats = action.payload.monthsStats;
+        state.isLoading = false;
       })
       .addCase(getExpenses.rejected, handleRejected)
       // Update Balance
       .addCase(updateBalance.pending, handlePending)
       .addCase(updateBalance.fulfilled, (state, action) => {
         state.newBalance = action.payload.newBalance;
+        state.isLoading = false;
       })
       .addCase(updateBalance.rejected, handleRejected)
       // Delete Transaction
       .addCase(deleteTransaction.pending, handlePending)
       .addCase(deleteTransaction.fulfilled, (state, action) => {
         state.newBalance = action.payload.newBalance;
+        state.isLoading = false;
         state.allTransactions = state.allTransactions.filter(
           el => el._id !== action.payload.id
         );
@@ -99,6 +105,7 @@ export const transactionsSlice = createSlice({
       .addCase(getAllTransactions.fulfilled, (state, action) => {
         state.newBalance = action.payload.balance;
         state.allTransactions = action.payload.transactions;
+        state.isLoading = false;
       })
       .addCase(getAllTransactions.rejected, handleRejected)
       // refresh user
@@ -106,6 +113,7 @@ export const transactionsSlice = createSlice({
         const { balance, transactions } = action.payload;
         state.newBalance = balance;
         state.allTransactions = transactions;
+        state.isLoading = false;
       });
   },
 });

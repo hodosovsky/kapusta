@@ -40,6 +40,7 @@ export const refreshUser = createAsyncThunk(
       // if (!persistedToken) {
       //   return thunkAPI.rejectWithValue();
       // }
+      
       return await fullUserInfoAPI();
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
