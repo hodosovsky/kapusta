@@ -1,7 +1,7 @@
 import Form from 'components/DropDownList/Form/Form';
 import { Summary } from 'components/Summary/Summary';
 import { TransactionListDesk } from 'components/TransactionListDesk/TransactionListDesk';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectExpenseTransactions } from 'redux/selectors';
 import { getExpenses } from 'redux/transactions/operations';
@@ -10,8 +10,6 @@ import { useMatchMedia } from '../../hooks/use-match-media';
 import { BackButton } from 'components/Buttons/BackButton';
 
 export default function ExpensesPage() {
-  const firstUpdate = useRef(true);
-
   const dispatch = useDispatch();
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
 
@@ -19,12 +17,8 @@ export default function ExpensesPage() {
   const color = 'red';
 
   useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-    } else {
-      dispatch(getExpenses());
-      // do things after first render
-    }
+    dispatch(getExpenses());
+    // do things after first render
   }, [dispatch]);
 
   return (
