@@ -10,19 +10,21 @@ export const StyledformRegister = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 280px;
+  margin-top: 50px;
   background-color: #fff;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
 
   @media screen and (min-width: 768px) {
     padding: 72px 84px 72px 84px;
-    top: 317px;
-    left: 171px;
     width: 426px;
+    margin: auto auto;
+    margin-top: 80px;
   }
   @media screen and (min-width: 1280px) {
-    left: 763px;
-    top: 173px;
+    margin-top: 117px;
+    margin-left: 157px;
   }
 `;
 

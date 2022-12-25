@@ -21,6 +21,7 @@ import { PublicRoute } from './PublicRoute/PublicRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useMatchMedia } from 'hooks/use-match-media';
+import { Container } from './App.styled';
 // import { TransactionsList } from './TransactionsList/TransactionsList';
 // import { selectIsLoadingCurrentUser } from 'redux/selectors';
 
@@ -44,7 +45,7 @@ export const App = () => {
 
   return (
     !isFetchingUser && (
-      <>
+      <Container>
         <ToastContainer />
         <Routes>
           <Route path="/" element={<SharedLayouts />}>
@@ -81,7 +82,7 @@ export const App = () => {
         {/* <Summary /> */}
         {/* <Form /> */}
         {/* <TransactionsList /> */}
-      </>
+      </Container>
     )
   );
 };
