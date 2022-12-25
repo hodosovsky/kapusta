@@ -5,7 +5,7 @@ export const Wrapper = styled.form`
   flex-direction: column;
   align-items: center;
 
-  width: 100%;
+  /* width: 100%; */
 
   @media screen and (min-width: 1280px) {
     flex-direction: row;
@@ -17,6 +17,7 @@ export const Wrapper = styled.form`
 export const FormWrap = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     justify-content: space-between;
@@ -32,9 +33,10 @@ export const InputProduct = styled.input`
   height: 44px;
 
   padding: 2px 20px;
-  margin-top: 12px;
+  /* margin-top: 12px; */
 
   border: 2px solid #ffffff;
+  border-bottom: none;
   border-radius: 16px 16px 0 0;
 
   font-weight: 400;
@@ -53,12 +55,15 @@ export const InputProduct = styled.input`
     width: 186px;
 
     border-color: #f5f6fb;
+    border-bottom: 2px solid #f5f6fb;
+    border-right: none;
+    border-top-right-radius: 0px;
 
     background-color: #ffffff;
   }
 
   @media screen and (min-width: 1280px) {
-    margin-left: 32px;
+    /* margin-left: 32px; */
     width: 290px;
   }
 `;
@@ -80,5 +85,14 @@ export const ButtonWrap = styled.div`
 
     margin-top: 0;
     margin-left: 32px;
+  }
+`;
+
+export const StyledAllInputsDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
   }
 `;

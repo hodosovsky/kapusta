@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const TransactionTable = styled.table`
-  margin-top: 48px;
+  /* margin-top: 48px; */
   position: relative;
   border-collapse: collapse;
   display: flex;
   flex-direction: column;
+  max-width: 746px;
 
   th {
     width: 100%;
@@ -46,6 +47,7 @@ export const TransactionTable = styled.table`
     height: 344px;
     border-left: 2px solid #f5f6fb;
     border-top: none;
+    border-bottom: 2px solid #f5f6fb;
     ::-webkit-scrollbar {
       width: 7px;
     }
@@ -59,6 +61,9 @@ export const TransactionTable = styled.table`
     tr {
       justify-content: center;
       display: flex;
+      &:not(:last-child) {
+        border-bottom: 2px solid #f5f6fb;
+      }
 
       td {
         position: relative;
@@ -69,7 +74,6 @@ export const TransactionTable = styled.table`
         display: flex;
         height: 40px;
         overflow: hidden;
-        border-bottom: 2px solid #f5f6fb;
       }
     }
   }

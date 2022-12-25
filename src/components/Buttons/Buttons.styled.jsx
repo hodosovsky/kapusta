@@ -25,3 +25,13 @@ export const StyledWhiteButton = styled.button`
   font-size: 12px;
   line-height: 1.17;
 `;
+
+export const ButtonBack = styled.button`
+  background-color: transparent;
+  border: none;
+
+  display: flex;
+  align-items: center;
+
+  margin: 14px 0px;
+`;

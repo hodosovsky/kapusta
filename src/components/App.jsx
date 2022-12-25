@@ -16,6 +16,8 @@ import { addAccessToken } from 'redux/auth/auth.slice';
 import { setAuthHeader } from 'services/apiAuth';
 import { refreshUser } from 'redux/auth/operations';
 import { selectIsFetcingCurrentUser } from 'redux/selectors';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import { TransactionsList } from './TransactionsList/TransactionsList';
 // import { selectIsLoadingCurrentUser } from 'redux/selectors';
 
@@ -40,6 +42,7 @@ export const App = () => {
   return (
     !isFetchingUser && (
       <>
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<SharedLayouts />}>
             <Route path="/login" element={<LoginPage />} />
@@ -53,7 +56,7 @@ export const App = () => {
         </Routes>
         {/* <LightModalWindow>Are you sure?</LightModalWindow> */}
         {/* <Summary /> */}
-        <Form />
+        {/* <Form /> */}
         {/* <TransactionsList /> */}
       </>
     )

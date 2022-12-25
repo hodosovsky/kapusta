@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 export const Category = styled.div`
   position: relative;
 
-  margin-left: 20px;
-  margin-right: 20px;
+  /* margin-left: 20px;
+  margin-right: 20px; */
 
   @media screen and (min-width: 768px) {
     height: 44px;
@@ -21,7 +21,7 @@ export const Wrap = styled.div`
   height: 44px;
 
   padding: 2px 20px;
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
 
   border: 2px solid #ffffff;
   border-bottom-right-radius: 20px;
@@ -63,7 +63,7 @@ export const SelectBody = styled.div`
   top: 100%;
   left: 0;
 
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
 
   width: 280px;
   height: 44px;

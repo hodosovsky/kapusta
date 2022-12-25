@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledDatePicker = styled.div`
-  width: 280px;
-  margin: 0 auto;
+  /* width: 280px; */
+  /* margin: 0 auto; */
+
   .calendarIcon {
     width: 18px;
     height: 20px;
@@ -12,8 +13,8 @@ export const StyledDatePicker = styled.div`
     display: flex;
     gap: 8px;
     align-items: center;
-    margin: 0 auto;
-    width: 120px;
+    /* margin: 0 auto; */
+    /* width: 120px; */
     height: 20px;
     font-size: 12px;
     font-weight: 900;

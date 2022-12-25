@@ -4,10 +4,10 @@ export const NumberMobil = styled.div`
   display: flex;
   margin: 32px auto 0 auto;
 
-  @media screen and (min-width: 768px) {
+  /* @media screen and (min-width: 768px) {
     display: none;
     margin: 0;
-  }
+  } */
 `;
 
 export const InputMobile = styled.input`
@@ -72,6 +72,7 @@ export const InputNumber = styled.input`
   @media screen and (min-width: 768px) {
     border-bottom-right-radius: 16px;
     border-top-right-radius: 16px;
+    border-left: none;
   }
 
   @media screen and (min-width: 1280px) {

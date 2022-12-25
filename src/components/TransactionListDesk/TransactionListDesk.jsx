@@ -2,6 +2,7 @@ import { TransactionTable } from './TransactionListDesk.styled';
 import { ReactComponent as DeleteIcon } from '../../images/deleteIcon.svg';
 import { useDispatch } from 'react-redux';
 import { deleteTransaction } from 'redux/transactions/operations';
+import { categoryOrkToEng } from 'hooks/useCategory';
 
 export const TransactionListDesk = ({ children }) => {
   const dispatch = useDispatch();
@@ -33,9 +34,9 @@ export const TransactionListDesk = ({ children }) => {
           const { _id, description, amount, date, category } = el;
           return (
             <tr key={_id} style={{ height: 40 }}>
-              <td>{date}</td>
+              <td>{date.split('-').reverse().join('-')}</td>
               <td>{description}</td>
-              <td>{category}</td>
+              <td>{categoryOrkToEng(category)}</td>
               <td style={{ color }}>
                 {minus} {amount}.00 UAH.
               </td>
