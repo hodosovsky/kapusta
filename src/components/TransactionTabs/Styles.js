@@ -27,7 +27,7 @@ export const StyledTabsMobile = styled.div`
 
 export const StyledTabsDesktop = styled.div`
   display: flex;
-  background-color: #ffffff;
+
   .TabDesktop {
     display: block;
     width: 138px;

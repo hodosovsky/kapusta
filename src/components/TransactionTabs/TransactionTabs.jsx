@@ -19,10 +19,10 @@ export const TransactionTabsMobile = () => {
 export const TransactionTabsDesktop = () => {
   return (
     <StyledTabsDesktop>
-      <NavLink to="/expenses" className="TabDesktop">
+      <NavLink to="expenses" className="TabDesktop active">
         expenses
       </NavLink>
-      <NavLink to="/income" className="TabDesktop">
+      <NavLink to="income" className="TabDesktop">
         income
       </NavLink>
     </StyledTabsDesktop>

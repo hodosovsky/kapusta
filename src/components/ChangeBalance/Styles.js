@@ -8,6 +8,10 @@ export const StyledForm = styled.form`
     display: flex;
     gap: 20px;
     align-items: baseline;
+    margin: 0;
+  }
+  @media screen and (min-width: 768px) {
+    margin: 0 auto;
   }
 
   .title {

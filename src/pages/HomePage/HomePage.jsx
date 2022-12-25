@@ -1,5 +1,7 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { useMatchMedia } from '../../hooks/use-match-media';
+import GrayBg from "../../components/GrayBg";
 import ReportsBtn from '../../components/Buttons/ReportsBtn';
 import ChangeBalance from '../../components/ChangeBalance';
 import DateSelection from '../../components/DateSelection';
@@ -12,6 +14,7 @@ export default function HomePage() {
 
   return (
     <div>
+      <GrayBg />
       <StyledHomePage>
         <div className="flexWrapper">
           {isMobile && <ReportsBtn to="/reports" />}
@@ -20,12 +23,10 @@ export default function HomePage() {
         </div>
         {isMobile && <DateSelection />}
         {isMobile && <TransactionTabsMobile />}
-        
+        {!isMobile && <TransactionTabsDesktop />}
+        {!isMobile && <Outlet />}
+        {isMobile && <TransactionsList />}
       </StyledHomePage>
-      <TransactionsList />
-      <br />
-      {!isMobile && <TransactionTabsDesktop />}
-      <br />
     </div>
   );
 }
