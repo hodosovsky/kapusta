@@ -14,7 +14,7 @@ export const Slider = () => {
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
   const [modalCalendar, setModalCalendar] = useState(false);
-  const [reports] = useState([]);
+
   const dispatch = useDispatch();
   useEffect(() => {
     setMonthNumber(getMonth());
@@ -37,7 +37,7 @@ export const Slider = () => {
     //   setReports(data);
     // });
   }, [monthNumber, year, dispatch]);
-  console.log(reports);
+
   const handlerClick = name => {
     switch (name) {
       case 'decrement':

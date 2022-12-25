@@ -1,8 +1,18 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.form`
-  width: 280px;
   margin: 0 auto 50px;
+  padding: 0 20px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+    margin: 0;
+  }
+  @media screen and (min-width: 768px) {
+    margin: 0 auto;
+  }
 
   .title {
     color: rgba(82, 85, 95, 0.7);
@@ -24,7 +34,15 @@ export const StyledForm = styled.form`
     ::-webkit-outer-spin-button,
     ::-webkit-inner-spin-button {
       -webkit-appearance: none;
-      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+      margin: 0;
+    }
+    :focus {
+      background-color: #fff;
+    }
+    @media screen and (min-width: 768px) {
+      width: 125px;
+      padding: 12px 20px;
+      border-radius: 16px;
     }
   }
   .btn {
@@ -42,6 +60,12 @@ export const StyledForm = styled.form`
       color: white;
       background-color: #ff751d;
       border-color: #ff751d;
+    }
+    @media screen and (min-width: 768px) {
+      width: 125px;
+      padding: 12px 6px;
+      border-radius: 16px;
+      text-align: center;
     }
   }
 `;

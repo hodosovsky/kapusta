@@ -2,6 +2,8 @@ export const selectIsLoggedIn = store => store.auth.isLoggedIn;
 
 export const selectUser = store => store.auth.user.email;
 
+export const selectToken = store => store.auth.token;
+
 export const selectIsFetcingCurrentUser = store =>
   store.auth.isFetchingCurrentUser;
 
@@ -19,3 +21,13 @@ export const selectIncomeSummary = store =>
 
 export const selectExpensesSummary = store =>
   store.transactions.expences.monthsStats;
+
+export const selectBalance = store => store.transactions.newBalance;
+
+export const selectReports = store => store.reports;
+
+export const selectIncomeTotal = store =>
+  store.reports.reports.incomes.incomeData.Total;
+
+export const selectExpensesTotal = store =>
+  store.reports.reports.expenses.expenseTotal;

@@ -63,3 +63,31 @@ export const categoryOrkToEng = name => {
       break;
   }
 };
+
+// const categoryArray = [
+//   'Products',
+//   'Alcohol',
+//   'Entertainment',
+//   'Health',
+//   'Transport',
+//   'Housing',
+//   'Technics',
+//   'Communal and communication',
+//   'Sport and hobby',
+//   'Education',
+//   'Other',
+// ];
+
+// categoryArray = [
+//   'Продукты',
+//   'Алкоголь',
+//   'Развлечения',
+//   'Здоровье',
+//   'Транспорт',
+//   'Всё для дома',
+//   'Техника',
+//   'Коммуналка и связь',
+//   'Спорт и хобби',
+//   'Образование',
+//   'Прочее',
+// ];

@@ -1,30 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { useMatchMedia } from '../../hooks/use-match-media';
+import GrayBg from "../../components/GrayBg";
+import ReportsBtn from '../../components/Buttons/ReportsBtn';
 import ChangeBalance from '../../components/ChangeBalance';
-import Form from '../../components/DropDownList/Form/Form';
-import { ReactComponent as Reports } from './reports.svg';
+import DateSelection from '../../components/DateSelection';
 import { StyledHomePage } from './Styles';
+import { TransactionsList } from 'components/TransactionsList/TransactionsList';
+import {TransactionTabsMobile, TransactionTabsDesktop} from "../../components/TransactionTabs/TransactionTabs";
 
 export default function HomePage() {
+  const { isMobile } = useMatchMedia();
+
   return (
     <div>
+      <GrayBg />
       <StyledHomePage>
-        <Link to="/reports" className="reportsBtn">
-          <span>Reports</span>
-          <Reports className="reportsIcon" />
-        </Link>
-        <ChangeBalance />
-        <Form />
-        {/* вставити компонент з списком транзакцій */}
-
-        <div className="transactionsBtnWrap">
-          <Link to="/expenses" className="transactionsBtn">
-            expenses
-          </Link>
-          <Link to="/income" className="transactionsBtn">
-            income
-          </Link>
+        <div className="flexWrapper">
+          {isMobile && <ReportsBtn to="/reports" />}
+          <ChangeBalance />
+          {!isMobile && <ReportsBtn to="/reports" />}
         </div>
+        {isMobile && <DateSelection />}
+        {isMobile && <TransactionTabsMobile />}
+        {!isMobile && <TransactionTabsDesktop />}
+        {!isMobile && <Outlet />}
+        {isMobile && <TransactionsList />}
       </StyledHomePage>
     </div>
   );

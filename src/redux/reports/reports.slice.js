@@ -23,7 +23,6 @@ export const reportsSlice = createSlice({
     builder
       .addCase(getReports.pending, handlePending)
       .addCase(getReports.fulfilled, (state, action) => {
-        console.log('action payload', action.payload);
         state.reports = action.payload;
         state.isLoading = false;
       })

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
 import { selectToken } from 'redux/selectors';
 
-export const PublicRoute = () => {
+export const PrivateRoute = () => {
   const token = useSelector(selectToken);
-  return token ? <Navigate to="/home" /> : <Outlet />;
+  return token ? <Outlet /> : <Navigate to="/login" />;
 };

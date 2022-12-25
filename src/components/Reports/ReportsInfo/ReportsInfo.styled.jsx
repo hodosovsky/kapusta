@@ -77,18 +77,21 @@ export const Box = styled.div`
 `
 
 export const Nav = styled.div`
-   gap: 15px;
-  justify-content: center;
+margin: 0 auto;
   align-items: center;
   display: flex;
+
+  width: 130px;
 `
-export const NavButton = styled.button`
-   background-color: transparent;
-  border: transparent;
-  padding: 0%;
-  padding-top: 3px;
-`
+// export const NavButton = styled.button`
+//    background-color: transparent;
+//   border: transparent;
+//   padding: 0%;
+//   padding-top: 3px;
+// `
 export const NavText = styled.p`
+width: 120px;
+text-align: center;
 font-weight: 700;
 font-size: 14px;
 line-height: 1.14;
