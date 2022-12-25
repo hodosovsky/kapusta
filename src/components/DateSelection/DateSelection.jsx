@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DatePicker from 'react-datepicker';
 import { StyledDatePicker } from './Styles';
 import { ReactComponent as Calendar } from './calendar.svg';
