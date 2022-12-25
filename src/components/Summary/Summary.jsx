@@ -1,6 +1,10 @@
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
-import { selectIncomeSummary, selectExpensesSummary } from 'redux/selectors';
+import {
+  selectIncomeSummary,
+  selectExpensesSummary,
+  selectIsLoading,
+} from 'redux/selectors';
 import { monthNameOrkToEng } from 'hooks/useMonthTranslate';
 import {
   StyledTable,
@@ -12,7 +16,7 @@ import {
 
 export const Summary = () => {
   const location = useLocation();
-
+  const isLoading = useSelector(selectIsLoading);
   const incomeData = useSelector(selectIncomeSummary);
   const expensesData = useSelector(selectExpensesSummary);
   let data;
@@ -26,20 +30,22 @@ export const Summary = () => {
   console.log('data', data);
 
   return (
-    <StyledTable>
-      <StyledTableHead>SUMMARY</StyledTableHead>
-      {data?.map(el => {
-        if (el[1] === 'N/A') {
-          return false;
-        } else {
-          return (
-            <StyledRow key={`${el[0]}${el[1]}`}>
-              <StyledMonth>{monthNameOrkToEng(el[0])}</StyledMonth>
-              <StyledValue>{el[1]}</StyledValue>
-            </StyledRow>
-          );
-        }
-      })}
-    </StyledTable>
+    isLoading && (
+      <StyledTable>
+        <StyledTableHead>SUMMARY</StyledTableHead>
+        {data?.map(el => {
+          if (el[1] === 'N/A') {
+            return false;
+          } else {
+            return (
+              <StyledRow key={`${el[0]}${el[1]}`}>
+                <StyledMonth>{monthNameOrkToEng(el[0])}</StyledMonth>
+                <StyledValue>{el[1]}</StyledValue>
+              </StyledRow>
+            );
+          }
+        })}
+      </StyledTable>
+    )
   );
 };
