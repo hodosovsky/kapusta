@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectReports } from 'redux/selectors';
 import reportsIcon from '../../../../images/reportsFiles/reports.svg';
-import { List, Item, ItemSvg } from './ReportsList.styled';
+import { List, Item, ItemSvg, ItemIncome } from './ReportsList.styled';
 import { useState, useEffect, useMemo } from 'react';
 import { categoryOrkToEng } from 'hooks/useCategory';
 import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
+
 
 export const ReportsList = ({ onChange }) => {
   const [active, setActive] = useState('');
@@ -12,7 +13,9 @@ export const ReportsList = ({ onChange }) => {
   const [data, setData] = useState({});
   const dispatch = useDispatch();
   const valueArr = [];
+
   // const expensesData = reports?.expenses?.expensesData ?? {};
+
 
   const expensesData = useMemo(
     () => reports?.expenses?.expensesData ?? {},
@@ -28,8 +31,10 @@ export const ReportsList = ({ onChange }) => {
   useEffect(() => {
     if (onChange === 'expenses') {
       setData(expensesData ?? {});
+      setActive('')
     } else {
       setData(incomesData ?? {});
+      setActive('')
     }
   }, [onChange, expensesData, incomesData]);
 
@@ -49,16 +54,17 @@ export const ReportsList = ({ onChange }) => {
   // const incomesEnties = Object.entries(incomesData) ?? [];
   return (
     <div>
-      <List>
+      <List className={onChange === 'income' ? 'incomeList' : '' }>
         {entries.map(item => {
           const iconName = item[0].replace(/\s+/g, '');
           valueArr.push(item);
-          return (
-            <Item
+          if(onChange==='expenses'){
+            return(
+              <Item
               key={iconName}
               id={iconName}
               onClick={clickEventHandler}
-              className={iconName === active ? 'active' : ''}
+              className={iconName === active ? 'active' : '' }
             >
               <p>{item[1].total}.00</p>
               <ItemSvg width="56" height="56">
@@ -66,7 +72,24 @@ export const ReportsList = ({ onChange }) => {
               </ItemSvg>
               <p>{categoryOrkToEng(item[0])}</p>
             </Item>
-          );
+            )
+          }else if(onChange==='income'){
+            return(
+              <ItemIncome
+              key={iconName}
+              id={iconName}
+              onClick={clickEventHandler}
+              className={iconName === active ? 'active' : '' }
+            >
+              <p>{item[1].total}.00</p>
+              <ItemSvg width="56" height="56">
+                <use href={`${reportsIcon}#${iconName}`}></use>
+              </ItemSvg>
+              <p>{categoryOrkToEng(item[0])}</p>
+            </ItemIncome>
+            )
+          }
+         return <></>
         })}
       </List>
     </div>
