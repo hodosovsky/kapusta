@@ -24,9 +24,9 @@ export default function IncomePage() {
       firstUpdate.current = false;
     } else {
       dispatch(getIncome());
+      console.log('im fetching');
       // do things after first render
     }
-    console.log('im fetching');
   }, [dispatch]);
 
   return (
