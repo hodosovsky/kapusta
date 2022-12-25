@@ -16,7 +16,7 @@ export const Summary = () => {
   const incomeData = useSelector(selectIncomeSummary);
   const expensesData = useSelector(selectExpensesSummary);
   let data;
-
+  console.log(location);
   if (location.pathname === '/home/income') {
     data = Object.entries(incomeData) ?? [];
   }
