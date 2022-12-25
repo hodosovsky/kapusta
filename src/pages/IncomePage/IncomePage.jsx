@@ -27,7 +27,7 @@ export default function IncomePage() {
       console.log('im fetching');
       // do things after first render
     }
-  }, [dispatch]);
+  }, [dispatch, firstUpdate]);
 
   return (
     <>
