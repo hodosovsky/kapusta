@@ -1,115 +1,66 @@
-import reports from '../../../../images/reportsFiles/reports.svg';
+import { useSelector } from 'react-redux';
+import { selectReports } from 'redux/selectors';
+import reportsIcon from '../../../../images/reportsFiles/reports.svg';
 import { List, Item, ItemSvg } from './ReportsList.styled';
+import { useState } from 'react';
+import { categoryOrkToEng } from 'hooks/useCategory';
 
-
-export const ReportsList = () => {
-
-
+export const ReportsList = ({ onChange }) => {
+  const [active, setActive] = useState('');
+  const { reports } = useSelector(selectReports);
+  const expensesData = reports?.expenses?.expensesData ?? {};
+  const incomesData = reports?.incomes?.incomesData ?? {};
+  const clickEventHandler = event => {
+    setActive(event.currentTarget.id);
+  };
+  const entries = Object.entries(expensesData) ?? [];
+  const incomesEnties = Object.entries(incomesData) ?? [];
   return (
-
     <div>
-      {/* <List>
-      {
-        `${'user expenses/invoises list'}`.map({id, amounth, type}=>{
-          return(
-            <Item key={id}>
-              <p>{amounth}</p>
-              <ItemSvg  width="56"
-            height="56">
-               <use href={`${reports}#icon-${type}`}></use>
-            </ItemSvg>
-            </Item>
-          )
-        })
-      }
-      </List> */}
-      
-      <List>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg
-            width="56"
-            height="56"
-          >
-            <use href={`${reports}#icon-products`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-alcohol`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-entertainment`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg
-            width="56"
-            height="56"
-           
-          >
-            <use href={`${reports}#icon-health`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56" >
-            <use href={`${reports}#icon-transport`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-housing`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-technique`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-comunal`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56" >
-            <use href={`${reports}#icon-hobbies`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-education`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-        <Item>
-          <p>${'amounth'}</p>
-          <ItemSvg width="56" height="56">
-            <use href={`${reports}#icon-other`}></use>
-          </ItemSvg>
-          <p>${'type'}</p>
-        </Item>
-      </List>
+      {onChange === 'expenses' && entries && (
+        <List>
+          {entries.map(item => {
+            const iconName = item[0].replace(/\s+/g, '');
+
+            return (
+              <Item
+                key={iconName}
+                id={iconName}
+                onClick={clickEventHandler}
+                className={iconName === active ? 'active' : ''}
+              >
+                <p>{item[1].total}.00</p>
+                <ItemSvg width="56" height="56">
+                  <use href={`${reportsIcon}#${iconName}`}></use>
+                </ItemSvg>
+                <p>{categoryOrkToEng(item[0])}</p>
+              </Item>
+            );
+          })}
+        </List>
+      )}
+      {onChange === 'income' && (
+        <List>
+          {incomesEnties.map(item => {
+            const iconName = item[0].replace(/\s+/g, '');
+
+            return (
+              <Item
+                key={iconName}
+                id={iconName}
+                onClick={clickEventHandler}
+                className={iconName === active ? 'active' : ''}
+              >
+                <p>{item[1].total}.00</p>
+                <ItemSvg width="56" height="56">
+                  <use href={`${reportsIcon}#${iconName}`}></use>
+                </ItemSvg>
+                <p>{categoryOrkToEng(item[0])}</p>
+              </Item>
+            );
+          })}
+        </List>
+      )}
     </div>
   );
 };
