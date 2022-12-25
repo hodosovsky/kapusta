@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.form`
-  /* width: 280px; */
   margin: 0 auto 50px;
   padding: 0 20px;
 
