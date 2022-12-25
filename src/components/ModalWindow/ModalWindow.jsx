@@ -11,31 +11,30 @@ import {
 const modalRoot = document.querySelector('#modal-root');
 
 export default function ModalWindow() {
-   
-    const [isModalOpen, setIsModalOpen] = useState(true);
-    const handleModalToggle = () => {
-      setIsModalOpen(!isModalOpen);
-    };
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const handleModalToggle = () => {
+    setIsModalOpen(false);
+  };
 
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
       handleModalToggle();
-      }
+    }
   };
 
-    return createPortal(
-      <StyledBackdrop onClick={handleBackdropClick}>
-        {isModalOpen && (
-          <StyledModalWindow>
-            <StyledModalTitle>
-              Hello! To get started, enter the current balance of your account!
-            </StyledModalTitle>
-            <StyledModalText>
-              You can't spend money until you have it :)
-            </StyledModalText>
-          </StyledModalWindow>
-        )}
-      </StyledBackdrop>,
-      modalRoot
-    );
+  return createPortal(
+    <StyledBackdrop onClick={handleBackdropClick}>
+      {isModalOpen && (
+        <StyledModalWindow>
+          <StyledModalTitle>
+            Hello! To get started, enter the current balance of your account!
+          </StyledModalTitle>
+          <StyledModalText>
+            You can't spend money until you have it
+          </StyledModalText>
+        </StyledModalWindow>
+      )}
+    </StyledBackdrop>,
+    modalRoot
+  );
 }

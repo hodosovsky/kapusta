@@ -3,23 +3,22 @@ import { Link, NavLink } from 'react-router-dom';
 import { StyledTabsMobile, StyledTabsDesktop } from './Styles';
 
 export const TransactionTabsMobile = () => {
-
-    return (
-      <StyledTabsMobile>
-        <Link to="/expenses" className="TabMobile">
-          expenses
-        </Link>
-        <Link to="/income" className="TabMobile">
-          income
-        </Link>
-      </StyledTabsMobile>
-    );
-}
+  return (
+    <StyledTabsMobile>
+      <Link to="/expenses" className="TabMobile">
+        expenses
+      </Link>
+      <Link to="/income" className="TabMobile">
+        income
+      </Link>
+    </StyledTabsMobile>
+  );
+};
 
 export const TransactionTabsDesktop = () => {
   return (
     <StyledTabsDesktop>
-      <NavLink to="expenses" className="TabDesktop active">
+      <NavLink to="expenses" className="TabDesktop">
         expenses
       </NavLink>
       <NavLink to="income" className="TabDesktop">

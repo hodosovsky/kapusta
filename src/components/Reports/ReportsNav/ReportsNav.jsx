@@ -22,14 +22,14 @@ export const ReportsNav = () => {
         <svg width="24" height="24">
           <use href={`${reports}#icon-back`}></use>
         </svg>
-        <ButtonBackText>Main page</ButtonBackText>
+        <ButtonBackText>Go back</ButtonBackText>
       </ButtonBack>
       <Box>
         <Slider />
 
         <Balance>
           <BalanceText>Balance:</BalanceText>
-          <BalanceAmounth>{balance ?? 0}.00</BalanceAmounth>
+          <BalanceAmounth>{balance ?? 0}.00 UAH</BalanceAmounth>
           <ButtonConfirm type="button">Confirm</ButtonConfirm>
         </Balance>
       </Box>

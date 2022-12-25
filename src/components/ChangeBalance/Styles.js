@@ -66,6 +66,7 @@ export const StyledForm = styled.form`
       padding: 12px 6px;
       border-radius: 16px;
       text-align: center;
+      border-left: 2px solid white;
     }
   }
 `;

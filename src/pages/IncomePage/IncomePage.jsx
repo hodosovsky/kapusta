@@ -1,6 +1,6 @@
 import { TransactionListDesk } from 'components/TransactionListDesk/TransactionListDesk';
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIncomeTransactions } from 'redux/selectors';
 import { getIncome } from 'redux/transactions/operations';
@@ -18,10 +18,15 @@ export default function IncomePage() {
   const dispatch = useDispatch();
   const allIncomes = useSelector(selectIncomeTransactions);
   const color = 'green';
-
+  const firstUpdate = useRef(true);
   useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+    } else {
+      dispatch(getIncome());
+      // do things after first render
+    }
     console.log('im fetching');
-    dispatch(getIncome());
   }, [dispatch]);
 
   return (

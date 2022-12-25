@@ -17,18 +17,18 @@ export const Summary = () => {
   const expensesData = useSelector(selectExpensesSummary);
   let data;
 
-  if (location.pathname === '/income') {
-    data = Object.entries(incomeData);
+  if (location.pathname === '/home/income') {
+    data = Object.entries(incomeData) ?? [];
   }
-  if (location.pathname === '/expenses') {
-    data = Object.entries(expensesData);
+  if (location.pathname === '/home/expenses') {
+    data = Object.entries(expensesData) ?? [];
   }
   console.log('data', data);
 
   return (
     <StyledTable>
       <StyledTableHead>SUMMARY</StyledTableHead>
-      {data.map(el => {
+      {data?.map(el => {
         if (el[1] === 'N/A') {
           return false;
         } else {

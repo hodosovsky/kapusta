@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import {useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { updateBalance } from '../../redux/transactions/operations';
 import { StyledForm } from './Styles';
 
-import ModalWindow from '../ModalWindow/ModalWindow';
+// import ModalWindow from '../ModalWindow/ModalWindow';
 
 const ChangeBalance = () => {
-  const stateBalance = useSelector(state => state.transactions.newBalance);  
+  const stateBalance = useSelector(state => state.transactions.newBalance);
   const [balance, setBalance] = useState(stateBalance ?? 0);
   const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const ChangeBalance = () => {
   const handleValue = balance + '.00 UAH';
 
   return (
-<>
+    <>
       <StyledForm onSubmit={handleSubmit}>
         <h2 className="title">Balance:</h2>
         <input
@@ -40,8 +40,8 @@ const ChangeBalance = () => {
           Confirm
         </button>
       </StyledForm>
-      {!balance && <ModalWindow />}
-</>
+      {/* {!balance && <ModalWindow />} */}
+    </>
   );
 };
 

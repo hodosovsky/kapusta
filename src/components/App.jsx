@@ -20,6 +20,7 @@ import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useMatchMedia } from 'hooks/use-match-media';
 // import { TransactionsList } from './TransactionsList/TransactionsList';
 // import { selectIsLoadingCurrentUser } from 'redux/selectors';
 
@@ -31,7 +32,7 @@ export const App = () => {
   ).token.replaceAll('"', '');
 
   const isFetchingUser = useSelector(selectIsFetcingCurrentUser);
-
+  const { isMobile } = useMatchMedia();
   useEffect(() => {
     if (!token || token === 'null') {
       return;
@@ -49,9 +50,22 @@ export const App = () => {
           <Route path="/" element={<SharedLayouts />}>
             <Route path="/" element={<PrivateRoute />}>
               <Route index element={<Navigate to="/home" />} />
-              <Route path="/home" element={<HomePage />} />
-              <Route path="/income" element={<IncomePage />} />
-              <Route path="/expenses" element={<ExpensesPage />} />
+              {!isMobile && (
+                <>
+                  <Route path="/home" element={<HomePage />}>
+                    <Route index element={<ExpensesPage />} />
+                    <Route path="income" element={<IncomePage />} />
+                    <Route path="expenses" element={<ExpensesPage />} />
+                  </Route>
+                </>
+              )}
+              {isMobile && (
+                <>
+                  <Route path="/home" element={<HomePage />} />
+                  <Route path="/income" element={<IncomePage />} />
+                  <Route path="/expenses" element={<ExpensesPage />} />
+                </>
+              )}
               <Route path="/reports" element={<ReportsPage />} />
             </Route>
             <Route path="/" element={<PublicRoute />}>
