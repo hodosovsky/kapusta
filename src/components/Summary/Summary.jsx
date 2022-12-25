@@ -30,7 +30,7 @@ export const Summary = () => {
   console.log('data', data);
 
   return (
-    isLoading && (
+    !isLoading && (
       <StyledTable>
         <StyledTableHead>SUMMARY</StyledTableHead>
         {data?.map(el => {

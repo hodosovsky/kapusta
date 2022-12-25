@@ -20,7 +20,7 @@ export const TransactionListDesk = ({ children }) => {
   };
 
   return (
-    isLoading && (
+    !isLoading && (
       <TransactionTable className="container">
         <thead>
           <tr>
