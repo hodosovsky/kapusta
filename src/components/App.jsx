@@ -45,7 +45,7 @@ export const App = () => {
 
   return (
     !isFetchingUser && (
-      <Container>
+      <>
         <ToastContainer />
         <Routes>
           <Route path="/" element={<SharedLayouts />}>
@@ -82,7 +82,7 @@ export const App = () => {
         {/* <Summary /> */}
         {/* <Form /> */}
         {/* <TransactionsList /> */}
-      </Container>
+      </>
     )
   );
 };
