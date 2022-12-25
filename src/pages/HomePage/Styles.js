@@ -1,8 +1,16 @@
 import styled from 'styled-components';
 
 export const StyledHomePage = styled.div`
-  padding: 46px 0px 40px 0px;
+  padding: 46px 0px 0px 0px;
   margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    padding: 40px 32px 60px 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 40px 91px 83px 91px;
+  }
+
   .flexWrapper {
     @media screen and (min-width: 768px) {
       display: flex;
@@ -15,10 +23,9 @@ export const StyledHomePage = styled.div`
       margin-bottom: 8px;
     }
   }
-  @media screen and (min-width: 768px) {
-    padding: 40px 32px 0px 32px;
-  }
-  @media screen and (min-width: 1280px) {
-    padding: 40px 91px 0px 91px;
+
+  .center {
+    width: 90px;
+    margin: 0 auto;
   }
 `;
