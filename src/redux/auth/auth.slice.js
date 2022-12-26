@@ -21,7 +21,6 @@ export const authSlice = createSlice({
     builder
       // login
       .addCase(logIn.fulfilled, (state, action) => {
-        console.log(action.payload);
         const { email, id, balance } = action.payload.userData;
         state.user = { email, id, newBalance: balance };
         state.token = action.payload.accessToken;

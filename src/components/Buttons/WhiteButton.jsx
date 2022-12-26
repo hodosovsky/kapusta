@@ -1,5 +1,5 @@
 import { StyledWhiteButton } from './Buttons.styled';
 
-export const WhiteButton = ({ children }) => {
-  return <StyledWhiteButton>{children}</StyledWhiteButton>;
+export const WhiteButton = ({ children, closeModal }) => {
+  return <StyledWhiteButton onClick={closeModal}>{children}</StyledWhiteButton>;
 };
