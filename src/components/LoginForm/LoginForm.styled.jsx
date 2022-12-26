@@ -1,33 +1,39 @@
 import { NavLink } from 'react-router-dom';
+import { OrangeButton } from 'components/Buttons/OrangeButton';
 import styled from 'styled-components';
 
 export const StyledformRegister = styled.div`
-  /* position: absolute;
-  left: 763px;
-  top: 173px;
-  transform: translate(-50%, 0);
-  z-index: 1; */
+  position: absolute;
+  top: 255px;
+  left: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto auto;
+  width: 280px;
+  padding: 40px 20px;
   background-color: #fff;
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 30px;
+  transform: translate(-50%);
 
   @media screen and (min-width: 768px) {
-    padding: 72px 84px 72px 84px;
-    top: 317px;
-    left: 171px;
+    left: 50%;
     width: 426px;
+    height: 552px;
+    padding: 56px 84px;
+    margin-top: 80px;
   }
   @media screen and (min-width: 1280px) {
-    left: 763px;
-    top: 173px;
+    top: 174px;
+    left: 900px;
+    margin: 0;
+    margin-right: 91px;
   }
 `;
 
 export const StyledpromtText = styled.p`
-  font-family: Roboto;
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -37,10 +43,6 @@ export const StyledpromtText = styled.p`
   color: #52555f;
   margin-bottom: 16px;
 
-  @media screen and (max-width: 767px) {
-    padding-left: 29px;
-    padding-right: 29px;
-  }
   @media screen and (min-width: 768px) {
     margin-bottom: 20px;
   }
@@ -76,6 +78,10 @@ export const StyledanimationGoogle = styled.div`
   text-align: center;
 `;
 
+export const LogInBtn = styled(OrangeButton)`
+  width: 116px;
+`;
+
 export const StyledLinkbtnGoogle = styled.a`
   justify-content: center;
   margin-left: auto;
@@ -100,10 +106,11 @@ export const StyledLinkbtnGoogle = styled.a`
 export const StyledlabelText = styled.span`
   margin-bottom: 12px;
   width: 100%;
+  font-family: 'Roboto';
   font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 12px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
   color: #000000;
 `;
 
@@ -115,11 +122,12 @@ export const StyledformInput = styled.input`
   border-radius: 30px;
   background-color: #f6f7fb;
   padding: 17px 18px;
-  width: 204px;
+  width: 240px;
 
   @media screen and (min-width: 768px) {
     padding: 17px 20px 17px 20px;
-    width: 218px;
+    width: 259px;
+    height: 52px;
   }
 `;
 
@@ -129,7 +137,7 @@ export const StyledcontainerButton = styled.div`
 `;
 
 export const StyledNavlink = styled(NavLink)`
-  width: 122px;
+  width: 116px;
   height: 44px;
   background-color: #f5f6fb;
   border-radius: 16px;

@@ -12,9 +12,9 @@ import {
   StyledformInput,
   StyledcontainerButton,
   Styledlabel,
+  LogInBtn,
   StyledNavlink,
 } from './LoginForm.styled';
-import { OrangeButton } from 'components/Buttons/OrangeButton';
 import { logIn } from 'redux/auth/operations';
 // import { googleLoginAPI } from 'services/apiAuth';
 
@@ -147,7 +147,7 @@ export const LoginForm = () => {
           </Styledlabel>
         </div>
         <StyledcontainerButton>
-          <OrangeButton type="submit">LOG IN</OrangeButton>
+          <LogInBtn type="submit">LOG IN</LogInBtn>
           <StyledNavlink to="/register">Registration</StyledNavlink>
         </StyledcontainerButton>
       </form>

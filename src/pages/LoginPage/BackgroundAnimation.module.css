@@ -1,0 +1,90 @@
+.kochan li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 84px;
+  height: 88px;
+  animation: animate 18s linear infinite;
+  right: -84px;
+}
+
+.hero__cole {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.kochan li:nth-child(1) {
+  top: 10%;
+  animation-delay: 2s;
+  fill: black;
+}
+
+.kochan li:nth-child(2) {
+  top: 25%;
+  animation-delay: 4s;
+  animation-duration: 22s;
+}
+
+.kochan li:nth-child(3) {
+  top: 15%;
+  animation-delay: 6s;
+  animation-duration: 28s;
+}
+
+.kochan li:nth-child(4) {
+  top: 25%;
+  animation-delay: 8s;
+  animation-duration: 8s;
+}
+
+.kochan li:nth-child(5) {
+  top: 10%;
+  animation-delay: 10s;
+  animation-duration: 10s;
+}
+
+.kochan li:nth-child(6) {
+  top: 25%;
+  animation-delay: 12s;
+  animation-duration: 6s;
+}
+
+.kochan li:nth-child(7) {
+  top: 15%;
+  animation-delay: 14s;
+}
+
+.kochan li:nth-child(8) {
+  top: 25%;
+  animation-delay: 16s;
+  animation-duration: 16s;
+}
+
+.kochan li:nth-child(9) {
+  top: 8%;
+  animation-delay: 18s;
+  animation-duration: 8s;
+}
+
+.kochan li:nth-child(10) {
+  top: 20%;
+  animation-delay: 20s;
+  animation-duration: 12s;
+}
+
+.kochan li:nth-child(11) {
+  top: 30%;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-1440px) rotate(720deg);
+  }
+}
