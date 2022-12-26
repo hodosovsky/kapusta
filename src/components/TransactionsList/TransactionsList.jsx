@@ -57,7 +57,11 @@ export const TransactionsList = () => {
               <Sum style={{ color }} className="sum">
                 {minus} {amount}.00 UAH.
               </Sum>
-              <span id={_id} onClick={handleDelete}>
+              <span
+                id={_id}
+                onClick={handleDelete}
+                style={{ cursor: 'pointer' }}
+              >
                 <DeleteIcon />
               </span>
             </SumCont>

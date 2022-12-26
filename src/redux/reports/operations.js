@@ -5,7 +5,8 @@ export const getReports = createAsyncThunk(
   'reports/getReports',
   async (value, thunkAPI) => {
     try {
-      return await getPeriodDataAPI(value);
+      const data = await getPeriodDataAPI(value);
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

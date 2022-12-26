@@ -6,7 +6,6 @@ import { useState, useEffect, useMemo } from 'react';
 import { categoryOrkToEng } from 'hooks/useCategory';
 import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
 
-
 export const ReportsList = ({ onChange }) => {
   const [active, setActive] = useState('');
   const { reports } = useSelector(selectReports);
@@ -15,7 +14,6 @@ export const ReportsList = ({ onChange }) => {
   const valueArr = [];
 
   // const expensesData = reports?.expenses?.expensesData ?? {};
-
 
   const expensesData = useMemo(
     () => reports?.expenses?.expensesData ?? {},
@@ -31,10 +29,10 @@ export const ReportsList = ({ onChange }) => {
   useEffect(() => {
     if (onChange === 'expenses') {
       setData(expensesData ?? {});
-      setActive('')
+      setActive('');
     } else {
       setData(incomesData ?? {});
-      setActive('')
+      setActive('');
     }
   }, [onChange, expensesData, incomesData]);
 
@@ -43,7 +41,6 @@ export const ReportsList = ({ onChange }) => {
     const filteredValueArr = valueArr.filter(
       item => item[0].replace(/\s+/g, '') === event.currentTarget.id
     );
-
     dispatch(filteredDataAction(filteredValueArr));
   };
   const entries = Object.entries(data) ?? [];
@@ -54,42 +51,42 @@ export const ReportsList = ({ onChange }) => {
   // const incomesEnties = Object.entries(incomesData) ?? [];
   return (
     <div>
-      <List className={onChange === 'income' ? 'incomeList' : '' }>
+      <List className={onChange === 'income' ? 'incomeList' : ''}>
         {entries.map(item => {
           const iconName = item[0].replace(/\s+/g, '');
           valueArr.push(item);
-          if(onChange==='expenses'){
-            return(
+          if (onChange === 'expenses') {
+            return (
               <Item
-              key={iconName}
-              id={iconName}
-              onClick={clickEventHandler}
-              className={iconName === active ? 'active' : '' }
-            >
-              <p>{item[1].total}.00</p>
-              <ItemSvg width="56" height="56">
-                <use href={`${reportsIcon}#${iconName}`}></use>
-              </ItemSvg>
-              <p>{categoryOrkToEng(item[0])}</p>
-            </Item>
-            )
-          }else if(onChange==='income'){
-            return(
+                key={iconName}
+                id={iconName}
+                onClick={clickEventHandler}
+                className={iconName === active ? 'active' : ''}
+              >
+                <p>{item[1].total}.00</p>
+                <ItemSvg width="56" height="56">
+                  <use href={`${reportsIcon}#${iconName}`}></use>
+                </ItemSvg>
+                <p>{categoryOrkToEng(item[0])}</p>
+              </Item>
+            );
+          } else if (onChange === 'income') {
+            return (
               <ItemIncome
-              key={iconName}
-              id={iconName}
-              onClick={clickEventHandler}
-              className={iconName === active ? 'active' : '' }
-            >
-              <p>{item[1].total}.00</p>
-              <ItemSvg width="56" height="56">
-                <use href={`${reportsIcon}#${iconName}`}></use>
-              </ItemSvg>
-              <p>{categoryOrkToEng(item[0])}</p>
-            </ItemIncome>
-            )
+                key={iconName}
+                id={iconName}
+                onClick={clickEventHandler}
+                className={iconName === active ? 'active' : ''}
+              >
+                <p>{item[1].total}.00</p>
+                <ItemSvg width="56" height="56">
+                  <use href={`${reportsIcon}#${iconName}`}></use>
+                </ItemSvg>
+                <p>{categoryOrkToEng(item[0])}</p>
+              </ItemIncome>
+            );
           }
-         return <></>
+          return <></>;
         })}
       </List>
     </div>

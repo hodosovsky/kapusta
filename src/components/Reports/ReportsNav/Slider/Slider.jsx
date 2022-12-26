@@ -32,8 +32,9 @@ export const Slider = () => {
     } else {
       monthString = monthNumber + 1;
     }
+    const query = `${year}-${monthString}`;
+    if (query !== '-01') dispatch(getReports(query));
     dispatch(reportsQueryAction(`${year}-${monthString}`));
-    dispatch(getReports(`${year}-${monthString}`));
     // getPeriodDataAPI(`${year}-${monthString}`).then(data => {
     //   setReports(data);
     // });

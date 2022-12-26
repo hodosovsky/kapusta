@@ -7,7 +7,6 @@ import {
   clearAuthHeader,
   fullUserInfoAPI,
 } from 'services/apiAuth';
-import axios from 'axios';
 
 export const logIn = createAsyncThunk(
   'auth/login',
@@ -37,8 +36,6 @@ export const refreshUser = createAsyncThunk(
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
-    console.log('axios token', axios.defaults.headers.common.Authorization);
-    console.log('persist token', persistedToken);
     setAuthHeader(persistedToken);
     if (!persistedToken) {
       return thunkAPI.rejectWithValue('немає токену');
