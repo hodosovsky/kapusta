@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/kapusta/static/css/main.b9df59ca.css",
-    "main.js": "/kapusta/static/js/main.c6cd5fd3.js",
+    "main.js": "/kapusta/static/js/main.bbf605aa.js",
     "static/media/reports.svg": "/kapusta/static/media/reports.567065b7eac1c98730d496987d5d688c.svg",
     "static/media/google.svg": "/kapusta/static/media/google.d64f9163b8f61487544747b482817a75.svg",
     "static/media/kapusta.svg": "/kapusta/static/media/kapusta.d02965e3276f6c8fa9ec632155e20a60.svg",
@@ -15,10 +15,10 @@
     "static/media/tabEllipse.svg": "/kapusta/static/media/tabEllipse.f1b59b20b52c5f9305e31367cabbf38e.svg",
     "static/media/arrow-bottom.svg": "/kapusta/static/media/arrow-bottom.d0daa32725811f1fd9548377d47b8559.svg",
     "main.b9df59ca.css.map": "/kapusta/static/css/main.b9df59ca.css.map",
-    "main.c6cd5fd3.js.map": "/kapusta/static/js/main.c6cd5fd3.js.map"
+    "main.bbf605aa.js.map": "/kapusta/static/js/main.bbf605aa.js.map"
   },
   "entrypoints": [
     "static/css/main.b9df59ca.css",
-    "static/js/main.c6cd5fd3.js"
+    "static/js/main.bbf605aa.js"
   ]
 }
