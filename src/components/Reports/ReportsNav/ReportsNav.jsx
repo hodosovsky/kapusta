@@ -12,13 +12,15 @@ import {
 import reports from '../../../images/reportsFiles/reports.svg';
 import { useSelector } from 'react-redux';
 import { selectBalance } from 'redux/selectors';
+import { useLocation } from 'react-router';
 
 export const ReportsNav = () => {
   const balance = useSelector(selectBalance);
-
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
   return (
     <PreBox>
-      <ButtonBack>
+      <ButtonBack to={backLinkHref}>
         <svg width="24" height="24">
           <use href={`${reports}#icon-back`}></use>
         </svg>
