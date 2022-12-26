@@ -25,7 +25,7 @@ export default function HomePage() {
           {!isMobile && <ReportsBtn to="/reports" />}
         </div>
         {isMobile && (
-          <div className="center">
+          <div className="datePickerMobWrap">
             <DateSelection startDate={startDate} setStartDate={setStartDate} />
           </div>
         )}
