@@ -7,11 +7,14 @@ import {
   StyledModalText,
   StyledModalTitle,
 } from './ModalWindow.styled';
+import { useEffect } from 'react';
 
 const modalRoot = document.querySelector('#modal-root');
+const body = document.querySelector('body');
 
 export default function ModalWindow() {
   const [isModalOpen, setIsModalOpen] = useState(true);
+
   const handleModalToggle = () => {
     setIsModalOpen(false);
   };
@@ -22,9 +25,13 @@ export default function ModalWindow() {
     }
   };
 
+  useEffect(() => {
+    return () => body.classList.toggle('no-scroll');
+  });
+
   return createPortal(
-    <StyledBackdrop onClick={handleBackdropClick}>
-      {isModalOpen && (
+    isModalOpen && (
+      <StyledBackdrop onClick={handleBackdropClick}>
         <StyledModalWindow>
           <StyledModalTitle>
             Hello! To get started, enter the current balance of your account!
@@ -33,8 +40,8 @@ export default function ModalWindow() {
             You can't spend money until you have it
           </StyledModalText>
         </StyledModalWindow>
-      )}
-    </StyledBackdrop>,
+      </StyledBackdrop>
+    ),
     modalRoot
   );
 }

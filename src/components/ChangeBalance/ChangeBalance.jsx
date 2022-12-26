@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateBalance } from '../../redux/transactions/operations';
 import { StyledForm } from './Styles';
 
-// import ModalWindow from '../ModalWindow/ModalWindow';
+import ModalWindow from '../ModalWindow/ModalWindow';
 
 const ChangeBalance = () => {
   const stateBalance = useSelector(state => state.transactions.newBalance);
@@ -49,7 +49,8 @@ const ChangeBalance = () => {
           Confirm
         </button>
       </StyledForm>
-      {/* {!balance && <ModalWindow />} */}
+
+      {!balance && <ModalWindow />}
     </>
   );
 };
