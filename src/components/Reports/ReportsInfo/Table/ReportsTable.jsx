@@ -5,85 +5,95 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { selectDataChart } from '../../../../redux/selectors';
 import { useSelector } from 'react-redux';
 import { selectReports } from 'redux/selectors';
+import { categoryOrkToEng } from 'hooks/useCategory';
 Chart.register(...registerables);
 Chart.register(ChartDataLabels);
 
-export const ReportsTable = ({onChange}) => {
+export const ReportsTable = ({ onChange }) => {
   const [chartData, setChartData] = useState({
     datasets: [],
   });
   const [keys, setKeys] = useState([]);
   const [values, setValues] = useState([]);
   const { reports } = useSelector(selectReports);
-  const [check, setCheck] = useState(false)
+  const [check, setCheck] = useState(false);
   let myData = useSelector(selectDataChart);
 
+  useEffect(() => {
+    if (myData <= 0) {
+      if (onChange === 'expenses') {
+        setCheck(false);
+        const data = reports?.expenses?.expensesData;
+        if (data) {
+          let key = Object.keys(data);
+          let value = Object.values(data);
 
+          let total = value.map(el => {
+            return el.total;
+          });
+          let intervarId = setInterval(() => {
+            if (key.length !== 13 && total.length < 13) {
+              key.unshift('');
+              key.push('');
+              total.unshift(0);
+              total.push(0);
+            } else {
+              clearInterval(intervarId);
+              setKeys(key);
+              setValues(total);
+            }
+          });
+        }
+      } else if (onChange === 'income') {
+        setCheck(false);
+        const data = reports?.incomes?.incomesData;
+        if (data) {
+          let key = Object.keys(data);
+          let value = Object.values(data);
 
-useEffect(()=>{
-if(myData<=0){
-  if(onChange==='expenses'){
-    setCheck(false)
-    const data = reports?.expenses?.expensesData
-    if(data){
-      let key = Object.keys(data)
-      let value = Object.values(data)
-      
-      let total = value.map(el=>{
-        return el.total
-      })
-      let intervarId = setInterval(() => {
-        if (key.length !== 13 && total.length < 13) {
-          key.unshift('');
-          key.push('');
-          total.unshift(0);
-          total.push(0);
-        } else {
-          clearInterval(intervarId);
-          setKeys(key)
-          setValues(total)
-        }})
+          let total = value.map(el => {
+            return el.total;
+          });
+          let intervarId = setInterval(() => {
+            if (key.length !== 13 && total.length < 13) {
+              key.unshift('');
+              key.push('');
+              total.unshift(0);
+              total.push(0);
+            } else {
+              clearInterval(intervarId);
+              setKeys(key);
+              setValues(total);
+            }
+          });
+        }
+      }
     }
-  }else if(onChange ==='income'){
-    setCheck(false)
-    const data = reports?.incomes?.incomesData
-    if(data){
-      let key = Object.keys(data)
-      let value = Object.values(data)
-      
-      let total = value.map(el=>{
-        return el.total
-      })
-      let intervarId = setInterval(() => {
-        if (key.length !== 13 && total.length < 13) {
-          key.unshift('');
-          key.push('');
-          total.unshift(0);
-          total.push(0);
-        } else {
-          clearInterval(intervarId);
-          setKeys(key)
-          setValues(total)
-        }})
-         
-    
-    }
-  }
-}
-  return
-},[onChange, reports?.expenses?.expensesData, reports?.incomes?.incomesData, myData])
+    return;
+  }, [
+    onChange,
+    reports?.expenses?.expensesData,
+    reports?.incomes?.incomesData,
+    myData,
+  ]);
 
   useEffect(() => {
-    if (myData.length <= 0 && keys.length !== 0 && values.length !== 0 && check) {
+    if (
+      myData.length <= 0 &&
+      keys.length !== 0 &&
+      values.length !== 0 &&
+      check
+    ) {
       setKeys([]);
       setValues([]);
     }
     if (myData.length > 0) {
-       let mimi = myData[0];
+      let mimi = myData[0];
       let key = Object.keys(mimi[1]);
       let value = Object.values(mimi[1]);
-      key.shift()
-       value.shift()
+      console.log(categoryOrkToEng('Продукты'));
+      key.shift();
+      value.shift();
       if (key.length < 13 && value.length < 13) {
         let intervarId = setInterval(() => {
           if (key.length !== 13 && value.length < 13) {
@@ -95,7 +105,7 @@ if(myData<=0){
             clearInterval(intervarId);
             if (keys !== key && values !== value) {
               if (keys[6] !== key[6] && values[6] !== value[6]) {
-                setCheck(true)
+                setCheck(true);
                 setKeys(key);
                 setValues(value);
               } else {
@@ -117,7 +127,7 @@ if(myData<=0){
         {
           label: 'awd',
           data: values.map(el => el),
-          backgroundColor: ['#FF751D','#FFDAC0',  '#FFDAC0'],
+          backgroundColor: ['#FF751D', '#FFDAC0', '#FFDAC0'],
           borderRadius: 10,
           borderSkipped: 'start',
 

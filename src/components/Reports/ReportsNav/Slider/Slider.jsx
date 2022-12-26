@@ -8,6 +8,7 @@ import { ButtonsNextPrev } from './ButtonsNextPrev/ButtonsNextPrev';
 import { useDispatch } from 'react-redux';
 import { getReports } from 'redux/reports/operations';
 import { reportsQueryAction } from 'redux/reportsQuery/reportsQuery.slice';
+import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
 
 export const Slider = () => {
   const [monthNumber, setMonthNumber] = useState(0);
@@ -41,6 +42,7 @@ export const Slider = () => {
   const handlerClick = name => {
     switch (name) {
       case 'decrement':
+        dispatch(filteredDataAction([]));
         setMonthNumber(monthNumber - 1);
         if (monthNumber === 0) {
           setMonthNumber(11);
@@ -48,6 +50,7 @@ export const Slider = () => {
         }
         break;
       case 'increment':
+        dispatch(filteredDataAction([]));
         setMonthNumber(monthNumber + 1);
         if (monthNumber === 11) {
           setMonthNumber(0);
@@ -67,6 +70,7 @@ export const Slider = () => {
     switch (name) {
       case 'decrement':
         setYear(year - 1);
+
         break;
       case 'increment':
         setYear(year + 1);
