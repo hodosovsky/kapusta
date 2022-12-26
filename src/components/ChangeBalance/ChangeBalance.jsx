@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateBalance } from '../../redux/transactions/operations';
 import { StyledForm } from './Styles';
@@ -7,18 +7,27 @@ import { StyledForm } from './Styles';
 
 const ChangeBalance = () => {
   const stateBalance = useSelector(state => state.transactions.newBalance);
-  const [balance, setBalance] = useState(stateBalance ?? 0);
+  const stateUserBalance = useSelector(state => state.auth.user.newBalance);
+  const [balance, setBalance] = useState(stateUserBalance ?? 0);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (stateBalance) setBalance(stateBalance);
+  }, [stateBalance]);
 
   const handleSubmit = evt => {
     evt.preventDefault();
     dispatch(updateBalance({ newBalance: balance }));
   };
+
   const handleChange = evt => {
     evt.preventDefault();
+
     if (!Number(evt.target.value.slice(0, -7))) return;
+
     setBalance(Number(evt.target.value.slice(0, -7)));
   };
+
   const handleValue = balance + '.00 UAH';
 
   return (

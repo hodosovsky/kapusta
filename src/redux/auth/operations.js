@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import {
   loginAPI,
   logoutAPI,
@@ -6,6 +7,7 @@ import {
   clearAuthHeader,
   fullUserInfoAPI,
 } from 'services/apiAuth';
+import axios from 'axios';
 
 export const logIn = createAsyncThunk(
   'auth/login',
@@ -32,16 +34,18 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 export const refreshUser = createAsyncThunk(
   'auth/refreshUser',
   async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    console.log('axios token', axios.defaults.headers.common.Authorization);
+    console.log('persist token', persistedToken);
+    setAuthHeader(persistedToken);
+    if (!persistedToken) {
+      return thunkAPI.rejectWithValue('немає токену');
+    }
     try {
-      // const state = thunkAPI.getState();
-      // const persistedToken = state.auth.token;
-      // console.log(persistedToken);
-      // token.set(persistedToken);
-      // if (!persistedToken) {
-      //   return thunkAPI.rejectWithValue();
-      // }
-      
-      return await fullUserInfoAPI();
+      const data = await fullUserInfoAPI();
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

@@ -33,7 +33,7 @@ export const getExpenseAPI = async () => {
     const { data } = await axios.get('/transaction/expense');
     return data;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 

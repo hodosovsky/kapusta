@@ -4,51 +4,33 @@ axios.defaults.baseURL = 'https://kapusta-backend.goit.global';
 axios.defaults.validateStatus();
 
 export const registerAPI = async user => {
-  try {
-    const { data } = await axios.post('/auth/register', user);
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
+  const { data } = await axios.post('/auth/register', user);
+  return data;
 };
 
 export const loginAPI = async user => {
-  try {
-    const { data } = await axios.post('auth/login', user);
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
+  const { data } = await axios.post('auth/login', user);
+  return data;
 };
 
 export const logoutAPI = async () => {
-  try {
-    const { data } = await axios.post('auth/logout');
-    return data;
-  } catch (error) {}
+  const { data } = await axios.post('auth/logout');
+  return data;
 };
 
 export const googleLoginAPI = async () => {
-  try {
-    const response = await axios.get('/auth/google', {
-      headers: {
-        accept: '*/*',
-      },
-    });
-    console.log('response', response);
-    return response;
-  } catch (error) {
-    console.log(error);
-  }
+  const response = await axios.get('/auth/google', {
+    headers: {
+      accept: '*/*',
+    },
+  });
+  console.log('response', response);
+  return response;
 };
 
 export const fullUserInfoAPI = async () => {
-  try {
-    const { data } = await axios.get('user');
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
+  const { data } = await axios.get('user');
+  return data;
 };
 
 export const setAuthHeader = token => {

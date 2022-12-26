@@ -3,7 +3,7 @@ import { Summary } from 'components/Summary/Summary';
 import { TransactionListDesk } from 'components/TransactionListDesk/TransactionListDesk';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectExpenseTransactions } from 'redux/selectors';
+import { selectExpenseTransactions, selectIsLoggedIn } from 'redux/selectors';
 import { getExpenses } from 'redux/transactions/operations';
 import { StyledFrame, StyledTableAndSummaryDiv } from './ExpensePage.styled';
 import { useMatchMedia } from '../../hooks/use-match-media';
@@ -15,11 +15,12 @@ export default function ExpensesPage() {
 
   const allExpenses = useSelector(selectExpenseTransactions);
   const color = 'red';
+  const user = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    dispatch(getExpenses());
+    if (user) dispatch(getExpenses());
     // do things after first render
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   return (
     <>

@@ -11,10 +11,28 @@ import {
   TransactionTabsMobile,
   TransactionTabsDesktop,
 } from '../../components/TransactionTabs/TransactionTabs';
+// import { setAuthHeader } from 'services/apiAuth';
+// import { addAccessToken } from 'redux/auth/auth.slice';
+// import { refreshUser } from 'redux/auth/operations';
+// import { useDispatch } from 'react-redux';
 
 export default function HomePage() {
   const { isMobile } = useMatchMedia();
   const [startDate, setStartDate] = useState(new Date());
+  // const dispatch = useDispatch();
+  // const token = JSON.parse(
+  //   localStorage.getItem('persist:auth')
+  // ).token.replaceAll('"', '');
+
+  // useEffect(() => {
+  //   if (!token || token === 'null') {
+  //     return;
+  //   }
+  //   setAuthHeader(token);
+  //   dispatch(addAccessToken(token));
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
+
   return (
     <>
       <GrayBg />

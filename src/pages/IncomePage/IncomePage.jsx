@@ -2,7 +2,7 @@ import { TransactionListDesk } from 'components/TransactionListDesk/TransactionL
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIncomeTransactions } from 'redux/selectors';
+import { selectIncomeTransactions, selectIsLoggedIn } from 'redux/selectors';
 import { getIncome } from 'redux/transactions/operations';
 import { useMatchMedia } from 'hooks/use-match-media';
 import { BackButton } from 'components/Buttons/BackButton';
@@ -18,10 +18,11 @@ export default function IncomePage() {
   const dispatch = useDispatch();
   const allIncomes = useSelector(selectIncomeTransactions);
   const color = 'green';
+  const user = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    dispatch(getIncome());
-  }, [dispatch]);
+    if (user) dispatch(getIncome());
+  }, [dispatch, user]);
 
   return (
     <>
