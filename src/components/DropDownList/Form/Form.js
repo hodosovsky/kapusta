@@ -27,11 +27,14 @@ export default function Form() {
   let categoryArray;
   let functionToDispatch;
 
-  if (location.pathname === '/home/income') {
+  if (location.pathname === '/home/income' || location.pathname === '/income') {
     categoryArray = ['Salary', 'Additional income'];
     functionToDispatch = addIncome;
   }
-  if (location.pathname === '/home/expenses') {
+  if (
+    location.pathname === '/home/expenses' ||
+    location.pathname === '/expenses'
+  ) {
     categoryArray = [
       'Products',
       'ЗСУ',
