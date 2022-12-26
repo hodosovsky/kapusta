@@ -52,8 +52,8 @@ export const transactionsSlice = createSlice({
       // Get Income
       .addCase(getIncome.pending, handlePending)
       .addCase(getIncome.fulfilled, (state, action) => {
-        state.incomes.incomeTransactions = action?.payload?.incomes ?? [];
-        state.incomes.monthsStats = action?.payload?.monthsStats ?? [];
+        state.incomes.incomeTransactions = action.payload.incomes;
+        state.incomes.monthsStats = action.payload.monthsStats;
         state.isLoading = false;
       })
       .addCase(getIncome.rejected, handleRejected)
@@ -69,8 +69,8 @@ export const transactionsSlice = createSlice({
       // Get Expenses
       .addCase(getExpenses.pending, handlePending)
       .addCase(getExpenses.fulfilled, (state, action) => {
-        state.expences.expenseTransactions = action?.payload?.expenses ?? [];
-        state.expences.monthsStats = action?.payload?.monthsStat ?? [];
+        state.expences.expenseTransactions = action.payload.expenses;
+        state.expences.monthsStats = action.payload.monthsStats;
         state.isLoading = false;
       })
       .addCase(getExpenses.rejected, handleRejected)
