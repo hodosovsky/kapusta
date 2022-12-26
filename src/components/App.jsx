@@ -54,7 +54,7 @@ export const App = () => {
               {!isMobile && (
                 <>
                   <Route path="/home" element={<HomePage />}>
-                    <Route index element={<ExpensesPage />} />
+                    <Route index element={<Navigate to="/home/expenses" />} />
                     <Route path="income" element={<IncomePage />} />
                     <Route path="expenses" element={<ExpensesPage />} />
                   </Route>
@@ -65,6 +65,7 @@ export const App = () => {
                   <Route path="/home" element={<HomePage />} />
                   <Route path="/income" element={<IncomePage />} />
                   <Route path="/expenses" element={<ExpensesPage />} />
+                  <Route path="*" element={<Navigate to="/home" />} />
                 </>
               )}
               <Route path="/reports" element={<ReportsPage />} />
