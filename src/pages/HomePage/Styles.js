@@ -24,8 +24,8 @@ export const StyledHomePage = styled.div`
     }
   }
 
-  .center {
+  .datePickerMobWrap {
     width: 90px;
-    margin: 0 auto;
+    margin: 0 auto 70px;
   }
 `;
