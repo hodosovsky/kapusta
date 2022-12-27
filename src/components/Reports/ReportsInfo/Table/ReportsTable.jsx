@@ -47,8 +47,10 @@ export const ReportsTable = ({ onChange }) => {
   const [indexAxis, setIndexAxis] = useState('');
   const [innerWidth, setInnerWidth] = useState('');
   const [currentChart, setCurrentChart] = useState('income');
+
   const { reports } = useSelector(selectReports);
-  let myData = useSelector(selectDataChart);
+
+  let dataSubMenu = useSelector(selectDataChart);
   const divRef = useRef();
   const ref = useRef(null);
   const div2Ref = useRef();
@@ -57,7 +59,6 @@ export const ReportsTable = ({ onChange }) => {
   useEffect(() => {
     const resizeHandler = e => {
       setInnerWidth(getComputedStyle(div2Ref?.current).width);
-      // console.log(indexAxis)
       if (
         getComputedStyle(div2Ref?.current).width === '704px' &&
         indexAxis !== 'x'
@@ -93,7 +94,7 @@ export const ReportsTable = ({ onChange }) => {
     ) {
       if (onChange === 'expenses') {
         const data = reports?.expenses?.expensesData;
-        if (data) {
+        if (data && indexAxis !== '') {
           const info = SortData(data);
           setChartData(ChartDataDesktop(info.x, info.y, indexAxis));
           setChartOptions(ChartOptionsDesktop(indexAxis));
@@ -116,7 +117,7 @@ export const ReportsTable = ({ onChange }) => {
     onChange,
     reports?.expenses?.expensesData,
     reports?.incomes?.incomesData,
-    myData,
+    dataSubMenu,
     indexAxis,
     reports,
     currentChart,
@@ -124,12 +125,13 @@ export const ReportsTable = ({ onChange }) => {
   ]);
 
   useEffect(() => {
-    if (myData.length <= 0 && check) {
+    if (dataSubMenu.length <= 0 && check) {
+    
       return;
     }
-    if (myData.length > 0) {
-      const info = SortDataSubMenu(myData);
-
+    if (dataSubMenu.length > 0) {
+      const info = SortDataSubMenu(dataSubMenu);
+   
       if (
         chartData?.datasets[0].data[0] !== info.y[0] &&
         chartData?.labels[0] !== info?.x[0]
@@ -141,13 +143,10 @@ export const ReportsTable = ({ onChange }) => {
         return;
       }
     }
-  }, [myData, check, chartData.datasets, chartData?.labels, indexAxis]);
+  }, [dataSubMenu, check, chartData?.datasets, chartData?.labels, indexAxis]);
 
   useEffect(() => {
-    // const el = document.getElementById('my-chart');
     const el2 = ref.current;
-    //  console.log(el)
-
     if (indexAxis === 'y') {
       el2.resize(280, 480);
     }
