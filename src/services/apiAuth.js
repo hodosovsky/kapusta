@@ -1,11 +1,18 @@
 import axios from 'axios';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 axios.defaults.baseURL = 'https://kapusta-backend.goit.global';
 axios.defaults.validateStatus();
 
 export const registerAPI = async user => {
-  const { data } = await axios.post('/auth/register', user);
-  return data;
+  try {
+    const { data } = await axios.post('/auth/register', user);
+    return data;
+  } catch (error) {
+    if (error.response.status === 409) {
+      Report.failure(`User ${user.email} is existing`);
+    }
+  }
 };
 
 export const loginAPI = async user => {
