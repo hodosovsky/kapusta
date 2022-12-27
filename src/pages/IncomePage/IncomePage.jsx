@@ -11,6 +11,7 @@ import { getIncome } from 'redux/transactions/operations';
 import { useMatchMedia } from 'hooks/use-match-media';
 import { BackButton } from 'components/Buttons/BackButton';
 import {
+  StyledBg,
   StyledFrame,
   StyledTableAndSummaryDiv,
 } from 'pages/ExpensesPage/ExpensePage.styled';
@@ -31,7 +32,12 @@ export default function IncomePage() {
 
   return (
     <>
-      {isMobile && <BackButton />}
+      {isMobile && (
+        <>
+          <StyledBg />
+          <BackButton />
+        </>
+      )}
       <StyledFrame>
         <Form />
         <StyledTableAndSummaryDiv>

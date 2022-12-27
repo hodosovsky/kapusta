@@ -66,7 +66,6 @@ export const SelectBody = styled.div`
   /* margin-bottom: 32px; */
 
   width: 280px;
-  height: 44px;
 
   border: 2px solid #f5f6fb;
   border-bottom-right-radius: 20px;
@@ -76,7 +75,6 @@ export const SelectBody = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 186px;
-    height: 365px;
     border-radius: 0;
   }
 
