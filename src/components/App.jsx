@@ -1,16 +1,9 @@
-import ExpensesPage from 'pages/ExpensesPage/ExpensesPage';
-import IncomePage from 'pages/IncomePage/IncomePage';
-import LoginPage from 'pages/LoginPage/LoginPage';
-import ReportsPage from 'pages/ReportsPage/ReportsPage';
-import RegiserPage from 'pages/RegisterPage/RegisterPage';
-import ThereIsNoSuchPage from 'pages/ThereIsNoSuchPage/ThereIsNoSuchPage';
-import HomePage from 'pages/HomePage/HomePage';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
 // import { LightModalWindow } from './LightModalWindow/LightModalWindow';
 // import { Summary } from './Summary/Summary';
 // import { Form } from './TestForm/Form';
-import { useEffect } from 'react';
+import { useEffect, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addAccessToken } from 'redux/auth/auth.slice';
 import { setAuthHeader } from 'services/apiAuth';
@@ -22,12 +15,18 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useMatchMedia } from 'hooks/use-match-media';
 
-// import { TransactionsList } from './TransactionsList/TransactionsList';
-// import { selectIsLoadingCurrentUser } from 'redux/selectors';
+const ExpensesPage = lazy(() => import('../pages/ExpensesPage/ExpensesPage'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const IncomePage = lazy(() => import('../pages/IncomePage/IncomePage'));
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
+const RegiserPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
+const ReportsPage = lazy(() => import('../pages/ReportsPage/ReportsPage'));
+const ThereIsNoSuchPage = lazy(() =>
+  import('../pages/ThereIsNoSuchPage/ThereIsNoSuchPage')
+);
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const [searchParams] = useSearchParams();
   const token = JSON.parse(
     localStorage.getItem('persist:auth')
   ).token.replaceAll('"', '');
