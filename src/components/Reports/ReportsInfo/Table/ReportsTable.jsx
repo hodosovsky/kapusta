@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { selectDataChart } from '../../../../redux/selectors';
+import {
+  selectDataChart,
+  selectReportsQuery,
+} from '../../../../redux/selectors';
 import { useSelector } from 'react-redux';
 import { selectReports } from 'redux/selectors';
 import styled from 'styled-components';
@@ -49,16 +52,25 @@ export const ReportsTable = ({ onChange }) => {
   const divRef = useRef();
   const ref = useRef(null);
   const div2Ref = useRef();
+  const reportsQuery = useSelector(selectReportsQuery);
 
   useEffect(() => {
     const resizeHandler = e => {
       setInnerWidth(getComputedStyle(div2Ref?.current).width);
       // console.log(indexAxis)
-      if (getComputedStyle(div2Ref?.current).width === '704px') {
+      if (
+        getComputedStyle(div2Ref?.current).width === '704px' &&
+        indexAxis !== 'x'
+      ) {
         setIndexAxis('x');
+        setChartOptions(ChartOptionsDesktop('x'));
       }
-      if (getComputedStyle(div2Ref?.current).width === '280px') {
+      if (
+        getComputedStyle(div2Ref?.current).width === '280px' &&
+        indexAxis !== 'y'
+      ) {
         setIndexAxis('y');
+        setChartOptions(ChartOptionsDesktop('y'));
       }
     };
 
@@ -74,7 +86,11 @@ export const ReportsTable = ({ onChange }) => {
   }, [divRef, indexAxis]);
 
   useEffect(() => {
-    if (currentChart !== onChange && reports !== []) {
+    if (
+      (currentChart !== onChange && reports !== []) ||
+      !reports ||
+      reports !== []
+    ) {
       if (onChange === 'expenses') {
         const data = reports?.expenses?.expensesData;
         if (data) {
@@ -104,6 +120,7 @@ export const ReportsTable = ({ onChange }) => {
     indexAxis,
     reports,
     currentChart,
+    reportsQuery,
   ]);
 
   useEffect(() => {
@@ -111,14 +128,12 @@ export const ReportsTable = ({ onChange }) => {
       return;
     }
     if (myData.length > 0) {
+      const info = SortDataSubMenu(myData);
 
-const info = SortDataSubMenu(myData)
-   
-        if (
-          chartData?.datasets[0].data[0] !== info.y[0] &&
-          chartData?.labels[0] !== info.x[0]
-        ) {
-
+      if (
+        chartData?.datasets[0].data[0] !== info.y[0] &&
+        chartData?.labels[0] !== info?.x[0]
+      ) {
         setCheck(true);
         setChartOptions(ChartOptionsDesktop(indexAxis));
         setChartData(ChartDataDesktop(info.x, info.y, indexAxis));
@@ -129,7 +144,7 @@ const info = SortDataSubMenu(myData)
   }, [myData, check, chartData.datasets, chartData?.labels, indexAxis]);
 
   useEffect(() => {
-   // const el = document.getElementById('my-chart');
+    // const el = document.getElementById('my-chart');
     const el2 = ref.current;
     //  console.log(el)
 
