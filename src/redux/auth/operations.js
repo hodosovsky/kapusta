@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 import {
   loginAPI,
@@ -16,6 +17,10 @@ export const logIn = createAsyncThunk(
       setAuthHeader(data.accessToken);
       return data;
     } catch (error) {
+      if (error.response.status === 403) {
+        Report.failure('Email or Password is wrong.');
+      }
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
