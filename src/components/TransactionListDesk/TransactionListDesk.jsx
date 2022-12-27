@@ -19,6 +19,15 @@ export const TransactionListDesk = ({ children }) => {
     dispatch(deleteTransaction(event.currentTarget.id));
   };
 
+  const sortedTransactions = children[0].slice().sort((a, b) => {
+    const first = new Date(a.date).getTime();
+    const second = new Date(b.date).getTime();
+    if (first - second === 0) {
+      return first;
+    }
+    return second - first;
+  });
+
   return (
     !isLoading && (
       <TransactionTable className="container">
@@ -33,7 +42,7 @@ export const TransactionListDesk = ({ children }) => {
         </thead>
 
         <tbody>
-          {children[0].map(el => {
+          {sortedTransactions.map(el => {
             const { _id, description, amount, date, category } = el;
             return (
               <tr key={_id} style={{ height: 40 }}>

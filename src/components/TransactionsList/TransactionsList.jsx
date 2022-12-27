@@ -24,7 +24,7 @@ export const TransactionsList = () => {
     if (first - second === 0) {
       return first;
     }
-    return first - second;
+    return second - first;
   });
 
   const handleDelete = event => {
