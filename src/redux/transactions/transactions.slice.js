@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { refreshUser } from 'redux/auth/operations';
+import { refreshUser, logIn } from 'redux/auth/operations';
 import {
   addIncome,
   getIncome,
@@ -37,7 +37,13 @@ const handleRejected = (state, action) => {
 export const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
-  reducers: {},
+  reducers: {
+    updateAuthBalance: (state, action) => {
+      console('test');
+      console.log(action.payload);
+      state.newBalance = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       // Add Income
@@ -115,8 +121,15 @@ export const transactionsSlice = createSlice({
         state.allTransactions = transactions;
         state.isLoading = false;
       })
-      .addCase(refreshUser.rejected, handleRejected);
+      .addCase(refreshUser.rejected, handleRejected)
+      // login
+      .addCase(logIn.pending, handlePending)
+      .addCase(logIn.fulfilled, (state, action) => {
+        state.newBalance = action.payload.userData.balance;
+      })
+      .addCase(logIn.rejected, handleRejected);
   },
 });
 
 export const transactionsReduser = transactionsSlice.reducer;
+export const { updateAuthBalance } = transactionsSlice.actions;

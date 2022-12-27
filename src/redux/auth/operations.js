@@ -15,6 +15,7 @@ export const logIn = createAsyncThunk(
     try {
       const data = await loginAPI(credentials);
       setAuthHeader(data.accessToken);
+
       return data;
     } catch (error) {
       if (error.response.status === 403) {
