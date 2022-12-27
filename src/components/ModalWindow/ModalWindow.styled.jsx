@@ -10,7 +10,7 @@ export const StyledBackdrop = styled.div`
 
 export const StyledModalWindow = styled.div`
   position: relative;
-  top: 43%;
+  top: 29%;
   left: 50%;
   transform: translate(-50%, -50%);
 

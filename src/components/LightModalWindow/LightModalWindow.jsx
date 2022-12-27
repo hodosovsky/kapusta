@@ -16,7 +16,13 @@ import { useEffect } from 'react';
 const modalRoot = document.getElementById('modal-root');
 const body = document.querySelector('body');
 
-export const LightModalWindow = ({ children, closeModal, dispatch }) => {
+export const LightModalWindow = ({
+  children,
+  closeModal,
+  dispatch,
+  changeBalance,
+  text,
+}) => {
   const handleEscapeClose = event => {
     if (event.code === 'Escape') {
       closeModal();
@@ -50,8 +56,12 @@ export const LightModalWindow = ({ children, closeModal, dispatch }) => {
         <StyledContentDiv>
           <StyledText>{children}</StyledText>
           <StyledDivWithButtons>
-            <OrangeButton dispatch={dispatch} closeModal={closeModal}>
-              YES
+            <OrangeButton
+              dispatch={dispatch}
+              closeModal={closeModal}
+              changeBalance={changeBalance}
+            >
+              {text ? text : 'YES'}
             </OrangeButton>
             <WhiteButton closeModal={closeModal}>NO</WhiteButton>
           </StyledDivWithButtons>

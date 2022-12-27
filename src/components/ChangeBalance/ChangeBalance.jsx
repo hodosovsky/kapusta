@@ -1,56 +1,68 @@
-import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { updateBalance } from '../../redux/transactions/operations';
 import { StyledForm } from './Styles';
+import { LightModalWindow } from 'components/LightModalWindow/LightModalWindow';
 
 import ModalWindow from '../ModalWindow/ModalWindow';
+import { useRef } from 'react';
 
 const ChangeBalance = () => {
   const stateBalance = useSelector(state => state.transactions.newBalance);
-  const stateUserBalance = useSelector(state => state.auth.user.newBalance);
-  const [balance, setBalance] = useState(stateUserBalance ?? 0);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (stateBalance) setBalance(stateBalance);
-  }, [stateBalance]);
+  const [modalOpen, setModalOpen] = useState(false);
+  let balance;
+  const form = useRef();
 
   const handleSubmit = evt => {
     evt.preventDefault();
+    balance = evt.target.balance.value;
+  };
+
+  const handleClick = () => {
     dispatch(updateBalance({ newBalance: balance }));
+
+    form.current.reset();
   };
 
-  const handleChange = evt => {
-    evt.preventDefault();
-
-    if (!Number(evt.target.value.slice(0, -7))) return;
-
-    setBalance(Number(evt.target.value.slice(0, -7)));
+  const handleModalOpen = () => {
+    setModalOpen(true);
   };
 
-  const handleValue = balance + '.00 UAH';
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
 
   return (
     <>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit} ref={form}>
         <h2 className="title">Balance:</h2>
         <input
           className="inputTag"
-          type="text"
+          type="number"
           name="balance"
           title="Please, enter your balance"
           pattern="[0-9, .UAH]*"
-          placeholder="00.00 UAH"
-          onChange={handleChange}
-          value={handleValue}
+          placeholder={`${stateBalance}.00 UAH`}
           required
         />
-        <button type="submit" className="btn">
+        <button type="submit" className="btn" onClick={handleModalOpen}>
           Confirm
         </button>
       </StyledForm>
 
-      {!balance && <ModalWindow />}
+      {!stateBalance && <ModalWindow />}
+      {modalOpen && (
+        <LightModalWindow
+          changeBalance="true"
+          closeModal={handleModalClose}
+          dispatch={handleClick}
+          text="SURE"
+          balance={balance}
+        >
+          Are you sure?
+        </LightModalWindow>
+      )}
     </>
   );
 };

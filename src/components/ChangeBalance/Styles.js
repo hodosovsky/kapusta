@@ -39,6 +39,15 @@ export const StyledForm = styled.form`
     :focus {
       background-color: #fff;
     }
+
+    &::placeholder {
+      color: #000;
+      letter-spacing: 0.02em;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 1.17;
+    }
+
     @media screen and (min-width: 768px) {
       width: 125px;
       padding: 12px 20px;

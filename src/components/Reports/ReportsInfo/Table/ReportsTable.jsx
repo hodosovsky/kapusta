@@ -5,7 +5,6 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { selectDataChart } from '../../../../redux/selectors';
 import { useSelector } from 'react-redux';
 import { selectReports } from 'redux/selectors';
-import { categoryOrkToEng } from 'hooks/useCategory';
 Chart.register(...registerables);
 Chart.register(ChartDataLabels);
 
@@ -91,7 +90,6 @@ export const ReportsTable = ({ onChange }) => {
       let mimi = myData[0];
       let key = Object.keys(mimi[1]);
       let value = Object.values(mimi[1]);
-      console.log(categoryOrkToEng('Продукты'));
       key.shift();
       value.shift();
       if (key.length < 13 && value.length < 13) {
