@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/284.0b232a68.chunk.js","mappings":"yKAEe,SAASA,IACtB,OAAO,8CACR,C","sources":["pages/ThereIsNoSuchPage/ThereIsNoSuchPage.jsx"],"sourcesContent":["import React from 'react';\n\nexport default function ThereIsNoSuchPage() {\n  return <div>ThereIsNoSuchPage</div>;\n}\n"],"names":["ThereIsNoSuchPage"],"sourceRoot":""}

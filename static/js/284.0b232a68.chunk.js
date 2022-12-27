@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkkapusta=self.webpackChunkkapusta||[]).push([[284],{4284:function(u,e,n){n.r(e),n.d(e,{default:function(){return a}});n(2791);var t=n(184);function a(){return(0,t.jsx)("div",{children:"ThereIsNoSuchPage"})}}}]);
+//# sourceMappingURL=284.0b232a68.chunk.js.map
