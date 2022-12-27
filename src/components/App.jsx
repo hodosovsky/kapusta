@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addAccessToken } from 'redux/auth/auth.slice';
 import { setAuthHeader } from 'services/apiAuth';
 import { refreshUser } from 'redux/auth/operations';
-import { selectIsFetcingCurrentUser } from 'redux/selectors';
+import { selectIsFetcingCurrentUser, selectToken } from 'redux/selectors';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 import { ToastContainer } from 'react-toastify';
@@ -27,16 +27,15 @@ const ThereIsNoSuchPage = lazy(() =>
 
 export const App = () => {
   const dispatch = useDispatch();
-  const token = JSON.parse(
-    localStorage.getItem('persist:auth')
-  ).token.replaceAll('"', '');
+
+  const token = useSelector(selectToken);
 
   const isFetchingUser = useSelector(selectIsFetcingCurrentUser);
   const { isMobile } = useMatchMedia();
   useEffect(() => {
-    // if (!token || token === 'null') {
-    //   return;
-    // }
+    if (!token || token === 'null' || token === null) {
+      return;
+    }
     setAuthHeader(token);
     dispatch(addAccessToken(token));
     dispatch(refreshUser());
