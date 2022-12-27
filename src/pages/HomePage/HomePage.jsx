@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { useMatchMedia } from '../../hooks/use-match-media';
 import GrayBg from '../../components/GrayBg';
 import ReportsBtn from '../../components/Buttons/ReportsBtn';
@@ -19,6 +19,7 @@ import {
 export default function HomePage() {
   const { isMobile } = useMatchMedia();
   const [startDate, setStartDate] = useState(new Date());
+  const location = useLocation();
   // const dispatch = useDispatch();
   // const token = JSON.parse(
   //   localStorage.getItem('persist:auth')
@@ -38,12 +39,12 @@ export default function HomePage() {
       <GrayBg />
       <StyledHomePage>
         <div className="flexWrapper">
-          {isMobile && <ReportsBtn to="/reports" />}
+          {isMobile && <ReportsBtn to="/reports" state={{ from: location }} />}
           <ChangeBalance />
-          {!isMobile && <ReportsBtn to="/reports" />}
+          {!isMobile && <ReportsBtn to="/reports" state={{ from: location }} />}
         </div>
         {isMobile && (
-          <div className="center">
+          <div className="datePickerMobWrap">
             <DateSelection startDate={startDate} setStartDate={setStartDate} />
           </div>
         )}

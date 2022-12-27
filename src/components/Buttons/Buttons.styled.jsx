@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledOrangeButton = styled.button`
@@ -26,7 +27,7 @@ export const StyledWhiteButton = styled.button`
   line-height: 1.17;
 `;
 
-export const ButtonBack = styled.button`
+export const ButtonBack = styled(Link)`
   background-color: transparent;
   border: none;
 
