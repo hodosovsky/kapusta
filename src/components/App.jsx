@@ -1,8 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { SharedLayouts } from './SharedLayouts/SharedLayouts';
-// import { LightModalWindow } from './LightModalWindow/LightModalWindow';
-// import { Summary } from './Summary/Summary';
-// import { Form } from './TestForm/Form';
 import { useEffect, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addAccessToken } from 'redux/auth/auth.slice';
