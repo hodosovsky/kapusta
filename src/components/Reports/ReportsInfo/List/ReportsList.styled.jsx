@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bgcForSvg from '../../../../images/reportsFiles/bgcForSvg.png';
+import bgcForSvg from '../../../../images/reportsFiles/bgcForSvg.svg';
 
 export const List = styled.ul`
   display: flex;
