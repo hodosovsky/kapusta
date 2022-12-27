@@ -34,9 +34,9 @@ export const App = () => {
   const isFetchingUser = useSelector(selectIsFetcingCurrentUser);
   const { isMobile } = useMatchMedia();
   useEffect(() => {
-    if (!token || token === 'null') {
-      return;
-    }
+    // if (!token || token === 'null') {
+    //   return;
+    // }
     setAuthHeader(token);
     dispatch(addAccessToken(token));
     dispatch(refreshUser());
