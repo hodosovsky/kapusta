@@ -49,9 +49,9 @@ const ChangeBalance = () => {
         <button type="submit" className="btn" onClick={handleModalOpen}>
           Confirm
         </button>
+        {!stateBalance && <ModalWindow />}
       </StyledForm>
 
-      {!stateBalance && <ModalWindow />}
       {modalOpen && (
         <LightModalWindow
           changeBalance="true"

@@ -9,10 +9,10 @@ export const StyledBackdrop = styled.div`
 `;
 
 export const StyledModalWindow = styled.div`
-  position: relative;
-  top: 29%;
+  position: fixed;
+  top: 250px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 
   max-width: 280px;
   max-height: 163px;
@@ -23,6 +23,13 @@ export const StyledModalWindow = styled.div`
 
   @media screen and (min-width: 768px) {
     max-width: 288px;
+    top: 160px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 288px;
+    top: 160px;
+    left: 52%;
   }
 
   &:before {

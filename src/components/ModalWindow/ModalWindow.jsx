@@ -14,20 +14,25 @@ const body = document.querySelector('body');
 
 export default function ModalWindow() {
   const [isModalOpen, setIsModalOpen] = useState(true);
+  console.log('isModalOpen', isModalOpen);
 
-  const handleModalToggle = () => {
+  const handleModalClose = () => {
     setIsModalOpen(false);
+    body.classList.remove('no-scroll');
   };
 
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
-      handleModalToggle();
+      handleModalClose();
+      console.log('backdrop click');
+      console.log(isModalOpen);
     }
   };
 
   useEffect(() => {
-    return () => body.classList.toggle('no-scroll');
-  });
+    body.classList.add('no-scroll');
+    return () => body.classList.remove('no-scroll');
+  }, []);
 
   return createPortal(
     isModalOpen && (
