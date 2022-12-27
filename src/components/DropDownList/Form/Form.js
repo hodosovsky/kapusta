@@ -76,30 +76,33 @@ export default function Form() {
     };
     // dispatch
     dispatch(functionToDispatch(dataToDispatch));
+    event.target.reset();
   };
 
   return (
     <>
-        <FormWrap>
-          {!isMobile && (
-            <div className='tabletDatepicker'><DateSelection startDate={startDate} setStartDate={setStartDate} /></div>
-          )}
-          <StyledForm onSubmit={handleSubmit}>
-            <StyledAllInputsDiv>
-              <InputProduct placeholder="Product description" name="descr" />
-              <SelectCategory
-                categoryArray={categoryArray}
-                elementCategory={elementCategory}
-                setElementCategory={setElementCategory}
-              />
-              <CalculatorInput name="sum" />
-            </StyledAllInputsDiv>
-            <ButtonWrap>
-              <OrangeButton type="submit">INPUT</OrangeButton>
-              <WhiteButton>CLEAR</WhiteButton>
-            </ButtonWrap>
-          </StyledForm>
-        </FormWrap>
+      <FormWrap>
+        {!isMobile && (
+          <div className="tabletDatepicker">
+            <DateSelection startDate={startDate} setStartDate={setStartDate} />
+          </div>
+        )}
+        <StyledForm onSubmit={handleSubmit}>
+          <StyledAllInputsDiv>
+            <InputProduct placeholder="Product description" name="descr" />
+            <SelectCategory
+              categoryArray={categoryArray}
+              elementCategory={elementCategory}
+              setElementCategory={setElementCategory}
+            />
+            <CalculatorInput name="sum" />
+          </StyledAllInputsDiv>
+          <ButtonWrap>
+            <OrangeButton type="submit">INPUT</OrangeButton>
+            <WhiteButton>CLEAR</WhiteButton>
+          </ButtonWrap>
+        </StyledForm>
+      </FormWrap>
     </>
   );
 }

@@ -4,6 +4,9 @@ export const StyledTable = styled.ul`
   display: none;
 
   @media screen and (min-width: 768px) {
+    min-width: 213px;
+    min-height: 280px;
+    height: 100%;
     background-color: #f5f6fb;
     display: inline-flex;
     flex-direction: column;

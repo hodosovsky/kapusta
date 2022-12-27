@@ -48,6 +48,13 @@ export const TransactionTable = styled.table`
     border-left: 2px solid #f5f6fb;
     border-top: none;
     border-bottom: 2px solid #f5f6fb;
+
+    @media screen and (min-width: 768px) {
+      min-height: 344px;
+      max-height: 480px;
+      height: auto;
+    }
+
     ::-webkit-scrollbar {
       width: 7px;
     }
