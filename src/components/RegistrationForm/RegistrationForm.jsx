@@ -1,8 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { registerAPI } from 'services/apiAuth';
 import { logIn } from 'redux/auth/operations';
-import { useState } from 'react';
+
 import { OrangeButton } from '../Buttons/OrangeButton';
+
+import { useState, useRef, useEffect } from 'react';
+import { gsap, Power3 } from 'gsap';
+import { useMatchMedia } from 'hooks/use-match-media';
 import {
   StyledformRegister,
   StyledpromtText,
@@ -14,6 +18,7 @@ import {
 } from './RegistrationForm.styled';
 
 export const RegistrationForm = () => {
+  const { isMobile } = useMatchMedia();
   const dispatch = useDispatch();
 
   const handleSubmit = async event => {
@@ -79,8 +84,26 @@ export const RegistrationForm = () => {
   );
   const [errorSymbol, setErrorSymbol] = useState('*');
 
+  let formRef = useRef(null);
+  useEffect(() => {
+    !isMobile &&
+      gsap.fromTo(
+        formRef,
+        2,
+        {
+          opacity: 0,
+          y: -800,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          ease: Power3.easeInOut,
+        }
+      );
+  }, [isMobile]);
+
   return (
-    <StyledformRegister onSubmit={handleSubmit}>
+    <StyledformRegister onSubmit={handleSubmit} ref={el => (formRef = el)}>
       <StyledpromtText>Fill in the fields to register</StyledpromtText>
 
       <form action="" autoComplete="on">

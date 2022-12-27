@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { ReactComponent as GoogleSvg } from 'images/google.svg';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { gsap, Power3 } from 'gsap';
+import { useMatchMedia } from 'hooks/use-match-media';
 
 import {
   StyledformRegister,
@@ -19,6 +21,7 @@ import { logIn } from 'redux/auth/operations';
 // import { googleLoginAPI } from 'services/apiAuth';
 
 export const LoginForm = () => {
+  const { isMobile } = useMatchMedia();
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
@@ -79,12 +82,29 @@ export const LoginForm = () => {
   );
   const [errorSymbol, setErrorSymbol] = useState('*');
 
+  let formRef = useRef(null);
+  useEffect(() => {
+    !isMobile &&
+      gsap.fromTo(
+        formRef,
+        2,
+        {
+          opacity: 0,
+          y: -800,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          ease: Power3.easeInOut,
+        }
+      );
+  }, [isMobile]);
+
   return (
-    <StyledformRegister onSubmit={handleSubmit}>
+    <StyledformRegister onSubmit={handleSubmit} ref={el => (formRef = el)}>
       <StyledpromtText>
         You can log in with your Google Account:
       </StyledpromtText>
-
       <StyledanimationGoogle>
         <StyledLinkbtnGoogle href="https://kapusta-backend.goit.global/auth/google">
           <GoogleSvg />

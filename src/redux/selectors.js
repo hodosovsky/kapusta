@@ -35,3 +35,5 @@ export const selectExpensesTotal = store =>
 export const selectIsLoading = store => store.transactions.isLoading;
 
 export const selectDataChart = store => store.reportsQuery.filteredData;
+
+export const selectReportsQuery = store => store.reportsQuery.reportsQuery;
