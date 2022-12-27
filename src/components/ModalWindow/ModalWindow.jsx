@@ -14,7 +14,6 @@ const body = document.querySelector('body');
 
 export default function ModalWindow() {
   const [isModalOpen, setIsModalOpen] = useState(true);
-  console.log('isModalOpen', isModalOpen);
 
   const handleModalClose = () => {
     setIsModalOpen(false);
@@ -24,8 +23,6 @@ export default function ModalWindow() {
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
       handleModalClose();
-      console.log('backdrop click');
-      console.log(isModalOpen);
     }
   };
 

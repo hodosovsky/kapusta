@@ -5,8 +5,8 @@ import CalculatorInput from '../CalculatorInput/CalculatorInput';
 import { OrangeButton } from 'components/Buttons/OrangeButton';
 import { WhiteButton } from 'components/Buttons/WhiteButton';
 import {
-  Wrapper,
   FormWrap,
+  StyledForm,
   ButtonWrap,
   InputProduct,
   StyledAllInputsDiv,
@@ -76,15 +76,18 @@ export default function Form() {
     };
     // dispatch
     dispatch(functionToDispatch(dataToDispatch));
+    event.target.reset();
   };
 
   return (
     <>
-      <Wrapper onSubmit={handleSubmit}>
-        <FormWrap>
-          {!isMobile && (
+      <FormWrap>
+        {!isMobile && (
+          <div className="tabletDatepicker">
             <DateSelection startDate={startDate} setStartDate={setStartDate} />
-          )}
+          </div>
+        )}
+        <StyledForm onSubmit={handleSubmit}>
           <StyledAllInputsDiv>
             <InputProduct placeholder="Product description" name="descr" />
             <SelectCategory
@@ -94,12 +97,12 @@ export default function Form() {
             />
             <CalculatorInput name="sum" />
           </StyledAllInputsDiv>
-        </FormWrap>
-        <ButtonWrap>
-          <OrangeButton type="submit">INPUT</OrangeButton>
-          <WhiteButton>CLEAR</WhiteButton>
-        </ButtonWrap>
-      </Wrapper>
+          <ButtonWrap>
+            <OrangeButton type="submit">INPUT</OrangeButton>
+            <WhiteButton>CLEAR</WhiteButton>
+          </ButtonWrap>
+        </StyledForm>
+      </FormWrap>
     </>
   );
 }

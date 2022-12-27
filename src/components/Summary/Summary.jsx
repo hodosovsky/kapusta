@@ -39,7 +39,7 @@ export const Summary = () => {
             return (
               <StyledRow key={`${el[0]}${el[1]}`}>
                 <StyledMonth>{monthNameOrkToEng(el[0])}</StyledMonth>
-                <StyledValue>{el[1]}</StyledValue>
+                <StyledValue>{el[1]}.00</StyledValue>
               </StyledRow>
             );
           }
