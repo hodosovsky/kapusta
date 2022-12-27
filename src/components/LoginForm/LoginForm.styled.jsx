@@ -3,26 +3,21 @@ import { OrangeButton } from 'components/Buttons/OrangeButton';
 import styled from 'styled-components';
 
 export const StyledformRegister = styled.div`
-  position: absolute;
-  top: 255px;
-  left: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto auto;
+  z-index: 2;
   width: 280px;
   padding: 40px 20px;
   background-color: #fff;
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 30px;
-  transform: translate(-50%);
 
   @media screen and (min-width: 768px) {
     left: 50%;
     width: 426px;
     height: 552px;
     padding: 56px 84px;
-    margin-top: 80px;
   }
   @media screen and (min-width: 1280px) {
     top: 174px;
@@ -143,7 +138,7 @@ export const StyledNavlink = styled(NavLink)`
   border-radius: 16px;
   border: none;
   padding: 0;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 12px;
   line-height: 1.16;
   display: flex;

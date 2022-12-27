@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { OrangeButton } from 'components/Buttons/OrangeButton';
 import { registerAPI } from 'services/apiAuth';
 import { logIn } from 'redux/auth/operations';
 import { useState } from 'react';
+import { OrangeButton } from '../Buttons/OrangeButton';
 import {
   StyledformRegister,
   StyledpromtText,

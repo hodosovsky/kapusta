@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledOrangeButton = styled.button`
-  padding: 12px 34px;
+  padding: 12px 0px;
+  margin: 0px auto;
+  width: 116px;
   border: none;
   background-color: #ff751d;
   border-radius: 16px;
