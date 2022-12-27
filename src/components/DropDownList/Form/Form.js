@@ -5,8 +5,8 @@ import CalculatorInput from '../CalculatorInput/CalculatorInput';
 import { OrangeButton } from 'components/Buttons/OrangeButton';
 import { WhiteButton } from 'components/Buttons/WhiteButton';
 import {
-  Wrapper,
   FormWrap,
+  StyledForm,
   ButtonWrap,
   InputProduct,
   StyledAllInputsDiv,
@@ -80,26 +80,26 @@ export default function Form() {
 
   return (
     <>
-      <Wrapper onSubmit={handleSubmit}>
         <FormWrap>
           {!isMobile && (
-            <DateSelection startDate={startDate} setStartDate={setStartDate} />
+            <div className='tabletDatepicker'><DateSelection startDate={startDate} setStartDate={setStartDate} /></div>
           )}
-          <StyledAllInputsDiv>
-            <InputProduct placeholder="Product description" name="descr" />
-            <SelectCategory
-              categoryArray={categoryArray}
-              elementCategory={elementCategory}
-              setElementCategory={setElementCategory}
-            />
-            <CalculatorInput name="sum" />
-          </StyledAllInputsDiv>
+          <StyledForm onSubmit={handleSubmit}>
+            <StyledAllInputsDiv>
+              <InputProduct placeholder="Product description" name="descr" />
+              <SelectCategory
+                categoryArray={categoryArray}
+                elementCategory={elementCategory}
+                setElementCategory={setElementCategory}
+              />
+              <CalculatorInput name="sum" />
+            </StyledAllInputsDiv>
+            <ButtonWrap>
+              <OrangeButton type="submit">INPUT</OrangeButton>
+              <WhiteButton>CLEAR</WhiteButton>
+            </ButtonWrap>
+          </StyledForm>
         </FormWrap>
-        <ButtonWrap>
-          <OrangeButton type="submit">INPUT</OrangeButton>
-          <WhiteButton>CLEAR</WhiteButton>
-        </ButtonWrap>
-      </Wrapper>
     </>
   );
 }

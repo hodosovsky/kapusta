@@ -55,7 +55,7 @@ export const InputNumber = styled.input`
   width: 108px;
   height: 44px;
 
-  padding-left: 30px;
+  padding-left: 15px;
 
   font-weight: 700;
   font-size: 12px;
@@ -68,6 +68,12 @@ export const InputNumber = styled.input`
   outline: none;
   background-color: #ffffff;
   color: #000000;
+
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
   @media screen and (min-width: 768px) {
     border-bottom-right-radius: 16px;
@@ -83,5 +89,5 @@ export const InputNumber = styled.input`
 export const Image = styled.img`
   position: absolute;
   top: 12px;
-  left: 70px;
+  left: 75px;
 `;

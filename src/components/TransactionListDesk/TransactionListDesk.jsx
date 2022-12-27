@@ -41,7 +41,7 @@ export const TransactionListDesk = ({ children }) => {
                 <td>{description}</td>
                 <td>{categoryOrkToEng(category)}</td>
                 <td style={{ color }}>
-                  {minus} {amount}.00 UAH.
+                  {minus} {amount}.00 UAH
                 </td>
                 <td>
                   <span

@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectExpenseTransactions, selectIsLoggedIn } from 'redux/selectors';
 import { getExpenses } from 'redux/transactions/operations';
-import { StyledFrame, StyledTableAndSummaryDiv } from './ExpensePage.styled';
+import { StyledBg, StyledFrame, StyledTableAndSummaryDiv } from './ExpensePage.styled';
 import { useMatchMedia } from '../../hooks/use-match-media';
 import { BackButton } from 'components/Buttons/BackButton';
 
@@ -24,7 +24,10 @@ export default function ExpensesPage() {
 
   return (
     <>
-      {isMobile && <BackButton />}
+      {isMobile && <>
+        <StyledBg />
+        <BackButton />
+      </>}
       <StyledFrame>
         <Form />
         <StyledTableAndSummaryDiv>

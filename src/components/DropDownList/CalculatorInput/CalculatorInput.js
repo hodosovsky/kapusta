@@ -22,7 +22,7 @@ export default function Input() {
         </NumberMobil>
       ) : (
         <Number>
-          <InputNumber type="number" placeholder="0,00" name="sum" />
+          <InputNumber type="number" placeholder="0,00 UAH" name="sum" />
           <Image src={calculator} alt="calculator" />
         </Number>
       )}

@@ -34,5 +34,5 @@ export const ButtonBack = styled(Link)`
   display: flex;
   align-items: center;
 
-  margin: 14px 0px;
+  margin: 14px 0px 14px 16px;
 `;
