@@ -5,66 +5,93 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { selectDataChart } from '../../../../redux/selectors';
 import { useSelector } from 'react-redux';
 import { selectReports } from 'redux/selectors';
+import styled from 'styled-components';
+import { useRef } from 'react';
+import { ChartDataDesktop, ChartOptionsDesktop } from './ChartOptions';
+import { SortData, SortDataSubMenu } from './ChartUtils';
 Chart.register(...registerables);
 Chart.register(ChartDataLabels);
+
+const BoxPadding = styled.div`
+  padding-top: 35px;
+  padding-bottom: 52px;
+  @media screen and (min-width: 768px) {
+    padding: 30px 0 80px 0;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 30px 0 85px 0;
+  }
+`;
+const ChartBox = styled.div`
+  position: relative;
+  background-color: #fff;
+  @media screen and (min-width: 768px) {
+    border-radius: 30px;
+    height: 422px;
+    padding: 20px 30px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 20px 130px;
+  }
+`;
 
 export const ReportsTable = ({ onChange }) => {
   const [chartData, setChartData] = useState({
     datasets: [],
   });
-  const [keys, setKeys] = useState([]);
-  const [values, setValues] = useState([]);
-  const { reports } = useSelector(selectReports);
+  const [chartOptions, setChartOptions] = useState({});
   const [check, setCheck] = useState(false);
+  const [indexAxis, setIndexAxis] = useState('');
+  const [innerWidth, setInnerWidth] = useState('');
+  const [currentChart, setCurrentChart] = useState('income');
+  const { reports } = useSelector(selectReports);
   let myData = useSelector(selectDataChart);
+  const divRef = useRef();
+  const ref = useRef(null);
+  const div2Ref = useRef();
 
   useEffect(() => {
-    if (myData <= 0) {
+    const resizeHandler = e => {
+      setInnerWidth(getComputedStyle(div2Ref?.current).width);
+      // console.log(indexAxis)
+      if (getComputedStyle(div2Ref?.current).width === '704px') {
+        setIndexAxis('x');
+      }
+      if (getComputedStyle(div2Ref?.current).width === '280px') {
+        setIndexAxis('y');
+      }
+    };
+
+    window.addEventListener('resize', resizeHandler);
+
+    if (indexAxis === '' && window.innerWidth >= 768) {
+      setIndexAxis('x');
+    } else if (indexAxis === '' && window.innerWidth < 768) {
+      setIndexAxis('y');
+    }
+
+    return () => window.removeEventListener('resize', resizeHandler);
+  }, [divRef, indexAxis]);
+
+  useEffect(() => {
+    if (currentChart !== onChange && reports !== []) {
       if (onChange === 'expenses') {
-        setCheck(false);
         const data = reports?.expenses?.expensesData;
         if (data) {
-          let key = Object.keys(data);
-          let value = Object.values(data);
-
-          let total = value.map(el => {
-            return el.total;
-          });
-          let intervarId = setInterval(() => {
-            if (key.length !== 13 && total.length < 13) {
-              key.unshift('');
-              key.push('');
-              total.unshift(0);
-              total.push(0);
-            } else {
-              clearInterval(intervarId);
-              setKeys(key);
-              setValues(total);
-            }
-          });
+          const info = SortData(data);
+          setChartData(ChartDataDesktop(info.x, info.y, indexAxis));
+          setChartOptions(ChartOptionsDesktop(indexAxis));
+          setCurrentChart(onChange);
+          setCheck(false);
         }
       } else if (onChange === 'income') {
-        setCheck(false);
         const data = reports?.incomes?.incomesData;
         if (data) {
-          let key = Object.keys(data);
-          let value = Object.values(data);
-
-          let total = value.map(el => {
-            return el.total;
-          });
-          let intervarId = setInterval(() => {
-            if (key.length !== 13 && total.length < 13) {
-              key.unshift('');
-              key.push('');
-              total.unshift(0);
-              total.push(0);
-            } else {
-              clearInterval(intervarId);
-              setKeys(key);
-              setValues(total);
-            }
-          });
+          const info = SortData(data);
+          setChartData(ChartDataDesktop(info.x, info.y, indexAxis));
+          setChartOptions(ChartOptionsDesktop(indexAxis));
+          setCurrentChart(onChange);
+          setCheck(false);
         }
       }
     }
@@ -74,145 +101,54 @@ export const ReportsTable = ({ onChange }) => {
     reports?.expenses?.expensesData,
     reports?.incomes?.incomesData,
     myData,
+    indexAxis,
+    reports,
+    currentChart,
   ]);
 
   useEffect(() => {
-    if (
-      myData.length <= 0 &&
-      keys.length !== 0 &&
-      values.length !== 0 &&
-      check
-    ) {
-      setKeys([]);
-      setValues([]);
+    if (myData.length <= 0 && check) {
+      return;
     }
     if (myData.length > 0) {
-      let mimi = myData[0];
-      let key = Object.keys(mimi[1]);
-      let value = Object.values(mimi[1]);
-      key.shift();
-      value.shift();
-      if (key.length < 13 && value.length < 13) {
-        let intervarId = setInterval(() => {
-          if (key.length !== 13 && value.length < 13) {
-            key.unshift('');
-            key.push('');
-            value.unshift(0);
-            value.push(0);
-          } else {
-            clearInterval(intervarId);
-            if (keys !== key && values !== value) {
-              if (keys[6] !== key[6] && values[6] !== value[6]) {
-                setCheck(true);
-                setKeys(key);
-                setValues(value);
-              } else {
-                return;
-              }
-              return;
-            }
-          }
-        });
+
+const info = SortDataSubMenu(myData)
+   
+        if (
+          chartData?.datasets[0].data[0] !== info.y[0] &&
+          chartData?.labels[0] !== info.x[0]
+        ) {
+
+        setCheck(true);
+        setChartOptions(ChartOptionsDesktop(indexAxis));
+        setChartData(ChartDataDesktop(info.x, info.y, indexAxis));
+      } else {
+        return;
       }
     }
-  }, [myData, values, keys, check]);
+  }, [myData, check, chartData.datasets, chartData?.labels, indexAxis]);
 
-  const [chartOptions, setChartOptions] = useState({});
   useEffect(() => {
-    setChartData({
-      labels: keys.map(el => el),
-      datasets: [
-        {
-          label: 'awd',
-          data: values.map(el => el),
-          backgroundColor: ['#FF751D', '#FFDAC0', '#FFDAC0'],
-          borderRadius: 10,
-          borderSkipped: 'start',
+   // const el = document.getElementById('my-chart');
+    const el2 = ref.current;
+    //  console.log(el)
 
-          datalabels: {
-            color: '#52555F',
-            anchor: 'end',
-            align: 'top',
-            font: {
-              size: 10,
-            },
-            formatter: function (value, context) {
-              if (value === undefined || value === 0) {
-                return '';
-              }
-              return `${value} UAH`;
-            },
-          },
-        },
-      ],
-    });
-    setChartOptions({
-      animations: {
-        y: {
-          easing: 'easeInOutElastic',
-          from: ctx => {
-            if (ctx.type === 'data') {
-              if (ctx.mode === 'default' && !ctx.dropped) {
-                ctx.dropped = true;
-                return 0;
-              }
-            }
-          },
-        },
-      },
-      responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-      },
+    if (indexAxis === 'y') {
+      el2.resize(280, 480);
+    }
+  }, [chartData, innerWidth, indexAxis]);
 
-      scales: {
-        x: {
-          border: {
-            display: false,
-          },
-          beginAtZero: true,
-          ticks: {
-            display: true,
-            padding: 4,
-          },
-          grid: {
-            display: false,
-            drawOnChartArea: false,
-          },
-        },
-        y: {
-          grace: '20%',
-          border: {
-            display: false,
-          },
-          beginAtZero: true,
-          ticks: {
-            display: false,
-            count: 11,
-          },
-          grid: {
-            lineWidth: 2,
-            color: ctx => {
-              if (ctx.index !== 9 && ctx.index !== 10) {
-                return '#F5F6FB';
-              }
-            },
-          },
-        },
-      },
-    });
-  }, [keys, values]);
   return (
-    <div>
-      <Bar
-        style={{ padding: '20px 120px ' }}
-        data={chartData}
-        options={chartOptions}
-        height={312}
-        width={758}
-      />
-    </div>
+    <BoxPadding ref={div2Ref}>
+      <ChartBox ref={divRef}>
+        <Bar
+          ref={ref}
+          id="my-chart"
+          style={{ backgroundColor: 'white', width: '100%', height: '100%' }}
+          data={chartData}
+          options={chartOptions}
+        />
+      </ChartBox>
+    </BoxPadding>
   );
 };
