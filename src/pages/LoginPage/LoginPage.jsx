@@ -6,15 +6,15 @@ import {
   StyledLoginPage,
   Image,
   Background,
-  KapustaMobTop,
   KapustaMobBottom,
   KapustaTabBotLeft,
   KapustaTabBotRight,
   ShadowTabBotLeft,
   ShadowTabBotRight,
+  TextWrap,
   Text,
 } from './LoginPage.styled';
-import BackgroundAnimation from './BackgroundAnimation';
+import BackgroundAnimation from '../../components/BackgroundAnimation/BackgroundAnimation';
 import Name from '../../images/union.svg';
 import imageMobBg from '../../images/reportsFiles/backgroundMobile.png';
 import imageTabBg from '../../images/reportsFiles/backgroundTablet.png';
@@ -36,7 +36,7 @@ export default function LoginPage() {
         >
           {isMobile && (
             <>
-              <KapustaMobTop src={kapusta} width="83" height="89" />
+              <BackgroundAnimation />
               <KapustaMobBottom src={kapusta} width="83" height="89" />
             </>
           )}
@@ -59,10 +59,12 @@ export default function LoginPage() {
               <ShadowTabBotRight src={tabShadow} width="83" height="89" />
             </>
           )}
-          <Image src={Name} alt="Kapusta" />
-          <Text>Smart Finance</Text>
+          <TextWrap>
+            <Image src={Name} alt="Kapusta" />
+            <Text>Smart Finance</Text>
+          </TextWrap>
+          <LoginForm />
         </Background>
-        <LoginForm />
       </StyledLoginPage>
     </>
   );

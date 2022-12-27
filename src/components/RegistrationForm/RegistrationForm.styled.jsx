@@ -2,13 +2,10 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const StyledformRegister = styled.div`
-  position: absolute;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
   padding: 40px 20px 40px 20px;
   top: 255px;
-  width: 240px;
+  width: 280px;
   z-index: 1;
   flex-direction: column;
   background-color: #fff;
@@ -116,17 +113,21 @@ export const StyledformInput = styled.input`
   border-radius: 30px;
   background-color: #f6f7fb;
   padding: 17px 18px;
-  width: 204px;
+  width: 240px;
 
   @media screen and (min-width: 768px) {
     padding: 17px 20px 17px 20px;
-    width: 218px;
+    width: 259px;
   }
 `;
 
 export const StyledcontainerButton = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    gap: 15px;
+  }
 `;
 
 export const StyledNavlink = styled(NavLink)`
