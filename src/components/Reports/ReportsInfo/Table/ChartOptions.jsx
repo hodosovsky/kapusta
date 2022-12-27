@@ -9,6 +9,7 @@ export function ChartDataDesktop(keys, values, indexAxis) {
           data: values.map(el => el),
           backgroundColor: ['#FF751D', '#FFDAC0', '#FFDAC0'],
           borderRadius: 10,
+          
           borderSkipped: 'start',
           datalabels: {
             color: '#52555F',
@@ -37,7 +38,7 @@ export function ChartDataDesktop(keys, values, indexAxis) {
           backgroundColor: ['#FF751D', '#FFDAC0', '#FFDAC0'],
           borderRadius: 10,
           borderSkipped: 'start',
-          barPercentage: 0.3,
+         
           datalabels: {
             color: '#52555F',
             anchor: 'end',
@@ -62,6 +63,7 @@ export function ChartOptionsDesktop(indexAxis) {
     return {
       maintainAspectRatio: false,
       indexAxis: 'x',
+      barPercentage: 0.6,
       animations: {
         y: {
           easing: 'easeInOutElastic',
@@ -123,6 +125,7 @@ export function ChartOptionsDesktop(indexAxis) {
         responsive: true,
         maintainAspectRatio: false,
         indexAxis: 'y',
+        barPercentage: 0.1,
             animations: {
               y: {
                 easing: 'easeInOutElastic',
