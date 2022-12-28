@@ -33,7 +33,7 @@ export const TransactionsList = () => {
 
   return (
     <StyledList className="container">
-      {sortedTransactions.map(item => {
+      {sortedTransactions.slice(0, 7).map(item => {
         const { _id, description, amount, date, category } = item;
         let color;
         let minus = false;

@@ -42,7 +42,7 @@ export const TransactionListDesk = ({ children }) => {
         </thead>
 
         <tbody>
-          {sortedTransactions.map(el => {
+          {sortedTransactions.slice(0, 20).map(el => {
             const { _id, description, amount, date, category } = el;
             return (
               <tr key={_id} style={{ height: 40 }}>
