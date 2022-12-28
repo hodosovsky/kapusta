@@ -5,7 +5,7 @@ export const List = styled.ul`
   /* margin-bottom: 30px; */
   border: 1px solid transparent;
   border-radius: 20px;
-  background-color: #fff;
+  background-color:  --primary-bg-color;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 `
