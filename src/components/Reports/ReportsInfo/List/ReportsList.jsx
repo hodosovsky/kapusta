@@ -41,7 +41,7 @@ export const ReportsList = ({ onChange }) => {
     const filteredValueArr = valueArr.filter(
       item => item[0].replace(/\s+/g, '') === event.currentTarget.id
     );
-    incomesData ?? dispatch(filteredDataAction(filteredValueArr));
+    dispatch(filteredDataAction(filteredValueArr));
   };
   const entries = Object.entries(data) ?? [];
   // const values = Object.values(data);
