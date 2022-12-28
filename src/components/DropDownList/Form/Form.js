@@ -73,7 +73,7 @@ export default function Form() {
     // Prepare data for dispatch
     const dataToDispatch = {
       description: descr.value,
-      amount: Number(transValue),
+      amount: Number(transValue), 
       date: startDate.toISOString().split('T')[0],
       category: categoryEngToOrk(elementCategory),
     };
