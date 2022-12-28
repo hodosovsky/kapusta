@@ -76,6 +76,7 @@ export const TransactionTable = styled.table`
         position: relative;
         align-items: center;
         justify-content: center;
+        text-align: center;
         flex: 1 0 calc(100% / 5);
         overflow-x: hidden;
         display: flex;
