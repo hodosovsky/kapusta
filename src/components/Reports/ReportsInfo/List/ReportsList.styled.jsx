@@ -19,6 +19,7 @@ export const Item = styled.li`
   text-align: center;
   flex-direction: column;
   justify-content: center;
+
   align-items: center;
   width: calc((100% - 20px) / 3);
   margin: 0%;
@@ -32,6 +33,7 @@ export const Item = styled.li`
 
   &:hover,
   &:focus {
+    cursor: pointer;
     fill: #ff751d;
   }
 
@@ -63,6 +65,7 @@ export const ItemIncome = styled.li`
 
   &:hover,
   &:focus {
+    cursor: pointer;
     fill: #ff751d;
   }
 
