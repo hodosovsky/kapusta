@@ -29,8 +29,7 @@ export const App = () => {
   const location = window.location;
   const urlSearchParams = new URLSearchParams(location.search);
   const accessToken = urlSearchParams.get('accessToken');
-  console.log(accessToken);
-  console.log(urlSearchParams);
+
   useEffect(() => {
     if (accessToken) {
       setAuthHeader(accessToken);

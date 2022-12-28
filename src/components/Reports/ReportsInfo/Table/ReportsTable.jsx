@@ -32,6 +32,7 @@ const ChartBox = styled.div`
     border-radius: 30px;
     height: 422px;
     padding: 20px 30px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   }
   @media screen and (min-width: 1280px) {
     padding: 20px 130px;
@@ -126,12 +127,11 @@ export const ReportsTable = ({ onChange }) => {
 
   useEffect(() => {
     if (dataSubMenu.length <= 0 && check) {
-    
       return;
     }
     if (dataSubMenu.length > 0) {
       const info = SortDataSubMenu(dataSubMenu);
-   
+
       if (
         chartData?.datasets[0].data[0] !== info.y[0] &&
         chartData?.labels[0] !== info?.x[0]

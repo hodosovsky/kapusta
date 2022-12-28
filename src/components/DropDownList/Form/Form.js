@@ -80,6 +80,7 @@ export default function Form() {
     // dispatch
     dispatch(functionToDispatch(dataToDispatch));
     event.target.reset();
+    setElementCategory('Category');
   };
 
   return (

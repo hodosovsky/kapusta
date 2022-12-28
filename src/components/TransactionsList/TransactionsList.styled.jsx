@@ -11,7 +11,7 @@ export const ItemStyled = styled.li`
   display: flex;
   justify-content: space-between;
 
-  padding: 8px 0px;
+  padding: 8px 20px;
   border-bottom: 1px solid #f5f6fb;
 `;
 
