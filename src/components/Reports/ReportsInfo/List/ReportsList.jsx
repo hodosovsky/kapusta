@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectReports } from 'redux/selectors';
 import reportsIcon from '../../../../images/reportsFiles/reports.svg';
-import { List, Item, ItemIncome, BgcSvg } from './ReportsList.styled';
+import { List, Item, ItemIncome, ItemSvg, BgcSvg } from './ReportsList.styled';
 import { useState, useEffect, useMemo } from 'react';
 import { categoryOrkToEng } from 'hooks/useCategory';
 import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
-import { HandySvg } from 'handy-svg';
 import BgcIcon from '../../../../images/reportsFiles/bgcForSvg.svg';
+import OrangeBgc from '../../../../images/orangeBgc.svg';
 
 export const ReportsList = ({ onChange }) => {
   const [active, setActive] = useState('');
@@ -66,17 +66,17 @@ export const ReportsList = ({ onChange }) => {
                 className={iconName === active ? 'active' : ''}
               >
                 <p>{item[1].total}.00</p>
-                <svg width="56" height="56">
+                <ItemSvg width="56" height="56">
                   <BgcSvg
-                    src={BgcIcon}
+                    src={iconName === active ? OrangeBgc : BgcIcon}
                     width="59"
                     height="46"
-                    viewBox="0 0 34 32"
+                    viewBox="0 0 54 47"
                     background-position="center"
-                    className={BgcSvg === active ? 'active' : ''}
+                    className={iconName === active ? 'active' : ''}
                   />
                   <use href={`${reportsIcon}#${iconName}`}></use>
-                </svg>
+                </ItemSvg>
                 <p>{categoryOrkToEng(item[0])}</p>
               </Item>
             );
@@ -89,13 +89,21 @@ export const ReportsList = ({ onChange }) => {
                 className={iconName === active ? 'active' : ''}
               >
                 <p>{item[1].total}.00</p>
-                <svg
+                <ItemSvg
                   width="56"
                   height="56"
                   className={iconName === active ? 'active' : ''}
                 >
+                  <BgcSvg
+                    src={iconName === active ? OrangeBgc : BgcIcon}
+                    width="59"
+                    height="46"
+                    viewBox="0 0 54 47"
+                    background-position="center"
+                    className={iconName === active ? 'active' : ''}
+                  />
                   <use href={`${reportsIcon}#${iconName}`}></use>
-                </svg>
+                </ItemSvg>
                 <p>{categoryOrkToEng(item[0])}</p>
               </ItemIncome>
             );

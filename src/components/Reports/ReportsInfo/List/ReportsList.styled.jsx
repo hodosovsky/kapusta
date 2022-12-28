@@ -30,6 +30,11 @@ export const Item = styled.li`
     fill: #ff751d;
   }
 
+  &:hover,
+  &:focus {
+    fill: #ff751d;
+  }
+
   @media screen and (min-width: 768px) {
     border: none;
     width: calc((100% - 64px) / 6);
@@ -56,6 +61,11 @@ export const ItemIncome = styled.li`
     fill: #ff751d;
   }
 
+  &:hover,
+  &:focus {
+    fill: #ff751d;
+  }
+
   @media screen and (min-width: 768px) {
     border: none;
     width: calc((100% - 64px) / 6);
@@ -65,20 +75,13 @@ export const ItemIncome = styled.li`
   flex-grow: 0;
 `;
 
-// export const ItemSvg = styled.svg`
-//   background-image: url(${bgcForSvg});
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   background-size: 56px 46px;
-//   cursor: pointer;
-
-//   &.active {
-//     fill: #ff751d;
-//   }
-// `;
+export const ItemSvg = styled.svg`
+  position: relative;
+`;
 
 export const BgcSvg = styled(HandySvg)`
-  &.active {
-    fill: #ff751d;
-  }
+  position: absolute;
+  top: 100px;
+  width: 59px;
+  height: 46px;
 `;
