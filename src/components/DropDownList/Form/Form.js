@@ -54,6 +54,7 @@ export default function Form() {
   const handleSubmit = event => {
     event.preventDefault();
     const { descr, sum } = event.target.elements;
+    let transValue = sum.value;
     // Checks for empty values
     if (descr.value.trim() === '') {
       toast('Please enter a description');
@@ -63,14 +64,16 @@ export default function Form() {
       toast('Please enter a category');
       return;
     }
-    if (sum.value.trim() === '') {
+    if (transValue.trim() === '') {
       toast('Please enter an amount');
       return;
     }
+    if (transValue < 0) transValue = transValue * -1;
+
     // Prepare data for dispatch
     const dataToDispatch = {
       description: descr.value,
-      amount: Number(sum.value),
+      amount: Number(transValue),
       date: startDate.toISOString().split('T')[0],
       category: categoryEngToOrk(elementCategory),
     };
