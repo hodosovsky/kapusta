@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bgcForSvg from '../../../../images/reportsFiles/bgcForSvg.svg';
+import { HandySvg } from 'handy-svg';
 
 export const List = styled.ul`
   display: flex;
@@ -65,10 +65,20 @@ export const ItemIncome = styled.li`
   flex-grow: 0;
 `;
 
-export const ItemSvg = styled.svg`
-  background-image: url(${bgcForSvg});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 56px 46px;
-  cursor: pointer;
+// export const ItemSvg = styled.svg`
+//   background-image: url(${bgcForSvg});
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: 56px 46px;
+//   cursor: pointer;
+
+//   &.active {
+//     fill: #ff751d;
+//   }
+// `;
+
+export const BgcSvg = styled(HandySvg)`
+  &.active {
+    fill: #ff751d;
+  }
 `;
