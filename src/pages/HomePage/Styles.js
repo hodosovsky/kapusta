@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { HandySvg } from 'handy-svg';
 
 export const StyledHomePage = styled.div`
   padding: 46px 0px 0px 0px;
@@ -28,4 +29,16 @@ export const StyledHomePage = styled.div`
     width: 90px;
     margin: 0 auto 70px;
   }
+`;
+
+export const KapustaTab = styled(HandySvg)`
+  margin-left: 497px;
+  margin-top: -160px;
+`;
+
+export const KapustaDesk = styled(HandySvg)`
+  position: absolute;
+  bottom: 30px;
+  left: 240px;
+  z-index: -1;
 `;
